@@ -10,10 +10,77 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_11_151607) do
+ActiveRecord::Schema.define(version: 2022_04_11_155436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "rayon_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["rayon_id"], name: "index_categories_on_rayon_id"
+  end
+
+  create_table "coffrets", force: :cascade do |t|
+    t.string "title"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "formations", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "dates"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "jardins", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "photos_url"
+    t.string "main_photo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "quantity"
+    t.string "origin"
+    t.string "photos_url"
+    t.string "main_photo"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
+    t.bigint "coffret_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["coffret_id"], name: "index_products_on_coffret_id"
+  end
+
+  create_table "rayons", force: :cascade do |t|
+    t.string "title"
+    t.text "selling_points"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +94,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_151607) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "rayons"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "coffrets"
 end

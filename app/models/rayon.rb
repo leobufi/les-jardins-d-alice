@@ -1,0 +1,2 @@
+class Rayon < ApplicationRecord
+end
