@@ -1,0 +1,9 @@
+<h1>Blog</h1>
+
+<div>
+  <% @articles.each do |article| %>
+    <h3><%= article.title %></h3>
+    <p><%= article.content %></p>
+    <span><%= article.date %></span>
+  <% end  %>
+</div>
