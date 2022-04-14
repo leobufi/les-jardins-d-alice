@@ -1,0 +1,84 @@
+<div class="container">
+  <h1>Dashboard</h1>
+
+  <% if current_user.admin? %>
+    <div class="py-5">
+      <h2>Blog</h2>
+        <ul>
+          <% @articles.reverse.each do |article| %>
+            <li>
+              <h4><%= article.title %></h4>
+              <span><%= article.date %></span>
+            </li>
+      <span><%= link_to 'Éditer', edit_article_path(article) %></span>
+      <span><%= link_to "Supprimer #{article.title}", article_path(article), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></span>
+          <% end %>
+        </ul>
+      <span><%= link_to 'Créer un nouvel article de blog', new_article_path %></span>
+    </div>
+
+    <div class="py-5">
+      <h2>Catégories</h2>
+      <br>
+      <h3>Catégories principales</h3>
+      <ul>
+      <% @rayons.reverse.each do |rayon| %>
+        <li>
+          <h4><%= rayon.title %></h4>
+          <span>Points de vente : <%= rayon.selling_points %></span>
+        </li>
+        <span><%= link_to 'Éditer', edit_rayon_path(rayon) %></span>
+        <span><%= link_to "Supprimer #{rayon.title}", rayon_path(rayon), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ? Cela supprimera également toutes sous-catégories de #{rayon.title} ainsi que ses produits."} %></span>
+      <% end %>
+      </ul>
+      <h4>Créer une nouvelle catégorie principale</h4>
+        <%= simple_form_for(@rayon) do |f| %>
+          <%= f.input :title, placeholder: "Nom de la catégorie" %>
+          <%= f.input :selling_points, placeholder: "Vendu à ..." %>
+          <%= f.submit %>
+        <% end %>
+    </div>
+    <div class="py-5">
+      <h3>Sous-catégories</h3>
+      <ul>
+      <% @categories.reverse.each do |category| %>
+        <li>
+          <h4><%= category.title %></h4>
+          <span><%= category.description %></span>
+          <span><strong>Cette catégorie appartient à <%= category.rayon.title %></strong></span>
+        </li>
+        <span><%= link_to 'Éditer', edit_category_path(category) %></span>
+        <span><%= link_to "Supprimer #{category.title}", category_path(category), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ? Cela supprimera également tous les produits de la catégorie concernée." } %></span>
+      <% end %>
+      </ul>
+      <br>
+      <h3>Créer une nouvelle sous-catégorie</h3>
+      <%= simple_form_for(@category) do |f| %>
+        <%= f.input :title, placeholder: "Nom de la catégorie" %>
+        <%= f.input :description, placeholder: "Description" %>
+        <%= f.association :rayon, prompt: "Selectionne une catégorie principale" %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+    <div class="py-5">
+      <h3>Produits</h3>
+      <%= link_to 'Mettre en ligne un nouveau produit', new_product_path %>
+      <ul>
+      <% @products.reverse.each do |product| %>
+        <li>
+          <h4><%= product.title %></h4>
+          <span><%= product.description %></span>
+          <span>quantité : <%= product.quantity %>.</span>
+          <span>Origine : <%= product.origin %>.</span>
+          <span>Prix : <%= product.price_cents %> <%= product.price_currency %>.</span>
+          <span><strong>Ce produit appartient à <%= product.category.title %></strong></span>
+        </li>
+        <span><%= link_to 'Éditer', edit_product_path(product) %></span>
+        <span><%= link_to "Supprimer #{product.title}", product_path(product), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></span>
+      <% end %>
+      </ul>
+    </div>
+  <% else %>
+      <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+  <% end  %>
+</div>

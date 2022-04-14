@@ -1,0 +1,6 @@
+<h4>Met à jour <%= @rayon.title %></h4>
+<%= simple_form_for(@rayon) do |f| %>
+  <%= f.input :title, placeholder: "Nom de la catégorie" %>
+  <%= f.input :selling_points, placeholder: "Vendu à ..." %>
+  <%= f.submit %>
+<% end %>

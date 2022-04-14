@@ -1,0 +1,8 @@
+<h3>Créer un nouvel article</h3>
+
+<%= simple_form_for(@article) do |f| %>
+  <%= f.input :title, placeholder: "Nom de l'article" %>
+  <%= f.input :content, placeholder: "Contenu de l'article" %>
+  <%= f.input :photos_url, as: :file, input_html: { multiple: true } %>
+  <%= f.submit %>
+<% end %>

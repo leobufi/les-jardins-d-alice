@@ -5,5 +5,11 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @articles = Article.all
+    @rayons = Rayon.all
+    @rayon = Rayon.new
+    @categories = Category.all
+    @category = Category.new
+    @products = Product.all
   end
 end
