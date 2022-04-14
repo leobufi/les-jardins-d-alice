@@ -5,5 +5,6 @@
     <h3><%= article.title %></h3>
     <p><%= article.content %></p>
     <span><%= article.date %></span>
+    <p><%= link_to 'Lire plus', article_path(article) %></p>
   <% end  %>
 </div>

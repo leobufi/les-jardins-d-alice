@@ -8,11 +8,9 @@ Rails.application.routes.draw do
   resources :formations
   resources :jardins
 
-  resources :rayons do
-    resources :categories do
-      resources :products
-    end
-  end
+  resources :rayons, except: [:show, :index]
+  resources :categories, except: [:show, :index]
+  resources :products
 
   resources :coffrets
 
