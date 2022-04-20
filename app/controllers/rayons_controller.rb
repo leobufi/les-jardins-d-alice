@@ -5,6 +5,10 @@ class RayonsController < ApplicationController
     @rayons = Rayon.all
   end
 
+  def show
+    @rayon = Rayon.find(params[:id])
+  end
+
   # def new
   #   @rayon = Rayon.new
   # end

@@ -11,5 +11,9 @@ class PagesController < ApplicationController
     @categories = Category.all
     @category = Category.new
     @products = Product.all
+    @formations = Formation.all
+    @formation = Formation.new
+    @jardins = Jardin.all
+    @jardin = Jardin.new
   end
 end

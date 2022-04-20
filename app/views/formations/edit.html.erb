@@ -1,0 +1,7 @@
+<h3>Éditer <%= @formation.title %></h3>
+  <%= simple_form_for(@formation) do |f| %>
+  <%= f.input :title, placeholder: "Nom de la formation" %>
+  <%= f.input :description, placeholder: "Description de la formation" %>
+  <%= f.input :dates, placeholder: "Dates de la formation" %>
+  <%= f.submit %>
+<% end %>

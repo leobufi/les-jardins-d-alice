@@ -1,0 +1,11 @@
+<h1>Formations</h1>
+
+<ul>
+<% @formations.reverse.each do |formation| %>
+  <li>
+    <h4><%= formation.title %></h4>
+    <span><%= formation.description %></span>
+    <span><%= formation.dates %></span>
+  </li>
+<% end %>
+</ul>
