@@ -27,6 +27,7 @@
           <h4><%= rayon.title %></h4>
           <span>Points de vente : <%= rayon.selling_points %></span>
         </li>
+        <span><%= link_to 'Voir', rayon_path(rayon) %></span>
         <span><%= link_to 'Éditer', edit_rayon_path(rayon) %></span>
         <span><%= link_to "Supprimer #{rayon.title}", rayon_path(rayon), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ? Cela supprimera également toutes sous-catégories de #{rayon.title} ainsi que ses produits."} %></span>
       <% end %>
