@@ -1,0 +1,8 @@
+<h3>Éditer <%= @jardin.title %></h3>
+<%= simple_form_for(@jardin) do |f| %>
+  <%= f.input :title, placeholder: "Nom du jardin" %>
+  <%= f.input :description, placeholder: "Description du jardin" %>
+  <%= f.input :main_photo, as: :file, placeholder: "Photo de couverture du jardin", label: false %>
+  <%= f.input :photos_url, as: :file, input_html: { multiple: true }, placeholder: "Autres photos du produit", label: false %>
+  <%= f.submit %>
+<% end %>
