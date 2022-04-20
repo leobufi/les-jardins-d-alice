@@ -46,7 +46,7 @@ class CoffretsController < ApplicationController
   private
 
   def coffret_params
-    params.require(:coffret).permit(:title, :description, :price_cents, :price_currency)
+    params.require(:coffret).permit(:title, :description, :price_cents, :price_currency, :products_id)
   end
 
 end

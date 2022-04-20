@@ -15,5 +15,7 @@ class PagesController < ApplicationController
     @formation = Formation.new
     @jardins = Jardin.all
     @jardin = Jardin.new
+    @coffrets = Coffret.all
+    @coffret = Coffret.new
   end
 end
