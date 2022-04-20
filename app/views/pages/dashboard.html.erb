@@ -80,6 +80,37 @@
       </ul>
     </div>
     <div class="py-5">
+      <h2>Coffrets</h2>
+      <ul>
+      <% @coffrets.each do |coffret| %>
+        <li>
+          <h4><%= coffret.title %></h4>
+          <span><%= coffret.description %></span>
+          <span>Prix : <%= coffret.price_cents %> <%= coffret.price_currency %>.</span>
+          <% coffret.products.each do |product| %>
+            <span><%= product.title %></span>
+          <% end %>
+          <%# IMAGES %>
+        </li>
+        <span><%= link_to 'Éditer', edit_coffret_path(coffret) %></span>
+        <span><%= link_to "Supprimer #{coffret.title}", coffret_path(coffret), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></span>
+      <% end %>
+      </ul>
+      <h3>Composer un nouveau coffret</h3>
+      <%= simple_form_for(@coffret) do |f| %>
+          <%= f.input :title, placeholder: "Nom du coffret" %>
+          <%= f.input :description, placeholder: "Description du coffret" %>
+          <%= f.input :price_cents, label: "Prix du coffret" %>
+          <%= f.input :main_photo, as: :file, placeholder: "Photo du coffret", label: false %>
+          <%= f.association :products, prompt: "Selectionne un produit pour ton coffret", label: false %>
+          <%= f.association :products, prompt: "Selectionne un produit pour ton coffret", label: false %>
+          <%= f.association :products, prompt: "Selectionne un produit pour ton coffret", label: false %>
+          <%= f.association :products, prompt: "Selectionne un produit pour ton coffret", label: false %>
+          <%= f.association :products, prompt: "Selectionne un produit pour ton coffret", label: false %>
+          <%= f.submit %>
+      <% end %>
+    </div>
+    <div class="py-5">
       <h2>Formations</h2>
       <span><%= link_to 'Voir toutes les formations', formations_path %></span>
       <ul>
