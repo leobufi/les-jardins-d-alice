@@ -1,0 +1,22 @@
+<h1><%= @rayon.title %></h1>
+
+<% @rayon.categories.each do |category| %>
+  <div class="py-3">
+    <strong><%= category.title %></strong>
+    <br>
+    <span><%= category.description %></span>
+    <br>
+    <% category.products.each do |product| %>
+        <h5><%= product.title %></h5>
+        <span><%= product.description %></span>
+        <span>quantité : <%= product.quantity %>.</span>
+        <span>Origine : <%= product.origin %>.</span>
+        <span>Prix : <%= product.price_cents %> <%= product.price_currency %>.</span>
+        <%# IMAGES %>
+    <% end  %>
+  </div>
+<% end %>
+
+<div class="py-3">
+  <span>Points de vente : <%= @rayon.selling_points %></span>
+</div>
