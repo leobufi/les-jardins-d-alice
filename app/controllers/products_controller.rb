@@ -29,9 +29,10 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    @product.discount = params[:product][:discount]
     if current_user.admin?
       @product.update(product_params)
-      redirect_to product_path(@product)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -46,7 +47,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :origin, :photos_url, :main_photo, :price_cents, :price_currency, :coffret_id, :category_id)
+    params.require(:product).permit(:title, :description, :quantity, :origin, :photos_url, :main_photo, :price_cents, :price_currency, :coffret_id, :category_id, :discount)
   end
 
 end
