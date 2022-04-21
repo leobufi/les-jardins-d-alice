@@ -17,5 +17,6 @@ class PagesController < ApplicationController
     @jardin = Jardin.new
     @coffrets = Coffret.all
     @coffret = Coffret.new
+    @users = User.all
   end
 end
