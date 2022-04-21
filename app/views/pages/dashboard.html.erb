@@ -88,8 +88,8 @@
           <h4><%= coffret.title %></h4>
           <span><%= coffret.description %></span>
           <span>Prix : <%= coffret.price_cents %> <%= coffret.price_currency %>.</span>
-          <% coffret.products.each do |product| %>
-            <span><%= product.title %></span>
+          <% coffret.coffret_products.each do |product| %>
+            <p><%= product.title %> <%= product.price_cents %></p>
           <% end %>
           <%# IMAGES %>
         </li>
@@ -103,11 +103,11 @@
           <%= f.input :description, placeholder: "Description du coffret" %>
           <%= f.input :price_cents, label: "Prix du coffret" %>
           <%= f.input :main_photo, as: :file, placeholder: "Photo du coffret", label: false %>
-          <%= f.association :products, prompt: "Selectionne un produit pour ton coffret", label: false %>
-          <%= f.association :products, prompt: "Selectionne un produit pour ton coffret", label: false %>
-          <%= f.association :products, prompt: "Selectionne un produit pour ton coffret", label: false %>
-          <%= f.association :products, prompt: "Selectionne un produit pour ton coffret", label: false %>
-          <%= f.association :products, prompt: "Selectionne un produit pour ton coffret", label: false %>
+          <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
+          <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
+          <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
+          <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
+          <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
           <%= f.submit %>
       <% end %>
     </div>
