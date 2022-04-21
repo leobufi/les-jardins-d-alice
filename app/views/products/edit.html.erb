@@ -9,5 +9,6 @@
   <%= f.input :main_photo, as: :file, placeholder: "Photo de couverture du produit", label: false %>
   <%= f.input :photos_url, as: :file, input_html: { multiple: true }, placeholder: "Photo de couverture du produit", label: false %>
   <%= f.association :category, prompt: "Selectionne une catégorie pour ton produit", label: false %>
+  <%= f.input :discount, placeholder: "Promo (en %)", label: false %>
   <%= f.submit %>
 <% end %>

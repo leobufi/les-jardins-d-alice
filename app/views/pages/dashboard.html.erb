@@ -72,6 +72,11 @@
           <span>quantité : <%= product.quantity %>.</span>
           <span>Origine : <%= product.origin %>.</span>
           <span>Prix : <%= product.price_cents %> <%= product.price_currency %>.</span>
+          <% if product.discount.nil? %>
+              <span>Il n'y a pas de promotion sur ce produit.</span>
+            <% else %>
+              <span>Promo : <%= product.price_with_discount %> <%= product.price_currency %></span>
+          <% end %>
           <span><strong>Ce produit appartient à <%= product.category.title %></strong></span>
           <%# IMAGES %>
         </li>
