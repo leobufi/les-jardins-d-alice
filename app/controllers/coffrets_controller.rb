@@ -15,6 +15,10 @@ class CoffretsController < ApplicationController
   def create
     @coffret = Coffret.new(coffret_params)
     @coffret.user = current_user
+    coffret_products_params = params[:coffret][:product_ids]
+    coffret_products_params.delete("")
+    coffret_products = Product.find(coffret_products_params)
+    @coffret.coffret_products = coffret_products
     if current_user.admin?
       @coffret.save
       redirect_to dashboard_path
@@ -29,6 +33,10 @@ class CoffretsController < ApplicationController
 
   def update
     @coffret = Coffret.find(params[:id])
+    coffret_products_params = params[:coffret][:product_ids]
+    coffret_products_params.delete("")
+    coffret_products = Product.find(coffret_products_params)
+    @coffret.coffret_products = coffret_products
     if current_user.admin?
       @coffret.update(coffret_params)
       redirect_to dashboard_path
@@ -46,7 +54,7 @@ class CoffretsController < ApplicationController
   private
 
   def coffret_params
-    params.require(:coffret).permit(:title, :description, :price_cents, :price_currency, :products_id)
+    params.require(:coffret).permit(:title, :description, :price_cents, :price_currency, :coffret_products, :product_ids)
   end
 
 end
