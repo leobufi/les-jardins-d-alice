@@ -1,0 +1,14 @@
+<h2>Coffrets</h2>
+<ul>
+<% @coffrets.each do |coffret| %>
+  <li>
+    <h4><%= coffret.title %></h4>
+    <span><%= coffret.description %></span>
+    <span>Prix : <%= coffret.price_cents %> <%= coffret.price_currency %>.</span>
+    <% coffret.coffret_products.each do |product| %>
+      <p><%= product.title %> <%= product.price_cents %></p>
+    <% end %>
+    <%# IMAGES %>
+  </li>
+<% end %>
+</ul>
