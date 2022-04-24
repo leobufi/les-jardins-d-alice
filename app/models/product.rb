@@ -3,6 +3,8 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :user
 
+  monetize :price_cents
+
   validates :title, presence: true
   validates :description, presence: true
   validates :price_cents, presence: true
