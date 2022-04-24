@@ -36,7 +36,7 @@ end
   coffret = Coffret.create(
     title: "Coffret Plaisir",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    price_cents: rand(1..20),
+    price: rand(1..20),
     user: User.first
   )
   if coffret.save
@@ -155,7 +155,7 @@ puts 'Autres category made'
     title: "Random product",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     quantity: rand(1..20),
-    price_cents: rand(1..20),
+    price: rand(1..20),
     origin: "La Montagne",
     coffret: Coffret.order(Arel.sql('RANDOM()')).first,
     category: Category.order(Arel.sql('RANDOM()')).first,
