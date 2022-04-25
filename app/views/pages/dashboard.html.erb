@@ -72,7 +72,7 @@
           <span><%= product.description %></span>
           <span>quantité : <%= product.quantity %>.</span>
           <span>Origine : <%= product.origin %>.</span>
-          <span>Prix : <%= product.price_cents %> <%= product.price_currency %>.</span>
+          <span>Prix : <%= product.price %> <%= product.price_currency %>.</span>
           <% if product.discount.nil? %>
               <span>Il n'y a pas de promotion sur ce produit.</span>
             <% else %>
@@ -94,9 +94,9 @@
         <li>
           <h4><%= coffret.title %></h4>
           <span><%= coffret.description %></span>
-          <span>Prix : <%= coffret.price_cents %> <%= coffret.price_currency %>.</span>
+          <span>Prix : <%= coffret.price %> <%= coffret.price_currency %>.</span>
           <% coffret.coffret_products.each do |product| %>
-            <p><%= product.title %> <%= product.price_cents %></p>
+            <p><%= product.title %> <%= product.price %></p>
           <% end %>
           <%# IMAGES %>
         </li>
@@ -108,7 +108,7 @@
       <%= simple_form_for(@coffret) do |f| %>
           <%= f.input :title, placeholder: "Nom du coffret" %>
           <%= f.input :description, placeholder: "Description du coffret" %>
-          <%= f.input :price_cents, label: "Prix du coffret" %>
+          <%= f.input :price_cents, label: "Prix du coffret (en centimes)" %>
           <%= f.input :main_photo, as: :file, placeholder: "Photo du coffret", label: false %>
           <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
           <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
