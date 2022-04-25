@@ -12,7 +12,7 @@ class Product < ApplicationRecord
   # validates :main_photo, uniqueness: true
 
   def price_with_discount
-    self.price_cents - (self.price_cents / (100 / self.discount))
+    self.price - (self.price / (100 / self.discount))
   end
 
 end

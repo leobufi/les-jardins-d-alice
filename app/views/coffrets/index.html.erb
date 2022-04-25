@@ -4,9 +4,9 @@
   <li>
     <h4><%= coffret.title %></h4>
     <span><%= coffret.description %></span>
-    <span>Prix : <%= coffret.price_cents %> <%= coffret.price_currency %>.</span>
+    <span>Prix : <%= coffret.price %> <%= coffret.price_currency %>.</span>
     <% coffret.coffret_products.each do |product| %>
-      <p><%= product.title %> <%= product.price_cents %></p>
+      <p><%= product.title %> <%= product.price %></p>
     <% end %>
     <%# IMAGES %>
   </li>
