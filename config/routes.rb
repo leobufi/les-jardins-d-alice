@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   resources :rayons, except: [:index]
   resources :categories, except: [:show, :index]
   resources :products
-  resources :orders
+  resources :orders do
+    resources :payments, only: :new
+  end
 
   resources :coffrets
 
