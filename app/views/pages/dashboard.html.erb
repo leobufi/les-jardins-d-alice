@@ -176,7 +176,26 @@
       <% end %>
       </ul>
     </div>
-
+    <div class="py-5">
+      <h2>Commandes</h2>
+      <ul>
+      <% @orders.each do |order| %>
+        <li>
+          <span><%= order.first_name %></span>
+          <span><%= order.last_name %></span>
+          <span><%= order.email %></span>
+          <span><%= order.address %></span>
+          <p>
+            <% order.line_items.each do |item| %>
+              <span><%= item.product.title %></span>
+              <span><%= item.quantity %></span>
+            <% end %>
+          </p>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  <%= console %>
   <% else %>
       <p>Vous n'êtes pas autorisé à consulter cette page.</p>
   <% end  %>

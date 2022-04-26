@@ -18,5 +18,6 @@ class PagesController < ApplicationController
     @coffrets = Coffret.all
     @coffret = Coffret.new
     @users = User.all
+    @orders = Order.all
   end
 end

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :rayons, except: [:index]
   resources :categories, except: [:show, :index]
   resources :products
+  resources :orders
 
   resources :coffrets
 
