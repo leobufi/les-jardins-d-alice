@@ -1,11 +1,8 @@
 class JardinsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @jardins = Jardin.all
-  end
-
-  def show
-    @jardin = Jardin.find(params[:id])
   end
 
   def new

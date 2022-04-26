@@ -1,17 +1,9 @@
 class RayonsController < ApplicationController
-    skip_before_action :authenticate_user!, only: [:index, :show]
-
-  def index
-    @rayons = Rayon.all
-  end
+  skip_before_action :authenticate_user!, only: [:show]
 
   def show
     @rayon = Rayon.find(params[:id])
   end
-
-  # def new
-  #   @rayon = Rayon.new
-  # end
 
   def create
     @rayon = Rayon.new(rayon_params)
