@@ -15,6 +15,6 @@
 </ul>
 <h3>Sub total: <%= (@cart.sub_total) %> €.</h3>
 # See Order section below for explanation of new_order_path
-<%#= link_to "Proceed to checkout", new_order_path %><br>
-<%= link_to "Vider mon panier", cart_path(@current_cart),method: :delete, data: {confirm: "Êtes vous sûr ?"} %>
+<%= link_to "Valider le panier", new_order_path %><br>
+<%= link_to "Vider le panier", cart_path(@current_cart),method: :delete, data: {confirm: "Êtes vous sûr ?"} %>
 <%= console %>

@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'money-rails', '~>1.12'
 
 gem 'devise'
+gem 'stripe'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
