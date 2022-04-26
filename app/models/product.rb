@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   belongs_to :coffret, optional: true
   belongs_to :category
   belongs_to :user
+  has_many :line_items, dependent: :destroy
 
   monetize :price_cents
 

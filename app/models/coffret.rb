@@ -1,6 +1,7 @@
 class Coffret < ApplicationRecord
   has_many :products
   belongs_to :user
+  has_many :line_items, dependent: :destroy
 
   serialize :coffret_products, Array
 

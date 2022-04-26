@@ -11,7 +11,8 @@
         <span><%= product.description %></span>
         <span>quantité : <%= product.quantity %>.</span>
         <span>Origine : <%= product.origin %>.</span>
-        <span>Prix : <%= product.price_cents %> <%= product.price_currency %>.</span>
+        <span>Prix : <%= product.price %> <%= product.price_currency %>.</span>
+        <%= link_to "Ajouter #{product.title} au panier", line_items_path(product_id: product.id), method: :post %>
         <%# IMAGES %>
     <% end  %>
   </div>
