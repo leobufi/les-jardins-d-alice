@@ -27,4 +27,6 @@ Rails.application.routes.draw do
 
   resources :coffrets
 
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
 end
