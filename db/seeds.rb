@@ -8,6 +8,9 @@ Coffret.destroy_all
 Formation.destroy_all
 Jardin.destroy_all
 User.destroy_all
+Cart.destroy_all
+Order.destroy_all
+
 
 1.times do
   user = User.new(email: 'admin@lja.com', password: '123456', admin: true)

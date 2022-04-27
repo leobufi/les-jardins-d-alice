@@ -1,20 +1,32 @@
 <h2>Cart show</h2>
 <ul>
   <% @cart.line_items.each do |line_item| %>
-    <li>Item: <%= line_item.product.title %>/ Price: <%= (line_item.product.price) %> <%= (line_item.product.price_currency) %>/ Quantity: <%= line_item.quantity %>/ Total Price: <%= (line_item.total_price) %> <%= (line_item.product.price_currency) %>.
-    <ul>
-      <li>
-        <%= link_to "+1", line_item_add_path(id: line_item), method: :post %>
-        <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post %>
-      </li>
-      <li>
-        <%= link_to "supprimer le produit", line_item_path(line_item), method: :delete %>
-      </li>
-    </ul>
+    <% if line_item.product_id %>
+      <li>Produit: <%= line_item.product.title %>/ Price: <%= (line_item.product.price) %> <%= (line_item.product.price_currency) %>/ Quantity: <%= line_item.quantity %>/ Total Price: <%= (line_item.total_price) %> <%= (line_item.product.price_currency) %>. </li>
+      <ul>
+        <li>
+          <%= link_to "+1", line_item_add_path(id: line_item), method: :post %>
+          <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post %>
+        </li>
+        <li>
+          <%= link_to "supprimer", line_item_path(line_item), method: :delete %>
+        </li>
+      </ul>
+    <% elsif line_item.coffret_id %>
+      <li>Coffret: <%= line_item.coffret.title %>/ Price: <%= (line_item.coffret.price) %> <%= (line_item.coffret.price_currency) %>/ Quantity: <%= line_item.quantity %>/ Total Price: <%= (line_item.total_price) %> <%= (line_item.coffret.price_currency) %>. </li>
+      <ul>
+        <li>
+          <%= link_to "+1", line_item_add_path(id: line_item), method: :post %>
+          <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post %>
+        </li>
+        <li>
+          <%= link_to "supprimer", line_item_path(line_item), method: :delete %>
+        </li>
+      </ul>
+    <% end  %>
   <% end %>
 </ul>
 <h3>Sub total: <%= (@cart.sub_total) %> €.</h3>
 # See Order section below for explanation of new_order_path
 <%= link_to "Valider le panier", new_order_path %><br>
 <%= link_to "Vider le panier", cart_path(@current_cart),method: :delete, data: {confirm: "Êtes vous sûr ?"} %>
-<%= console %>

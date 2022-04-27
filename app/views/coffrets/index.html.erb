@@ -8,6 +8,7 @@
     <% coffret.coffret_products.each do |product| %>
       <p><%= product.title %> <%= product.price %></p>
     <% end %>
+    <%= link_to "Ajouter #{coffret.title} au panier", line_items_path(coffret_id: coffret.id), method: :post %>
     <%# IMAGES %>
   </li>
 <% end %>
