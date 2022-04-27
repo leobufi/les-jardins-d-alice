@@ -2,8 +2,20 @@ class LineItemsController < ApplicationController
 
   def create
     # Find associated product and current cart
-    chosen_product = Product.find(params[:product_id])
+    if params[:product_id]
+      chosen_product = Product.find(params[:product_id])
+    else
+      chosen_product = nil
+    end
+
+    if params[:coffret_id]
+      chosen_coffret = Coffret.find(params[:coffret_id])
+    else
+      chosen_coffret = nil
+    end
+
     current_cart = @current_cart
+
 
     # If cart already has this product then find the relevant line_item and iterate quantity otherwise create a new line_item for this product
     if current_cart.products.include?(chosen_product)
@@ -11,10 +23,17 @@ class LineItemsController < ApplicationController
       @line_item = current_cart.line_items.find_by(product_id: chosen_product)
       # Iterate the line_item's quantity by one
       @line_item.quantity += 1
+    # If cart already has this product then find the relevant line_item and iterate quantity otherwise create a new line_item for this product
+    elsif current_cart.coffrets.include?(chosen_coffret)
+      # Find the line_item with the chosen_product
+      @line_item = current_cart.line_items.find_by(coffret_id: chosen_coffret)
+      # Iterate the line_item's quantity by one
+      @line_item.quantity += 1
     else
       @line_item = LineItem.new
       @line_item.cart = current_cart
       @line_item.product = chosen_product
+      @line_item.coffret = chosen_coffret
     end
 
     # Save and redirect to cart show path
@@ -46,6 +65,6 @@ class LineItemsController < ApplicationController
 
   private
     def line_item_params
-      params.require(:line_item).permit(:quantity, :product_id, :cart_id )
+      params.require(:line_item).permit(:quantity, :product_id, :cart_id, :coffret_id )
     end
 end

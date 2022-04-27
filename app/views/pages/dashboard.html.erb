@@ -187,16 +187,21 @@
           <span><%= order.address %></span>
           <p>
             <% order.line_items.each do |item| %>
-              <span><%= item.product.title %></span>
-              <span><%= item.quantity %></span>
+              <% if item.product_id %>
+                <span><%= item.product.title %></span>
+                <span><%= item.quantity %></span>
+              <% elsif item.coffret_id %>
+                <span><%= item.coffret.title %></span>
+                <span><%= item.quantity %></span>
+              <% end %>
             <% end %>
+          <span>Prix de la commande : <%= order.amount %></span>
           </p>
           <span>Date de la commande :<%= order.created_at.to_date %></span>
         </li>
       <% end %>
       </ul>
     </div>
-  <%= console %>
   <% else %>
       <p>Vous n'êtes pas autorisé à consulter cette page.</p>
   <% end  %>
