@@ -1,7 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :authenticate_user!, :current_cart
+  before_action :authenticate_user!, :current_cart, :initializer
+
+  def initializer
+    @rayons = Rayon.all
+    @coffrets = Coffret.all
+    @products = Product.all
+    @formations = Formation.all
+    @jardins = Jardin.all
+    @articles = Article.all
+  end
 
   private
 

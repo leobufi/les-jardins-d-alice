@@ -1,13 +1,19 @@
-<h3>Éditer <%= @coffret.title %></h3>
-<%= simple_form_for(@coffret) do |f| %>
-    <%= f.input :title, placeholder: "Nom du coffret" %>
-    <%= f.input :description, placeholder: "Description du coffret" %>
-    <%= f.input :price_cents, label: "Prix du coffret" %>
-    <%= f.input :main_photo, as: :file, placeholder: "Photo du coffret", label: false %>
-    <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
-    <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
-    <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
-    <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
-    <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
-    <%= f.submit %>
-<% end %>
+<div class="container">
+  <% if current_user.admin? %>
+    <h3>Éditer <%= @coffret.title %></h3>
+    <%= simple_form_for(@coffret) do |f| %>
+        <%= f.input :title, placeholder: "Nom du coffret" %>
+        <%= f.input :description, placeholder: "Description du coffret" %>
+        <%= f.input :price_cents, label: "Prix du coffret" %>
+        <%= f.input :main_photo, as: :file, placeholder: "Photo du coffret", label: false %>
+        <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
+        <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
+        <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
+        <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
+        <%= f.association :products, label: "Selectionne un produit pour ton coffret" %>
+        <%= f.submit %>
+    <% end %>
+  <% else %>
+      <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+  <% end  %>
+</div>

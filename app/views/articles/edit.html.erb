@@ -1,6 +1,6 @@
 <div class="container">
   <% if current_user.admin? %>
-  <h3>Créer un nouvel article</h3>
+  <h3>Éditer <%= @article.title %></h3>
   <%= simple_form_for(@article) do |f| %>
     <%= f.input :title, placeholder: "Nom de l'article" %>
     <%= f.input :content, placeholder: "Contenu de l'article" %>
