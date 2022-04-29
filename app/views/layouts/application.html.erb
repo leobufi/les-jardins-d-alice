@@ -13,10 +13,10 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/navbar' if params[:action] != 'home' %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>
-    <%= console %>
+    <%#= console %>
   </body>
 </html>

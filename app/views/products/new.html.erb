@@ -1,13 +1,19 @@
-<h3>Créé un nouveau produit</h3>
+<div class="container">
+  <% if current_user.admin? %>
+    <h3>Créé un nouveau produit</h3>
 
-<%= simple_form_for(@product) do |f| %>
-  <%= f.input :title, placeholder: "Nom du produit", label: false %>
-  <%= f.input :description, placeholder: "Description du produit", label: false %>
-  <%= f.input :origin, placeholder: "Origine du produit", label: false %>
-  <%= f.input :quantity, placeholder: "Quantité du produit (n'oublie pas d'ajouter l'unité de mesure)", label: false %>
-  <%= f.input :price_cents, label: "Prix du produit" %>
-  <%= f.input :main_photo, as: :file, placeholder: "Photo de couverture du produit", label: false %>
-  <%= f.input :photos_url, as: :file, input_html: { multiple: true }, placeholder: "Photo de couverture du produit", label: false %>
-  <%= f.association :category, prompt: "Selectionne une catégorie pour ton produit", label: false %>
-  <%= f.submit %>
-<% end %>
+    <%= simple_form_for(@product) do |f| %>
+      <%= f.input :title, placeholder: "Nom du produit", label: false %>
+      <%= f.input :description, placeholder: "Description du produit", label: false %>
+      <%= f.input :origin, placeholder: "Origine du produit", label: false %>
+      <%= f.input :quantity, placeholder: "Quantité du produit (n'oublie pas d'ajouter l'unité de mesure)", label: false %>
+      <%= f.input :price_cents, label: "Prix du produit" %>
+      <%= f.input :main_photo, as: :file, placeholder: "Photo de couverture du produit", label: false %>
+      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, placeholder: "Photo de couverture du produit", label: false %>
+      <%= f.association :category, prompt: "Selectionne une catégorie pour ton produit", label: false %>
+      <%= f.submit %>
+    <% end %>
+  <% else %>
+      <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+  <% end  %>
+</div>

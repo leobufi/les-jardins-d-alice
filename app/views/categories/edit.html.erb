@@ -1,7 +1,13 @@
-<h4>Met à jour <%= @category.title %></h4>
-<%= simple_form_for(@category) do |f| %>
-  <%= f.input :title, placeholder: "Nom de la catégorie..." %>
-  <%= f.input :description, placeholder: "Description..." %>
-  <%= f.association :rayon, prompt: "Selectionne une catégorie principale" %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <% if current_user.admin? %>
+    <h4>Met à jour <%= @category.title %></h4>
+    <%= simple_form_for(@category) do |f| %>
+      <%= f.input :title, placeholder: "Nom de la catégorie..." %>
+      <%= f.input :description, placeholder: "Description..." %>
+      <%= f.association :rayon, prompt: "Selectionne une catégorie principale" %>
+      <%= f.submit %>
+    <% end %>
+  <% else %>
+      <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+  <% end  %>
+</div>

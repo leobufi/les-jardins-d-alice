@@ -1,36 +1,52 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+<div class="navbar">
+    <% @rayons.each do |rayon| %>
+      <div class="dropdown">
+        <div class="drop">
+          <%= rayon.title %>
+        </div>
+        <div class="dropdown-content">
+          <% rayon.categories.each do |category| %>
+            <%= link_to "#{category.title}", rayon_path(rayon), class: "dropdown-item" %>
+          <% end  %>
+        </div>
+      </div>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <span>Hi <%= current_user.email %> </span>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+    <div class="dropdown">
+      <div class="drop">
+        <a>Coffrets</a>
+      </div>
+      <div class="dropdown-content">
+        <% @coffrets.each do |coffret| %>
+          <%= link_to "#{coffret.title}", coffrets_path, class: "dropdown-item" %>
+        <% end  %>
+      </div>
     </div>
-  </div>
+    <div class="dropdown">
+      <div class="drop">
+        <a>Formations</a>
+      </div>
+      <div class="dropdown-content">
+        <% @formations.each do |formation| %>
+          <%= link_to "#{formation.title}", formations_path, class: "dropdown-item" %>
+        <% end  %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <div class="drop">
+        <a>Les Jardins</a>
+      </div>
+      <div class="dropdown-content">
+        <% @jardins.each do |jardin| %>
+          <%= link_to "#{jardin.title}", jardins_path, class: "dropdown-item" %>
+        <% end  %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <div class="drop">
+        <a>Blog</a>
+      </div>
+      <div class="dropdown-content">
+          <%= link_to "Blog", articles_path, class: "dropdown-item" %>
+      </div>
+    </div>
 </div>
