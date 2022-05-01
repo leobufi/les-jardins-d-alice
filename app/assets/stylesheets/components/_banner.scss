@@ -1,0 +1,66 @@
+// Specific CSS for your home-page
+.banner-logo {
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+}
+
+.banner-image {
+  width: 100%;
+}
+
+.banner-image img {
+  width: 100%;
+  height: 75vh;
+  object-fit: cover;
+  border-bottom: black 1px solid;
+}
+
+.banner-discount {
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  background-color: white;
+  border: black 1px solid;
+  margin: auto;
+  margin-top: 30px;
+  padding: 30px;
+}
+
+.banner-discount img {
+  width: 80px;
+}
+
+.banner-items {
+  width: 80%;
+  background-color: white;
+  border: black 1px solid;
+  margin: auto;
+  margin-top: 30px;
+  padding: 5px 0px;
+}
+
+.banner-items-title {
+  width: 100%;
+  border-bottom: black 1px solid;
+  text-align: center;
+}
+
+.banner-category {
+  display: flex;
+  justify-content: space-around;
+}
+
+.banner-category-card {
+  flex: 1 1 0;
+  width: 0;
+  text-align: center;
+}
+
+.banner-items-link {
+  width: 100%;
+  border-top: black 1px solid;
+  text-align: center;
+  padding-top: 5px;
+
+}

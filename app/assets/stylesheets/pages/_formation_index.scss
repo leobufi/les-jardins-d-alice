@@ -1,0 +1,37 @@
+.formation {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 24px;
+  border: black 1px solid;
+  background-color: white;
+  padding: 24px;
+
+  h3 {
+    text-align: center;
+  }
+
+  .contact-link {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 16px;
+
+    img {
+      width: 24px;
+      margin: 0px 16px;
+    }
+  }
+}
+
+#contact-form {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 24px;
+  border: black 1px solid;
+  background-color: white;
+  padding: 24px;
+
+  h3 {
+    text-align: center;
+  }
+}
