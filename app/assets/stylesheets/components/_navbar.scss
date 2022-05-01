@@ -1,4 +1,20 @@
-.navbar {
+.navbar-home {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5000;
+}
+
+.navbar-pages {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5000;
+}
+
+.navbar{
   display: flex;
   justify-content: space-around;
   background: white;
@@ -6,7 +22,27 @@
   border-top: black 1px solid;
   border-bottom: black 1px solid;
   padding: 0px;
-  font-size: 16px;
+  font-size: 20px;
+}
+
+.navbar-top {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  align-items: center;
+  padding: 5px;
+  text-align: center;
+
+  .nav-top-logo {
+    flex-grow: 3;
+    text-align: center;
+    padding-left: 50px;
+  }
+
+  img {
+    flex-grow: 3 ;
+    height: 25px;
+  }
 }
 
 
@@ -47,7 +83,7 @@
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  font-style: italic;
+  font-family: 'Junicode italic';
   background-color: white;
 }
 

@@ -1,0 +1,64 @@
+<div class="navbar-pages">
+  <div class="navbar-top">
+    <div class="nav-top-logo">
+      <%= link_to root_path do %>
+        <%= image_tag "SVG/Banner_logo.svg" %>
+      <% end %>
+    </div>
+    <div class="cart">
+      <%= link_to "Panier (#{@current_cart.line_items.count})", cart_path(@current_cart) %>
+    </div>
+  </div>
+  <div class="navbar">
+      <% @rayons.each do |rayon| %>
+        <div class="dropdown">
+          <div class="drop">
+            <span><%= rayon.title %></span>
+          </div>
+          <div class="dropdown-content">
+            <% rayon.categories.each do |category| %>
+              <%= link_to "#{category.title}", rayon_path(rayon), class: "dropdown-item" %>
+            <% end  %>
+          </div>
+        </div>
+      <% end %>
+      <div class="dropdown">
+        <div class="drop">
+          <span>Coffrets</span>
+        </div>
+        <div class="dropdown-content">
+          <% @coffrets.each do |coffret| %>
+            <%= link_to "#{coffret.title}", coffrets_path, class: "dropdown-item" %>
+          <% end  %>
+        </div>
+      </div>
+      <div class="dropdown">
+        <div class="drop">
+          <span>Formations</span>
+        </div>
+        <div class="dropdown-content">
+          <% @formations.each do |formation| %>
+            <%= link_to "#{formation.title}", formations_path, class: "dropdown-item" %>
+          <% end  %>
+        </div>
+      </div>
+      <div class="dropdown">
+        <div class="drop">
+          <span>Les Jardins</span>
+        </div>
+        <div class="dropdown-content">
+          <% @jardins.each do |jardin| %>
+            <%= link_to "#{jardin.title}", jardins_path, class: "dropdown-item" %>
+          <% end  %>
+        </div>
+      </div>
+      <div class="dropdown">
+        <div class="drop">
+          <span>Blog</span>
+        </div>
+        <div class="dropdown-content">
+            <%= link_to "Blog", articles_path, class: "dropdown-item" %>
+        </div>
+      </div>
+  </div>
+</div>

@@ -12,12 +12,27 @@
 @import "pages/index";
 
 body {
-  font-family: "Junicode";
+  font-family: 'Junicode';
   background-color: white;
-  background-image: url(SVG/Wallpaper.svg);
+  background-image: url(SVG/Wallpaper2.svg);
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: "Junicode-bold";
-  font-weight: 600;
+  font-family: "Junicode bold";
+}
+
+h1 {
+  font-size: 5em;
+}
+
+a {
+  font-family: "Junicode bold italic";
+  text-decoration: none;
+  color: black;
+
+    &:hover {
+      text-decoration: underline;
+      color: black;
+    }
+
 }

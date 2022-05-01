@@ -1,23 +1,34 @@
-<h1><%= @rayon.title %></h1>
+<div class="rayon-title">
+  <h1><%= @rayon.title %></h1>
+</div>
 
 <% @rayon.categories.each do |category| %>
-  <div class="py-3">
-    <strong><%= category.title %></strong>
-    <br>
-    <span><%= category.description %></span>
-    <br>
-    <% category.products.each do |product| %>
-        <h5><%= product.title %></h5>
-        <span><%= product.description %></span>
-        <span>quantité : <%= product.quantity %>.</span>
-        <span>Origine : <%= product.origin %>.</span>
-        <span>Prix : <%= product.price %> <%= product.price_currency %>.</span>
-        <%= link_to "Ajouter #{product.title} au panier", line_items_path(product_id: product.id), method: :post %>
-        <%# IMAGES %>
-    <% end  %>
+  <div class="rayon-category">
+    <div class="category-infos">
+      <h4><%= category.title %></h4>
+      <p><%= category.description %></p>
+    </div>
+    <div class="category-products">
+      <% category.products.each do |product| %>
+        <div class="products">
+          <div class="product-info">
+            <h5><%= product.title %></h5>
+            <p><%= product.description %></p>
+            <p>Quantité : <%= product.quantity %>.</p>
+            <p>Origine : <%= product.origin %>.</p>
+            <p>Prix : <%= humanized_money_with_symbol product.price %> </p>
+          </div>
+          <span class="cart-add">
+            <%= link_to "Ajouter au panier", line_items_path(product_id: product.id), method: :post %>
+          </span>
+          <%# IMAGES %>
+        </div>
+      <% end  %>
+    </div>
   </div>
 <% end %>
 
-<div class="py-3">
-  <span>Points de vente : <%= @rayon.selling_points %></span>
+<div class="selling-points">
+  <h4>Où trouver ces produits ?</h4>
+  <p> <%= @rayon.selling_points %></p>
 </div>
