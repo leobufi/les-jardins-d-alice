@@ -1,9 +1,9 @@
-<div class="rayon-title">
+<div class="title">
   <h1><%= @rayon.title %></h1>
 </div>
 
 <% @rayon.categories.each do |category| %>
-  <div class="rayon-category">
+  <div class="category">
     <div class="category-infos">
       <h4><%= category.title %></h4>
       <p><%= category.description %></p>
@@ -17,11 +17,13 @@
             <p>Quantité : <%= product.quantity %>.</p>
             <p>Origine : <%= product.origin %>.</p>
             <p>Prix : <%= humanized_money_with_symbol product.price %> </p>
+            <%# IMAGES %>
           </div>
-          <span class="cart-add">
-            <%= link_to "Ajouter au panier", line_items_path(product_id: product.id), method: :post %>
-          </span>
-          <%# IMAGES %>
+          <%= link_to line_items_path(product_id: product.id), method: :post do %>
+            <div class="cart-add">
+              <%= link_to "Ajouter au panier" %>
+            </div>
+          <% end %>
         </div>
       <% end  %>
     </div>

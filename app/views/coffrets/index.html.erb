@@ -1,15 +1,30 @@
-<h2>Coffrets</h2>
-<ul>
+<div class="title">
+  <h1>Coffrets</h1>
+</div>
 <% @coffrets.each do |coffret| %>
-  <li>
-    <h4><%= coffret.title %></h4>
-    <span><%= coffret.description %></span>
-    <span>Prix : <%= coffret.price %> <%= coffret.price_currency %>.</span>
-    <% coffret.coffret_products.each do |product| %>
-      <p><%= product.title %> <%= product.price %></p>
-    <% end %>
-    <%= link_to "Ajouter #{coffret.title} au panier", line_items_path(coffret_id: coffret.id), method: :post %>
-    <%# IMAGES %>
-  </li>
+  <div class="category">
+    <div class="category-infos">
+      <h4><%= coffret.title %></h4>
+      <span><%= coffret.description %></span>
+      <span>Prix : <%= coffret.price %> <%= coffret.price_currency %>.</span>
+    </div>
+    <div class="category-products">
+      <% coffret.coffret_products.each do |product| %>
+      <div class="products">
+          <div class="product-info coffret">
+            <h5><%= product.title %></h5>
+            <p><%= product.description %></p>
+            <p>Quantité : <%= product.quantity %>.</p>
+            <p>Origine : <%= product.origin %>.</p>
+            <%# IMAGES %>
+          </div>
+      </div>
+      <% end %>
+      <%= link_to line_items_path(coffret_id: coffret.id), method: :post do %>
+        <div class="cart-add-coffret">
+            <span>Ajouter au panier</span>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-</ul>
