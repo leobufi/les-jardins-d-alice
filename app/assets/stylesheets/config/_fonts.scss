@@ -2,15 +2,61 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: 'Junicode', "Garamond", "sans-serif";
+$headers-font: "Junicode-bold", "Helvetica", "sans-serif";
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: "Junicode";
+  font-weight: normal;
+  font-style: normal;
+  src: url('junicode-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Junicode bold";
+  font-weight: normal;
+  font-style: normal;
+  src: url('junicode-bold-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Junicode italic";
+  font-weight: normal;
+  font-style: italic;
+  src: url('junicode-italic-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Junicode bold italic";
+  font-weight: bold;
+  font-style: italic;
+  src: url('junicode-bolditalic-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Junicode condensed";
+  font-weight: normal;
+  font-style: normal;
+  src: url('junicode-regularcondensed-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Junicode bold condensed";
+  font-weight: bold;
+  font-style: normal;
+  src: url('junicode-boldcondensed-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Junicode italic condensed";
+  font-weight: normal;
+  font-style: italic;
+  src: url('junicode-italiccondensed-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Junicode bold italic condensed";
+  font-weight: bold;
+  font-style: italic;
+  src: url('junicode-bolditaliccondensed-webfont.woff') format('woff');
+}
