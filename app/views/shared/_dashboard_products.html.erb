@@ -1,0 +1,32 @@
+<div class="dashboard-container">
+  <div class="dashboard-title">
+    <h2>Produits</h2>
+  </div>
+  <button>
+    <%= link_to 'Mettre en ligne un nouveau produit', new_product_path %>
+  </button>
+  <% @products.reverse.each do |product| %>
+    <div class="small-dash-container">
+      <div class="infos">
+        <h4><%= product.title %></h4>
+        <span><strong>Ce produit appartient à la catégorie <%= product.category.title %></strong></span>
+        <p><%= product.description %></p>
+        <span><strong>Quantité :</strong> <%= product.quantity %>.</span>
+        <span><strong>Origine :</strong> <%= product.origin %>.</span>
+        <span><strong>Prix :</strong> <%= product.price %> <%= product.price_currency %>.</span>
+        <% if product.discount.nil? %>
+            <span><strong>Il n'y a pas de promotion sur ce produit.</strong></span>
+          <% else %>
+            <span><strong>Promotion :</strong> <%= product.price_with_discount %> <%= product.price_currency %></span>
+        <% end %>
+        <%# IMAGES %>
+      </div>
+      <div class="buttons">
+        <button><%= link_to 'Voir', product_path(product) %></button>
+        <button><%= link_to 'Éditer', edit_product_path(product) %></button>
+        <button><%= link_to "Supprimer", product_path(product), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+      </div>
+    </div>
+  <% end %>
+  </ul>
+</div>

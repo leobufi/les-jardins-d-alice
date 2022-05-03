@@ -1,0 +1,21 @@
+table {
+
+  text-align: center;
+
+  tr {
+    border: black 1px solid;
+  }
+  th {
+    border: black 1px solid;
+    padding: 4px;
+  }
+
+  .table-headers {
+    background-color: cornflowerblue;
+    font-size: 24px;
+  }
+
+  .table-lines {
+    font-weight: 400;
+  }
+}

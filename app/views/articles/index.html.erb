@@ -1,10 +1,17 @@
-<h1>Blog</h1>
-
-<div>
-  <% @articles.each do |article| %>
-    <h3><%= article.title %></h3>
-    <p><%= article.content %></p>
-    <span><%= article.date %></span>
-    <p><%= link_to 'Lire plus', article_path(article) %></p>
-  <% end  %>
+<div class="blog">
+  <div class="articles-feed">
+    <div class="title">
+      <h1>Blog</h1>
+    </div>
+    <% @articles.each do |article| %>
+      <div class="articles">
+        <h3><%= article.title %></h3>
+        <p><%= article.content %> <%= link_to 'Lire plus...', article_path(article) %></p>
+        <span>Publié le <%= article.date.strftime("%A %e %B %Y") %>.</span>
+      </div>
+    <% end  %>
+  </div>
+  <div class="instagram-feed">
+    <h3>Instagram feed</h3>
+  </div>
 </div>

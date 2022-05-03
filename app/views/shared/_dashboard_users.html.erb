@@ -1,0 +1,22 @@
+<div class="dashboard-container">
+  <div class="dashboard-title">
+    <h2>Utilisateurs</h2>
+  </div>
+    <table>
+      <colgroup span="4" class="columns"></colgroup>
+        <tr class= "table-headers">
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>email</th>
+          <th>Admin ?</th>
+        </tr>
+        <% @users.each do |user| %>
+        <tr class="table-lines">
+          <th><%= user.first_name %></th>
+          <th><%= user.last_name %></th>
+          <th><%= user.email %></th>
+          <th><%= user.admin %></th>
+        </tr>
+        <% end %>
+    </table>
+</div>

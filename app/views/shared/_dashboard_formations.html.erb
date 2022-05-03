@@ -1,0 +1,31 @@
+<div class="dashboard-container">
+  <div class="dashboard-title">
+    <h2>Formations</h2>
+    <span><%= link_to 'Voir toutes les formations', formations_path %></span>
+  </div>
+  <% @formations.each do |formation| %>
+    <div class="small-dash-container">
+      <div class="infos">
+        <h4><%= formation.title %></h4>
+        <%# IMAGES %>
+        <p><%= formation.description %></p>
+        <span><strong>Dates : </strong><%= formation.dates %></span>
+      </div>
+      <div class="buttons">
+      <button><%= link_to 'Éditer', edit_formation_path(formation) %></button>
+      <button><%= link_to "Supprimer", formation_path(formation), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+      </div>
+    </div>
+  <% end %>
+  <h3>Créer une nouvelle formation</h3>
+  <br>
+  <%= simple_form_for(@formation) do |f| %>
+      <%= f.input :title, placeholder: "Nom de la formation", label: false %>
+      <%= f.rich_text_area :description, placeholder: "Description de la formation", label: false %>
+      <br>
+      <%= f.input :dates, placeholder: "Dates de la formation", label: false %>
+      <button>
+        <%= f.button :submit, "Mettre la formation en ligne" %>
+      </button>
+  <% end %>
+</div>

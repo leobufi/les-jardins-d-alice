@@ -1,12 +1,17 @@
-<div class="container">
-  <% if current_user.admin? %>
-    <h4>Met à jour <%= @rayon.title %></h4>
-    <%= simple_form_for(@rayon) do |f| %>
-      <%= f.input :title, placeholder: "Nom de la catégorie" %>
-      <%= f.input :selling_points, placeholder: "Vendu à ..." %>
-      <%= f.submit %>
-    <% end %>
-  <% else %>
+<% if current_user.admin? %>
+  <div class="dashboard-container">
+      <h4>Mettre à jour <%= @rayon.title %></h4>
+      <br>
+      <%= simple_form_for(@rayon) do |f| %>
+        <%= f.input :title, placeholder: "Nom de la catégorie", label: false %>
+        <%= f.input :selling_points, placeholder: "Vendu à ...", label: false %>
+        <button>
+          <%= f.button :submit, "Mettre à jour #{@rayon.title}" %>
+        </button>
+      <% end %>
+  </div>
+<% else %>
+  <div class="dashboard-container">
       <p>Vous n'êtes pas autorisé à consulter cette page.</p>
-  <% end  %>
-</div>
+  </div>
+<% end  %>

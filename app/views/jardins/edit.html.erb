@@ -1,14 +1,18 @@
-<div class="container">
+<div class="dashboard-container">
   <% if current_user.admin? %>
     <h3>Éditer <%= @jardin.title %></h3>
+    <br>
     <%= simple_form_for(@jardin) do |f| %>
-      <%= f.input :title, placeholder: "Nom du jardin" %>
-      <%= f.input :description, placeholder: "Description du jardin" %>
-      <%= f.input :main_photo, as: :file, placeholder: "Photo de couverture du jardin", label: false %>
-      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, placeholder: "Autres photos du produit", label: false %>
-      <%= f.submit %>
+      <%= f.input :title, placeholder: "Nom du jardin :", label: false %>
+      <%= f.rich_text_area :description, placeholder: "Description du jardin :", label: false %>
+      <br>
+      <%= f.input :main_photo, as: :file, placeholder: "Photo de couverture du jardin", label: "Photo de couverture du jardin" %>
+      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, placeholder: "Autres photos du produit", label: "Autres photos du jardin" %>
+      <button>
+        <%= f.button :submit, "Mettre en ligne" %>
+      </button>
     <% end %>
   <% else %>
-      <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+    <p>Vous n'êtes pas autorisé à consulter cette page.</p>
   <% end  %>
 </div>

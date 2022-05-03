@@ -1,0 +1,31 @@
+.blog {
+  display: flex;
+
+  .articles-feed {
+    flex: 2 1 0;
+    margin-left: 48px;
+
+    .articles {
+    padding: 24px;
+    background-color: white;
+    border: black 1px solid;
+    margin-top: 24px;
+    }
+  }
+
+  .instagram-feed {
+    flex: 1 1 0;
+    background-color: white;
+    border: black 1px solid;
+    margin: 48px;
+    padding: 24px;
+  }
+}
+
+.article-container {
+  width: 80%;
+  background-color: white;
+  border: black 1px solid;
+  margin: 48px auto;
+  padding: 24px;
+}

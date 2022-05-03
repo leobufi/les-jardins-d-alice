@@ -1,32 +1,66 @@
-<h2>Cart show</h2>
-<ul>
-  <% @cart.line_items.each do |line_item| %>
+<div class="title">
+  <h1>Votre panier</h1>
+</div>
+<% @cart.line_items.each do |line_item| %>
+  <div class="line-items">
     <% if line_item.product_id %>
-      <li>Produit: <%= line_item.product.title %>/ Price: <%= (line_item.product.price) %> <%= (line_item.product.price_currency) %>/ Quantity: <%= line_item.quantity %>/ Total Price: <%= (line_item.total_price) %> <%= (line_item.product.price_currency) %>. </li>
-      <ul>
-        <li>
+      <div class="product-image">
+        <h4>IMAGE</h4>
+      </div>
+      <div class="product-info">
+        <h4><%= line_item.product.title %> x <%= line_item.quantity %></h4>
+        <span>Prix à l'unité : <%= line_item.product.price %> <%= line_item.product.price_currency %>.</span>
+        <br>
+        <h5>Prix total : <%= (line_item.total_price) %> <%= (line_item.product.price_currency) %>.</h5>
+      </div>
+      <div class="cart-buttons">
+        <button>
           <%= link_to "+1", line_item_add_path(id: line_item), method: :post %>
+        </button>
+        <br>
+        <button>
           <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post %>
-        </li>
-        <li>
-          <%= link_to "supprimer", line_item_path(line_item), method: :delete %>
-        </li>
-      </ul>
+        </button>
+        <br>
+        <button>
+          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete %>
+        </button>
+      </div>
     <% elsif line_item.coffret_id %>
-      <li>Coffret: <%= line_item.coffret.title %>/ Price: <%= (line_item.coffret.price) %> <%= (line_item.coffret.price_currency) %>/ Quantity: <%= line_item.quantity %>/ Total Price: <%= (line_item.total_price) %> <%= (line_item.coffret.price_currency) %>. </li>
-      <ul>
-        <li>
+      <div class="product-image">
+        <h4>IMAGE</h4>
+      </div>
+      <div class="product-info">
+        <h4><%= line_item.coffret.title %> x <%= line_item.quantity %></h4>
+        <span>Prix à l'unité : <%= (line_item.coffret.price) %> <%= (line_item.coffret.price_currency) %></span>
+        <br>
+        <h5>Prix total : <%= (line_item.total_price) %> <%= (line_item.coffret.price_currency) %></h5>
+      </div>
+      <div class="cart-buttons">
+        <button>
           <%= link_to "+1", line_item_add_path(id: line_item), method: :post %>
+        </button>
+        <br>
+        <button>
           <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post %>
-        </li>
-        <li>
-          <%= link_to "supprimer", line_item_path(line_item), method: :delete %>
-        </li>
-      </ul>
+        </button>
+        <br>
+        <button>
+          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete %>
+        </button>
+      </div>
     <% end  %>
-  <% end %>
-</ul>
-<h3>Sub total: <%= (@cart.sub_total) %> €.</h3>
-# See Order section below for explanation of new_order_path
-<%= link_to "Valider le panier", new_order_path %><br>
-<%= link_to "Vider le panier", cart_path(@current_cart),method: :delete, data: {confirm: "Êtes vous sûr ?"} %>
+  </div>
+<% end %>
+<div class="total-price">
+  <h3>Total: <%= (@cart.sub_total) %> €</h3>
+</div>
+<div class="cart-actions">
+  <button class="cart-validation">
+    <%= link_to "Valider le panier", new_order_path %><br>
+  </button>
+  <br>
+  <button>
+    <%= link_to "Vider le panier", cart_path(@current_cart),method: :delete, data: {confirm: "Êtes vous sûr ?"} %>
+  </button>
+</div>

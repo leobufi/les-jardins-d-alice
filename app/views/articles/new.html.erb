@@ -1,13 +1,19 @@
-<div class="container">
-  <% if current_user.admin? %>
-  <h3>Créer un nouvel article</h3>
+<% if current_user.admin? %>
+<div class="dashboard-container">
+  <h3> Créer un nouvel article</h3>
   <%= simple_form_for(@article) do |f| %>
-    <%= f.input :title, placeholder: "Nom de l'article" %>
-    <%= f.input :content, placeholder: "Contenu de l'article" %>
-    <%= f.input :photos_url, as: :file, input_html: { multiple: true } %>
-    <%= f.submit %>
+    <%= f.input :title, placeholder: "Nom de l'article", label: "Titre :" %>
+    <br>
+    <%= f.rich_text_area :content, placeholder: "Contenu de l'article", label: "Contenu :" %>
+    <br>
+    <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Photos :" %>
+    <button>
+      <%= f.button :submit, "Publier l'article" %>
+    </button>
   <% end %>
-  <% else %>
-      <p>Vous n'êtes pas autorisé à consulter cette page.</p>
-  <% end  %>
 </div>
+<% else %>
+  <div class="dashboard-container">
+    <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+  </div>
+<% end  %>
