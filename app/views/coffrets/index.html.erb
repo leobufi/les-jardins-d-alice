@@ -5,8 +5,13 @@
   <div class="category">
     <div class="category-infos">
       <h4><%= coffret.title %></h4>
-      <span><%= coffret.description %></span>
+      <p><%= coffret.description %></p>
       <span>Prix : <%= coffret.price %> <%= coffret.price_currency %>.</span>
+      <%= link_to line_items_path(coffret_id: coffret.id), method: :post do %>
+        <div class="cart-add-coffret">
+            <span>Ajouter au panier</span>
+        </div>
+      <% end %>
     </div>
     <div class="category-products">
       <% coffret.coffret_products.each do |product| %>
@@ -19,11 +24,6 @@
             <%# IMAGES %>
           </div>
       </div>
-      <% end %>
-      <%= link_to line_items_path(coffret_id: coffret.id), method: :post do %>
-        <div class="cart-add-coffret">
-            <span>Ajouter au panier</span>
-        </div>
       <% end %>
     </div>
   </div>

@@ -4,5 +4,7 @@ class Formation < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :dates, presence: true
+  has_rich_text :description
+
 
 end

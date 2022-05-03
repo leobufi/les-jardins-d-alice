@@ -33,6 +33,7 @@ gem 'money-rails', '~>1.12'
 gem 'devise'
 gem 'stripe'
 gem 'stripe_event'
+gem 'actionmailer'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

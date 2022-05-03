@@ -1,0 +1,39 @@
+<div class="dashboard-container">
+  <div class="dashboard-title">
+    <h2>Coffrets</h2>
+    <span><%= link_to 'Voir tous les coffrets', coffrets_path %></span>
+  </div>
+  <% @coffrets.each do |coffret| %>
+    <div class="small-dash-container">
+      <div class="infos">
+        <h4><%= coffret.title %></h4>
+        <p><%= coffret.description %></p>
+        <div class="coffret-products">
+          <strong>Ce coffret est composé de :</strong>
+          <% coffret.coffret_products.each do |product| %>
+            <span><%= product.title %> & </span>
+          <% end %>
+        </div>
+        <br>
+        <span><strong>Prix : </strong><%= coffret.price %> <%= coffret.price_currency %>.</span>
+      </div>
+      <div class="buttons">
+        <button><%= link_to 'Voir', coffrets_path %></button>
+        <button><%= link_to 'Éditer', edit_coffret_path(coffret) %></button>
+        <button><%= link_to "Supprimer", coffret_path(coffret), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+      </div>
+    </div>
+  <% end %>
+  <h3>Composer un nouveau coffret</h3>
+  <br>
+  <%= simple_form_for(@coffret) do |f| %>
+      <%= f.input :title, placeholder: "Nom du coffret", label: false %>
+      <%= f.input :description, placeholder: "Description du coffret", label: false %>
+      <%= f.input :price_cents, label: "Prix du coffret", label: "Prix du coffret :" %>
+      <%= f.input :main_photo, as: :file, placeholder: "Photo du coffret", label: "Photo du coffret" %>
+      <%= f.association :products, label: "Selectionne plusieurs produits pour ton coffret :" %>
+      <button>
+        <%= f.button :submit, "Publier" %>
+      </button>
+  <% end %>
+</div>

@@ -1,0 +1,30 @@
+<div class="dashboard-container">
+  <div class="dashboard-title">
+    <h2>Jardins</h2>
+    <span><%= link_to 'Voir tous les jardins', jardins_path %></span>
+  </div>
+  <% @jardins.each do |jardin| %>
+    <div class="small-dash-container">
+      <div class="infos">
+        <h4><%= jardin.title %></h4>
+        <p><%= jardin.description %></p>
+      </div>
+      <div class="buttons">
+        <button><%= link_to 'Éditer', edit_jardin_path(jardin) %></button>
+        <button><%= link_to "Supprimer", jardin_path(jardin), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+      </div>
+    </div>
+  <% end %>
+  <h3>Créer un nouveau jardin</h3>
+  <br>
+  <%= simple_form_for(@jardin) do |f| %>
+    <%= f.input :title, placeholder: "Nom du jardin :", label: false %>
+    <%= f.rich_text_area :description, placeholder: "Description du jardin :", label: false %>
+    <br>
+    <%= f.input :main_photo, as: :file, placeholder: "Photo de couverture du jardin", label: "Photo de couverture du jardin" %>
+    <%= f.input :photos_url, as: :file, input_html: { multiple: true }, placeholder: "Autres photos du produit", label: "Autres photos du jardin" %>
+    <button>
+      <%= f.button :submit, "Mettre en ligne" %>
+    </button>
+  <% end %>
+</div>

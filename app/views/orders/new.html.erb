@@ -1,13 +1,16 @@
-<h1>Votre commande :</h1>
-
-<%= simple_form_for(@order) do |f| %>
-  <p>
-  <%= f.input :first_name, placeholder: "Prénom", label: false %>
-  <%= f.input :last_name, placeholder: "Nom", label: false %>
-  <%= f.input :email, placeholder: "email", label: false %>
-  <%= f.input :address, placeholder: "Adresse", label: false %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="order-container">
+  <div class="title">
+    <h4>Informations concernant l'envoi de votre colis :</h4>
+  </div>
+  <%= simple_form_for(@order) do |f| %>
+    <p>
+    <%= f.input :first_name, placeholder: "Veuillez renseigner votre prénom", label: false %>
+    <%= f.input :last_name, placeholder: "Veuillez renseigner votre nom", label: false %>
+    <%= f.input :email, placeholder: "Veuillez renseigner votre email", label: false %>
+    <%= f.input :address, placeholder: "Veuillez renseigner votre adresse complète", label: false %>
+    </p>
+    <button>
+      <%= f.button :submit, "Valider vos informations" %>
+    </button>
+  <% end %>
+</div>

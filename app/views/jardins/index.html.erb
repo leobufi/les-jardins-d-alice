@@ -1,11 +1,10 @@
-<h1>Jardins</h1>
-
-<ul>
+<div class="title-jardins">
+    <h1>Les Jardins</h1>
+</div>
 <% @jardins.each do |jardin| %>
-  <li>
+  <div class="jardins-boxes">
     <h4><%= jardin.title %></h4>
     <span><%= jardin.description %></span>
     <%# IMAGES %>
-  </li>
+  </div>
 <% end %>
-</ul>

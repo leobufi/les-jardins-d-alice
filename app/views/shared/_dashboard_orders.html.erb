@@ -1,0 +1,38 @@
+<div class="dashboard-container">
+  <div class="dashboard-title">
+    <h2>Commandes</h2>
+  </div>
+  <table>
+    <colgroup span="4" class="columns"></colgroup>
+      <tr class= "table-headers">
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>email</th>
+        <th>Adresse</th>
+        <th>Commande</th>
+        <th>Montant</th>
+        <th>Date</th>
+      </tr>
+      <% @orders.reverse.each do |order| %>
+      <tr class="table-line">
+        <th><%= order.first_name %></th>
+        <th><%= order.last_name %></th>
+        <th><%= order.email %></th>
+        <th><%= order.address %></th>
+        <th>
+        <% order.line_items.each do |item| %>
+          <ul>
+          <% if item.product_id %>
+            <li><%= item.product.title %> x <%= item.quantity %></li>
+          <% elsif item.coffret_id %>
+            <li><%= item.coffret.title %> x <%= item.quantity %></li>
+          <% end %>
+          </ul>
+        <% end %>
+        </th>
+        <th><%= order.amount %> €</th>
+        <th><%= order.created_at.to_date.strftime("%d/%m/%Y") %></th>
+      </tr>
+      <% end %>
+  </table>
+</div>

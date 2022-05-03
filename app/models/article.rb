@@ -4,5 +4,5 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
   validates :date, presence: true
-
+  has_rich_text :content
 end

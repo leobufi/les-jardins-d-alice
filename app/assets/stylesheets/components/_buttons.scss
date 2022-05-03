@@ -1,0 +1,25 @@
+button {
+  border: black solid 1px;
+  border-radius: 5px;
+  background-color: cornflowerblue;
+  font-size: 16px;
+  padding: 4px 8px;
+  margin: 4px 0px;
+
+  &:hover {
+    background-color: coral;
+    text-decoration: underline;
+  }
+
+  input {
+    background-color: transparent;
+    border: none;
+  }
+
+}
+
+.cart-validation {
+  padding: 16px 48px;
+  font-size: 24px;
+  margin-bottom: 24px;
+}

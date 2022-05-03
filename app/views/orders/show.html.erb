@@ -1,12 +1,10 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col">
-      <h1>Commande #<%= @order.id %> <small><span><%= @order.state %></span></small></h1>
-      <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
-        </li>
-      </ul>
-    </div>
-  </div>
+<div class="order-container">
+  <h1>Merci pour votre commande !</h1>
+  <h2>Commande #<%= @order.id %> <small></h2>
+  <h2><%= @order.state %></span></small></h2>
+  <ul class="list-unstyled">
+    <li><strong>Réglement effectué le</strong> <%= @order.created_at.to_date.strftime("%A %e %B %Y") %></li>
+    <li><strong>Total : </strong> <%= @order.amount %> €</li>
+    </li>
+  </ul>
 </div>

@@ -1,0 +1,22 @@
+<div class="dashboard-container">
+  <div class="dashboard-title">
+    <h2>Blog</h2>
+  </div>
+  <h3>Mes articles</h3>
+  <% @articles.reverse.each do |article| %>
+    <div class="small-dash-container">
+      <div class="infos">
+        <h5><%= article.title %></h5>
+        <span>Publié le <%= article.date.strftime("%A %e %B %Y") %></span>
+      </div>
+      <div class="buttons">
+        <button><%= link_to 'Voir', article_path(article) %></button>
+        <button><%= link_to 'Éditer', edit_article_path(article) %></button>
+        <button><%= link_to "Supprimer", article_path(article), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+      </div>
+    </div>
+  <% end %>
+  <button>
+    <%= link_to 'Créer un nouvel article de blog', new_article_path %>
+  </button>
+</div>
