@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'dashboard', to: 'pages#dashboard'
+  get 'contact', to: 'pages#contact'
+  get 'cgv', to: 'pages#cgv'
 
   get 'carts/:id', to: "carts#show", as: 'cart'
   delete 'carts/:id', to: "carts#destroy"

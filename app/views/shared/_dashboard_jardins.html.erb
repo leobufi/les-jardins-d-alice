@@ -7,7 +7,8 @@
     <div class="small-dash-container">
       <div class="infos">
         <h4><%= jardin.title %></h4>
-        <p><%= jardin.description %></p>
+        <p><%#= excerpt("#{jardin.description}", "elit", radius: 15)%></p>
+        <p><%= sanitize("#{jardin.description}".truncate(100)) %></p>
       </div>
       <div class="buttons">
         <button><%= link_to 'Éditer', edit_jardin_path(jardin) %></button>
@@ -15,7 +16,7 @@
       </div>
     </div>
   <% end %>
-  <h3>Créer un nouveau jardin</h3>
+  <h4>Créer un nouveau jardin</h4>
   <br>
   <%= simple_form_for(@jardin) do |f| %>
     <%= f.input :title, placeholder: "Nom du jardin :", label: false %>

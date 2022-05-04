@@ -11,7 +11,9 @@
         <th>Adresse</th>
         <th>Commande</th>
         <th>Montant</th>
+        <th>Statut</th>
         <th>Date</th>
+        <th>Supprimer</th>
       </tr>
       <% @orders.reverse.each do |order| %>
       <tr class="table-line">
@@ -31,8 +33,9 @@
         <% end %>
         </th>
         <th><%= order.amount %> €</th>
+        <th><%= order.state %></th>
         <th><%= order.created_at.to_date.strftime("%d/%m/%Y") %></th>
-      </tr>
+        <th><%= link_to "Supprimer", order_path(order), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></th>
       <% end %>
   </table>
 </div>

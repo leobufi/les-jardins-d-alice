@@ -1,11 +1,14 @@
-<div class="container">
+<div class="dashboard-container">
   <% if current_user.admin? %>
     <h3>Éditer <%= @formation.title %></h3>
       <%= simple_form_for(@formation) do |f| %>
       <%= f.input :title, placeholder: "Nom de la formation" %>
-      <%= f.input :description, placeholder: "Description de la formation" %>
+      <%= f.rich_text_area :description, placeholder: "Description de la formation" %>
+      <br>
       <%= f.input :dates, placeholder: "Dates de la formation" %>
-      <%= f.submit %>
+      <button>
+        <%= f.button :submit, "Mettre à jour" %>
+      </button>
     <% end %>
   <% else %>
       <p>Vous n'êtes pas autorisé à consulter cette page.</p>

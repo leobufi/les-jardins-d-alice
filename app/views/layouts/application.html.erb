@@ -16,8 +16,7 @@
 
     <%= render 'shared/navbar_pages' if params[:action] != 'home' %>
     <%= render 'shared/flashes' %>
-
     <%= yield %>
-    <%#= console %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

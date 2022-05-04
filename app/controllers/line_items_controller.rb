@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+  skip_before_action :authenticate_user!
 
   def create
     # Find associated product and current cart

@@ -7,6 +7,7 @@
     <div class="small-dash-container">
       <div class="infos">
         <h5><%= article.title %></h5>
+        <p><%= sanitize("#{article.content}".truncate(200)) %></p>
         <span>Publié le <%= article.date.strftime("%A %e %B %Y") %></span>
       </div>
       <div class="buttons">

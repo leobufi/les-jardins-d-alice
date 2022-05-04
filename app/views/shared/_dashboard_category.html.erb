@@ -12,7 +12,7 @@
       <div class="buttons">
         <button><%= link_to 'Voir', rayon_path(rayon) %></button>
         <button><%= link_to 'Éditer', edit_rayon_path(rayon) %></button>
-        <button><%= link_to "Supprimer #{rayon.title}", rayon_path(rayon), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ? Cela supprimera également toutes sous-catégories de #{rayon.title} ainsi que ses produits."} %></button>
+        <button><%= link_to "Supprimer", rayon_path(rayon), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ? Cela supprimera également toutes sous-catégories de #{rayon.title} ainsi que ses produits."} %></button>
       </div>
     </div>
   <% end %>
@@ -42,7 +42,7 @@
     </div>
   <% end %>
   <br>
-  <h3>Créer une nouvelle sous-catégorie</h3>
+  <h4>Créer une nouvelle sous-catégorie</h4>
   <br>
   <%= simple_form_for(@category) do |f| %>
     <%= f.input :title, placeholder: "Nom de la catégorie", label: false %>

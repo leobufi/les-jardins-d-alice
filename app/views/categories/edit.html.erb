@@ -1,18 +1,16 @@
-<% if current_user.admin? %>
 <div class="dashboard-container">
-  <h4>Mettre à jour <%= @category.title %></h4>
-  <br>
-  <%= simple_form_for(@category) do |f| %>
-    <%= f.input :title, placeholder: "Nom de la catégorie...", label: false %>
-    <%= f.input :description, placeholder: "Description...", label: false %>
-    <%= f.association :rayon, prompt: "Selectionne une catégorie principale", label: "Selectionne une catégorie principale :" %>
-    <button>
-      <%= f.button :submit, "Mettre à jour #{@category.title}" %>
-    </button>
-  <% end %>
-<div>
-<% else %>
-<div class="dahsboard-container">
-  <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+  <% if current_user.admin? %>
+    <h4>Mettre à jour <%= @category.title %></h4>
+    <br>
+    <%= simple_form_for(@category) do |f| %>
+      <%= f.input :title, placeholder: "Nom de la catégorie...", label: false %>
+      <%= f.input :description, placeholder: "Description...", label: false %>
+      <%= f.association :rayon, prompt: "Selectionne une catégorie principale", label: "Selectionne une catégorie principale :" %>
+      <button>
+        <%= f.button :submit, "Mettre à jour #{@category.title}" %>
+      </button>
+    <% end %>
+  <% else %>
+    <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+  <% end  %>
 </div>
-<% end  %>
