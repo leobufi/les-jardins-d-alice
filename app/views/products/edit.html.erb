@@ -1,5 +1,5 @@
-<% if current_user.admin? %>
 <div class="dashboard-container">
+  <% if current_user.admin? %>
     <h3>Mettre à jour <%= @product.title %></h3>
     <br>
     <%= simple_form_for(@product) do |f| %>
@@ -18,5 +18,5 @@
     <% end %>
   <% else %>
       <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+  <% end  %>
 </div>
-<% end  %>

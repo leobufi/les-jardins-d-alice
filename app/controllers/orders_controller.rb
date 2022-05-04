@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  skip_before_action :authenticate_user!
 
   def index
     @orders = Order.all
@@ -39,6 +40,12 @@ class OrdersController < ApplicationController
 
     @order.update(checkout_session_id: session.id)
     redirect_to new_order_payment_path(@order)
+  end
+
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    redirect_to dashboard_path
   end
 
   private
