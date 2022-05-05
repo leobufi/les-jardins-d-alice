@@ -5,6 +5,13 @@
   </div>
   <% @coffrets.each do |coffret| %>
     <div class="small-dash-container">
+      <div class="main-photo">
+        <% if coffret.main_photo.attached? %>
+          <%= cl_image_tag coffret.main_photo.key %>
+        <% else %>
+          <%= image_tag "SVG/Leafs.svg" %>
+        <% end %>
+      </div>
       <div class="infos">
         <h4><%= coffret.title %></h4>
         <p><%= coffret.description %></p>

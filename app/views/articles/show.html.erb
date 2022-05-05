@@ -2,11 +2,24 @@
   <div class="title">
     <h3><%= @article.title %></h3>
   </div>
-  <div class="main-image">
-    <%# MAIN-IMAGE %>
+  <div class="article-photo">
+    <% if @article.main_photo.attached? %>
+      <%= cl_image_tag @article.main_photo.key %>
+    <% else %>
+      <%= image_tag "SVG/Leafs.svg" %>
+    <% end %>
   </div>
   <div class="article-content">
     <p><%= @article.content %></p>
+  </div>
+  <div class="article-photos">
+    <% if @article.photos_url.attached? %>
+      <%= @article.photos_url.each do |photo| %>
+        <%= cl_image_tag photo.key %>
+      <% end  %>
+    <% else %>
+      <%= image_tag "SVG/Leafs.svg" %>
+    <% end %>
   </div>
   <span><em>Publié le <%= @article.date.strftime("%A %e %B %Y") %>.</em></span>
 </div>

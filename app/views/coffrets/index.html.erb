@@ -7,6 +7,13 @@
       <h4><%= coffret.title %></h4>
       <p><%= coffret.description %></p>
       <span>Prix : <%= coffret.price %> <%= coffret.price_currency %>.</span>
+      <div class="coffret-image">
+        <% if coffret.main_photo.attached? %>
+          <%= cl_image_tag coffret.main_photo.key %>
+        <% else %>
+          <%= image_tag "SVG/Leafs.svg" %>
+        <% end %>
+      </div>
       <%= link_to line_items_path(coffret_id: coffret.id), method: :post do %>
         <div class="cart-add-coffret">
             <span>Ajouter au panier</span>
@@ -16,6 +23,13 @@
     <div class="category-products">
       <% coffret.coffret_products.each do |product| %>
       <div class="products">
+          <div class="product-image">
+            <% if product.main_photo.attached? %>
+              <%= cl_image_tag product.main_photo.key %>
+            <% else %>
+              <%= image_tag "SVG/Leafs.svg" %>
+            <% end %>
+          </div>
           <div class="product-info coffret">
             <h5><%= product.title %></h5>
             <p><%= product.description %></p>

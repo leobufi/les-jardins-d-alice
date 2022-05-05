@@ -2,7 +2,11 @@
   <h3><%= @product.title %></h3>
   <div class="product-main">
     <div class="product-image">
-      <%# IMAGE %>
+      <% if @product.main_photo.attached? %>
+        <%= cl_image_tag @product.main_photo.key %>
+      <% else %>
+        <%= image_tag "SVG/Leafs.svg" %>
+      <% end %>
     </div>
     <div class="product-infos">
       <p><%= @product.description %></p>
@@ -19,5 +23,12 @@
         </div>
       <% end %>
     </button>
+  </div>
+    <% if @product.photos_url.attached? %>
+      <div class="photos_url">
+        <%= @product.photos_url.each do |photo| %>
+          <%= cl_image_tag photo.key %>
+        <% end  %>
+    <% end %>
   </div>
 </div>

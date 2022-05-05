@@ -5,9 +5,15 @@
   </div>
   <% @jardins.each do |jardin| %>
     <div class="small-dash-container">
+      <div class="main-photo">
+        <% if jardin.main_photo.attached? %>
+          <%= cl_image_tag jardin.main_photo.key %>
+        <% else %>
+          <%= image_tag "SVG/Leafs.svg" %>
+        <% end %>
+      </div>
       <div class="infos">
         <h4><%= jardin.title %></h4>
-        <p><%#= excerpt("#{jardin.description}", "elit", radius: 15)%></p>
         <p><%= sanitize("#{jardin.description}".truncate(100)) %></p>
       </div>
       <div class="buttons">
@@ -21,9 +27,10 @@
   <%= simple_form_for(@jardin) do |f| %>
     <%= f.input :title, placeholder: "Nom du jardin :", label: false %>
     <%= f.rich_text_area :description, placeholder: "Description du jardin :", label: false %>
-    <br>
-    <%= f.input :main_photo, as: :file, placeholder: "Photo de couverture du jardin", label: "Photo de couverture du jardin" %>
-    <%= f.input :photos_url, as: :file, input_html: { multiple: true }, placeholder: "Autres photos du produit", label: "Autres photos du jardin" %>
+    <hr>
+      <%= f.input :main_photo, as: :file, label: "Photo principale :" %>
+      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Autres photos :" %>
+    <hr>
     <button>
       <%= f.button :submit, "Mettre en ligne" %>
     </button>
