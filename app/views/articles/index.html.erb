@@ -9,7 +9,7 @@
         <p><%= sanitize("#{article.content}".truncate(200)) %></p>
         <span><%= link_to 'Lire plus...', article_path(article) %></span>
         <br>
-        <span>Publié le <%= article.date.strftime("%A %e %B %Y") %>.</span>
+        <span>Publié le <%= article.date.strftime("%d/%m/%Y") %>.</span>
       </div>
     <% end  %>
   </div>

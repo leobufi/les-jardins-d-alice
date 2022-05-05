@@ -11,6 +11,7 @@
       </div>
       <% category.products.each do |product| %>
         <div class="products">
+          <%= link_to product_path(product) do %>
           <div class="product-image">
             <% if product.main_photo.attached? %>
               <%= cl_image_tag product.main_photo.key %>
@@ -25,6 +26,7 @@
             <p>Origine : <%= product.origin %>.</p>
             <p>Prix : <%= humanized_money_with_symbol product.price %> </p>
           </div>
+          <% end %>
           <%= link_to line_items_path(product_id: product.id), method: :post do %>
             <div class="cart-add">
               <span>Ajouter au panier</span>
