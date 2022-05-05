@@ -6,37 +6,34 @@
   <%= image_tag "grange.jpg" %>
 </div>
 <% if Product.where.not(discount: nil) %>
-  <div class="banner-discount">
-    <div class="hands">
-      <%= image_tag "SVG/Hand/Hand_open.svg" %>
+  <div class="banner-items">
+    <div class="banner-items-title">
+      <h2>Les promotions du moment</h2>
     </div>
-    <div>
-    <h4>Les promotions du moment</h4>
-        <div class="discount-products">
-          <% @products.where.not(discount: nil).each do |product| %>
-              <div class="product">
-                <h5><%= product.title %></h5>
-                <div class="product-image">
-                  <% if product.main_photo.attached? %>
-                    <%= cl_image_tag product.main_photo.key %>
-                  <% else %>
-                    <%= image_tag "SVG/Leafs.svg" %>
-                  <% end %>
-                </div>
-                <span><strong> <%= product.price_with_discount %> <%= product.price_currency %></strong> au lieu de <%= product.price %>  <%= product.price_currency %></span>
+    <div class="banner-category">
+      <div class="banner-category-card">
+        <% @products.where.not(discount: nil).each do |product| %>
+              <%= link_to product_path(product) do %>
+              <h5><%= product.title %></h5>
+              <span><strong> <%= product.price_with_discount %> <%= product.price_currency %></strong> au lieu de <%= product.price %>  <%= product.price_currency %></span>
+              <div class="product-image">
+                <% if product.main_photo.attached? %>
+                  <%= cl_image_tag product.main_photo.key %>
+                <% else %>
+                  <%= image_tag "SVG/Leafs.svg" %>
+                <% end %>
               </div>
-          <% end  %>
-        </div>
-    </div>
-    <div class="hands">
-      <%= image_tag "SVG/Hand/Hand_open.svg" %>
+              <% end  %>
+            </div>
+        <% end  %>
+      </div>
     </div>
   </div>
 <% end %>
 <% @rayons.each do |rayon| %>
   <div class="banner-items">
     <div class="banner-items-title">
-      <h4><%= rayon.title %></h4>
+      <h3><%= rayon.title %></h3>
     </div>
     <div class="banner-category">
       <% rayon.categories.each do |c| %>
@@ -63,18 +60,20 @@
 <% end %>
 <div class="banner-items">
   <div class="banner-items-title">
-    <h4>Coffrets</h4>
+    <h3>Coffrets</h3>
   </div>
   <div class="banner-category">
     <% @coffrets.each do |c| %>
       <div class="banner-category-card">
         <%= link_to coffrets_path do %>
           <%= c.title %>
-          <% if c.main_photo.attached? %>
-            <%= cl_image_tag c.main_photo.key %>
-          <% else %>
-            <%= image_tag "SVG/Leafs.svg" %>
-          <% end %>
+          <div class="product-image">
+            <% if c.main_photo.attached? %>
+              <%= cl_image_tag c.main_photo.key %>
+            <% else %>
+              <%= image_tag "SVG/Leafs.svg" %>
+            <% end %>
+          </div>
         <% end  %>
       </div>
     <% end  %>
@@ -87,18 +86,20 @@
 </div>
 <div class="banner-items">
   <div class="banner-items-title">
-    <h4>Formations</h4>
+    <h3>Formations</h3>
   </div>
   <div class="banner-category">
     <% @formations.each do |f| %>
       <div class="banner-category-card">
         <%= link_to formations_path do %>
           <%= f.title %>
-          <% if f.main_photo.attached? %>
-            <%= cl_image_tag f.main_photo.key %>
-          <% else %>
-            <%= image_tag "SVG/Leafs.svg" %>
-          <% end %>
+          <div class="product-image">
+            <% if f.main_photo.attached? %>
+              <%= cl_image_tag f.main_photo.key %>
+            <% else %>
+              <%= image_tag "SVG/Leafs.svg" %>
+            <% end %>
+          </div>
         <% end  %>
       </div>
     <% end  %>

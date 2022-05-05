@@ -17,6 +17,9 @@ body {
   font-family: 'Junicode';
   background-color: white;
   background-image: url(SVG/Wallpaper2.svg);
+  background-color: rgba(255, 255, 255, 0.4);
+  background-blend-mode: overlay;
+  font-size: 1.1em;
 }
 
 h1, h2, h3, h4, h5 {
@@ -36,4 +39,8 @@ a {
       text-decoration: underline;
       color: black;
     }
+}
+
+.product-image {
+  background-color: rgb(231, 231, 231);
 }

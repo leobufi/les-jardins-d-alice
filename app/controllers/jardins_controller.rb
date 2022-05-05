@@ -43,7 +43,7 @@ class JardinsController < ApplicationController
   private
 
   def jardin_params
-    params.require(:jardin).permit(:title, :description, :photos_url, :main_photo, :photos_url)
+    params.require(:jardin).permit(:title, :description, :photos_url, :main_photo, photos_url: [])
   end
 
 end

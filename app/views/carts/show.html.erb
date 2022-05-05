@@ -5,7 +5,7 @@
   <div class="line-items">
     <% if line_item.product_id %>
       <div class="product-image">
-        <% if line_item.product.main_photo? %>
+        <% if line_item.product.main_photo.attached? %>
           <%= cl_image_tag line_item.product.main_photo.key %>
         <% else %>
           <%= image_tag "SVG/Leafs.svg" %>

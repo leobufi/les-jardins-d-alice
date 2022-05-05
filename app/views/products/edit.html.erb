@@ -8,7 +8,7 @@
       <%= f.input :origin, placeholder: "Origine du produit", label: false %>
       <%= f.input :quantity, placeholder: "Quantité du produit (n'oublie pas d'ajouter l'unité de mesure)", label: false %>
       <%= f.input :price_cents, label: "Prix du produit" %>
-      <%= f.input :discount, placeholder: "Promo (en %)", label: false %>
+      <%= f.input :discount, placeholder: "Promo (en %)", label: "Promotion (mettre le pourcentage)" %>
       <hr>
       <%= f.input :main_photo, as: :file, label: "Photo principale :" %>
       <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Autres photos :" %>

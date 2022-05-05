@@ -17,9 +17,12 @@
       <div class="infos">
         <h4><%= product.title %></h4>
         <span><strong>Ce produit appartient à la catégorie <%= product.category.title %></strong></span>
+        <br>
         <p><%= product.description %></p>
         <span><strong>Quantité :</strong> <%= product.quantity %>.</span>
+        <br>
         <span><strong>Origine :</strong> <%= product.origin %>.</span>
+        <br>
         <span><strong>Prix :</strong> <%= product.price %> <%= product.price_currency %>.</span>
         <% if product.discount.nil? %>
             <span><strong>Il n'y a pas de promotion sur ce produit.</strong></span>

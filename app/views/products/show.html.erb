@@ -10,19 +10,23 @@
     </div>
     <div class="product-infos">
       <p><%= @product.description %></p>
-      <span>Origine : <strong><%= @product.origin %></strong>.</span>
-      <br>
-      <span>Quantité : <strong><%= @product.quantity %></strong>.</span>
-      <br>
-      <span>Prix : <strong><%= @product.price %> <%= @product.price_currency %></strong>.</span>
-    </div>
-    <button>
-      <%= link_to line_items_path(product_id: @product.id), method: :post do %>
-        <div class="cart-add">
-          <span>Ajouter au panier</span>
+      <div class="details">
+        <div>
+          <span>Origine : <strong><%= @product.origin %></strong>.</span>
+          <br>
+          <span>Quantité : <strong><%= @product.quantity %></strong>.</span>
+          <br>
+          <span>Prix : <strong><%= @product.price %> <%= @product.price_currency %></strong>.</span>
         </div>
-      <% end %>
-    </button>
+        <button>
+          <%= link_to line_items_path(product_id: @product.id), method: :post do %>
+            <div class="cart-add">
+              <span>Ajouter au panier</span>
+            </div>
+          <% end %>
+        </button>
+      </div>
+    </div>
   </div>
     <% if @product.photos_url.attached? %>
       <div class="photos_url">
