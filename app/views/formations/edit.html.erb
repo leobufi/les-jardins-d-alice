@@ -6,6 +6,9 @@
       <%= f.rich_text_area :description, placeholder: "Description de la formation" %>
       <br>
       <%= f.input :dates, placeholder: "Dates de la formation" %>
+      <br>
+      <%= f.input :main_photo, as: :file, label: "Photo principale :" %>
+      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Autres photos :" %>
       <button>
         <%= f.button :submit, "Mettre à jour" %>
       </button>

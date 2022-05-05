@@ -10,8 +10,8 @@
       <hr>
       <%= f.input :price_cents, label: "Prix du produit :" %>
       <hr>
-      <%= f.input :main_photo, as: :file, label: "Image de couverture :" %>
-      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Autres images :" %>
+      <%= f.input :main_photo, as: :file, label: "Photo principale :" %>
+      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Autres photos :" %>
       <hr>
       <%= f.association :category, prompt: "Selectionne une catégorie pour ton produit", label: "Selectionne une catégorie pour ton produit :" %>
       <button>

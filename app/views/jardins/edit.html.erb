@@ -6,8 +6,8 @@
       <%= f.input :title, placeholder: "Nom du jardin :", label: false %>
       <%= f.rich_text_area :description, placeholder: "Description du jardin :", label: false %>
       <br>
-      <%= f.input :main_photo, as: :file, placeholder: "Photo de couverture du jardin", label: "Photo de couverture du jardin" %>
-      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, placeholder: "Autres photos du produit", label: "Autres photos du jardin" %>
+      <%= f.input :main_photo, as: :file, placeholder: "Photo d'ouverture", label: "Photo d'ouverture" %>
+      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, placeholder: "Autres photos", label: "Autres photos" %>
       <button>
         <%= f.button :submit, "Mettre en ligne" %>
       </button>

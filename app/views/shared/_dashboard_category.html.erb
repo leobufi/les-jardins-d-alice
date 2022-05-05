@@ -30,6 +30,13 @@
   <h3>Sous-catégories</h3>
   <% @categories.reverse.each do |category| %>
     <div class="small-dash-container">
+      <div class="main-photo">
+        <% if category.main_photo.attached? %>
+          <%= cl_image_tag category.main_photo.key %>
+        <% else %>
+          <%= image_tag "SVG/Leafs.svg" %>
+        <% end %>
+      </div>
       <div class="infos">
         <h4><%= category.title %></h4>
         <span><strong>Cette catégorie appartient à <%= category.rayon.title %></strong></span>
@@ -47,6 +54,7 @@
   <%= simple_form_for(@category) do |f| %>
     <%= f.input :title, placeholder: "Nom de la catégorie", label: false %>
     <%= f.input :description, placeholder: "Description", label: false %>
+    <%= f.input :main_photo, as: :file, placeholder: "Photo principale", label: "Photo principale" %>
     <%= f.association :rayon, prompt: "Selectionne une catégorie principale", label: false %>
     <button>
       <%= f.button :submit, "Créer une nouvelle sous-catégorie" %>

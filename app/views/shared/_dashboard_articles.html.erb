@@ -5,6 +5,13 @@
   <h3>Mes articles</h3>
   <% @articles.reverse.each do |article| %>
     <div class="small-dash-container">
+      <div class="main-photo">
+        <% if article.main_photo.attached? %>
+          <%= cl_image_tag article.main_photo.key %>
+        <% else %>
+          <%= image_tag "SVG/Leafs.svg" %>
+        <% end %>
+      </div>
       <div class="infos">
         <h5><%= article.title %></h5>
         <p><%= sanitize("#{article.content}".truncate(200)) %></p>

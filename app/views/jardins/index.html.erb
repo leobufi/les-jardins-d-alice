@@ -5,6 +5,21 @@
   <div class="jardins-boxes">
     <h4><%= jardin.title %></h4>
     <span><%= jardin.description %></span>
-    <%# IMAGES %>
+    <div class="jardin-photos">
+      <% if jardin.main_photo.attached? %>
+        <%= cl_image_tag jardin.main_photo.key %>
+      <% else %>
+        <%= image_tag "SVG/Leafs.svg" %>
+      <% end %>
+    </div>
+    <div class="jardin-photos">
+      <% if jardin.photos_url.attached? %>
+        <%= jardin.photos_url.each do |photo| %>
+          <%= cl_image_tag photo.key %>
+        <% end  %>
+      <% else %>
+        <%= image_tag "SVG/Leafs.svg" %>
+      <% end %>
+    </div>
   </div>
 <% end %>

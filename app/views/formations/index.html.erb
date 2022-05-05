@@ -15,6 +15,22 @@
       </a>
     </div>
   </div>
+  <div class="formation-photos">
+    <% if formation.main_photo.attached? %>
+      <%= cl_image_tag formation.main_photo.key %>
+    <% else %>
+      <%= image_tag "SVG/Leafs.svg" %>
+    <% end %>
+  </div>
+  <div class="formation-photos">
+    <% if formation.photos_url.attached? %>
+      <%= formation.photos_url.each do |photo| %>
+        <%= cl_image_tag photo.key %>
+      <% end  %>
+    <% else %>
+      <%= image_tag "SVG/Leafs.svg" %>
+    <% end %>
+  </div>
 <% end %>
 <div id="contact-form">
   <h3>Contact</h3>

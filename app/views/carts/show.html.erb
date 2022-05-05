@@ -5,7 +5,11 @@
   <div class="line-items">
     <% if line_item.product_id %>
       <div class="product-image">
-        <h4>IMAGE</h4>
+        <% if line_item.product.main_photo? %>
+          <%= cl_image_tag line_item.product.main_photo.key %>
+        <% else %>
+          <%= image_tag "SVG/Leafs.svg" %>
+        <% end %>
       </div>
       <div class="product-info">
         <h4><%= line_item.product.title %> x <%= line_item.quantity %></h4>
@@ -17,18 +21,20 @@
         <button>
           <%= link_to "+1", line_item_add_path(id: line_item), method: :post %>
         </button>
-        <br>
         <button>
           <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post %>
         </button>
-        <br>
         <button>
           <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete %>
         </button>
       </div>
     <% elsif line_item.coffret_id %>
       <div class="product-image">
-        <h4>IMAGE</h4>
+        <% if line_item.coffret.main_photo.attached? %>
+          <%= cl_image_tag line_item.coffret.main_photo.key %>
+        <% else %>
+          <%= image_tag "SVG/Leafs.svg" %>
+        <% end %>
       </div>
       <div class="product-info">
         <h4><%= line_item.coffret.title %> x <%= line_item.quantity %></h4>

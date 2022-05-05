@@ -3,7 +3,9 @@ class Jardin < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  # validates :main_photo, uniqueness: true
   has_rich_text :description
+
+  has_one_attached :main_photo
+  has_many_attached :photos_url
 
 end

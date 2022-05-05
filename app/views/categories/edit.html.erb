@@ -5,6 +5,7 @@
     <%= simple_form_for(@category) do |f| %>
       <%= f.input :title, placeholder: "Nom de la catégorie...", label: false %>
       <%= f.input :description, placeholder: "Description...", label: false %>
+      <%= f.input :main_photo, as: :file, placeholder: "Photo principale", label: "Photo principale" %>
       <%= f.association :rayon, prompt: "Selectionne une catégorie principale", label: "Selectionne une catégorie principale :" %>
       <button>
         <%= f.button :submit, "Mettre à jour #{@category.title}" %>

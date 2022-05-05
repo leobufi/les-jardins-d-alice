@@ -7,6 +7,13 @@
   </button>
   <% @products.reverse.each do |product| %>
     <div class="small-dash-container">
+      <div class="main-photo">
+        <% if product.main_photo.attached? %>
+          <%= cl_image_tag product.main_photo.key %>
+        <% else %>
+          <%= image_tag "SVG/Leafs.svg" %>
+        <% end %>
+      </div>
       <div class="infos">
         <h4><%= product.title %></h4>
         <span><strong>Ce produit appartient à la catégorie <%= product.category.title %></strong></span>
