@@ -13,10 +13,9 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :price_cents, presence: true
   validates :category, presence: true
-  # validates :main_photo, uniqueness: true
 
   def price_with_discount
-    self.price - (self.price / (100 / self.discount))
+    self.price - (self.price / (100.fdiv(self.discount)))
   end
 
 end
