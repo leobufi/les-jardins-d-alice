@@ -13,7 +13,11 @@
       </div>
       <div class="product-info">
         <h4><%= line_item.product.title %> x <%= line_item.quantity %></h4>
-        <span>Prix à l'unité : <%= line_item.product.price %> <%= line_item.product.price_currency %>.</span>
+        <% if line_item.product.discount.nil? %>
+          <span>Prix à l'unité : <%= line_item.product.price %> <%= line_item.product.price_currency %>.</span>
+        <% else %>
+          <span>Prix à l'unité : <strong><%= line_item.product.price_with_discount %> <%= line_item.product.price_currency %></strong>  au lieu de <%= line_item.product.price %> <%= line_item.product.price_currency %> (-<%= line_item.product.discount %>%).</span>
+        <% end %>
         <br>
         <h5>Prix total : <%= (line_item.total_price) %> <%= (line_item.product.price_currency) %>.</h5>
       </div>
@@ -46,11 +50,9 @@
         <button>
           <%= link_to "+1", line_item_add_path(id: line_item), method: :post %>
         </button>
-        <br>
         <button>
           <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post %>
         </button>
-        <br>
         <button>
           <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete %>
         </button>
