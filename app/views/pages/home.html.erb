@@ -2,9 +2,15 @@
   <%= image_tag "SVG/Banner_logo.svg" %>
 </div>
 <%= render 'shared/navbar_home' %>
-<div class="banner-image">
-  <%= image_tag "grange.jpg" %>
-</div>
+<% if @images.first.home_cover.attached? %>
+  <div class="banner-image">
+    <%= cl_image_tag @images.first.home_cover.key %>
+  </div>
+<% else %>
+  <div class="banner-image">
+    <%= image_tag "grange.jpg" %>
+  </div>
+<% end %>
 <% if Product.where.not(discount: nil) %>
   <div class="banner-items">
     <div class="banner-items-title">

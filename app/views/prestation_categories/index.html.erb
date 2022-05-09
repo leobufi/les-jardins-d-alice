@@ -21,14 +21,10 @@
 <% end %>
 <div class="prestation-photos">
   <h3>Les précédentes prestations en photos</h3>
-  <% @prestations.each do |prestation| %>
-    <% if prestation.photos_url.attached? %>
-      <div class="photos">
-        <% prestation.photos_url.each do |photo| %>
-          <%= cl_image_tag photo.key %>
-        <% end  %>
-      </div>
-    <% end %>
+  <% if @images.first.prestation_galery.attached? %>
+    <div class="photos">
+        <%= cl_image_tag @images.first.prestation_galery.key %>
+    </div>
   <% end %>
 </div>
 <div id="contact-form">

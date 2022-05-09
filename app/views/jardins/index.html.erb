@@ -1,6 +1,12 @@
-<div class="title-jardins">
-    <h1>Les Jardins</h1>
-</div>
+<% if @images.first.jardin_cover.attached? %>
+  <div class="title-jardins" style="background-image: url( <%= cl_image_path @images.first.jardin_cover.key, crop: :fill %> )">
+      <h1>Les Jardins</h1>
+  </div>
+<% else %>
+  <div class="title-jardins" style="background-image: url(Jardins-banner-image.JPG)">
+      <h1>Les Jardins</h1>
+  </div>
+<% end %>
 <% @jardins.each do |jardin| %>
   <div class="jardins-boxes">
     <h4><%= jardin.title %></h4>
