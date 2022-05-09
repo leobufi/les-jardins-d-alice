@@ -28,8 +28,21 @@ class OrdersController < ApplicationController
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
+      shipping_address_collection: {
+        allowed_countries: ['FR', 'DZ', 'DE', 'AT', 'BE', 'BR', 'BG',
+          'CA', 'CN', 'CY', 'DK', 'ES', 'EE', 'FI', 'GR', 'HU', 'IN',
+          'IE', 'IT', 'JP', 'LV'],
+      },
+      shipping_options: [
+        {
+          shipping_rate: "shr_1KxSU7K8Fc6uMHLbTmMGiAxe",
+        },
+        {
+          shipping_rate: "shr_1KxSXPK8Fc6uMHLbmwCB76EI",
+        },
+      ],
       line_items: [{
-        name: 'Votre commande',
+        name: 'Votre commande pour Les Jardins d\'Alice',
         amount: @order.amount_cents,
         currency: 'eur',
         quantity: 1
