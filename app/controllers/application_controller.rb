@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     @prestation_categories = PrestationCategory.all
     @jardins = Jardin.all
     @articles = Article.all
+    @images = Image.all
   end
 
   private

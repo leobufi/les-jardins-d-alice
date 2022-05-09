@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :prestation_categories
   resources :prestations
   resources :jardins
+  resources :images
 
   resources :rayons
   resources :categories
