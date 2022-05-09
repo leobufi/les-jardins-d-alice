@@ -11,8 +11,10 @@ class PagesController < ApplicationController
     @categories = Category.all
     @category = Category.new
     @products = Product.all
-    @formations = Formation.all
-    @formation = Formation.new
+    @prestations = Prestation.all
+    @prestation = Prestation.new
+    @prestation_categories = PrestationCategory.all
+    @prestation_category = PrestationCategory.new
     @jardins = Jardin.all
     @jardin = Jardin.new
     @coffrets = Coffret.all

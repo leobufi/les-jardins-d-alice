@@ -17,11 +17,12 @@ Rails.application.routes.draw do
 
 
   resources :articles
-  resources :formations
+  resources :prestation_categories
+  resources :prestations
   resources :jardins
 
-  resources :rayons, except: [:index]
-  resources :categories, except: [:show, :index]
+  resources :rayons
+  resources :categories
   resources :products
   resources :orders do
     resources :payments, only: :new

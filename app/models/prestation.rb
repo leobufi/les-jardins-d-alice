@@ -1,5 +1,6 @@
-class Formation < ApplicationRecord
+class Prestation < ApplicationRecord
   belongs_to :user
+  belongs_to :prestation_category
 
   validates :title, presence: true
   validates :description, presence: true

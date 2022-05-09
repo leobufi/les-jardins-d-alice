@@ -2,11 +2,11 @@
   <h1>Formations</h1>
 </div>
 
-<% @formations.reverse.each do |formation| %>
-  <div class="formation">
-    <h3><%= formation.title %></h3>
-    <p><%= formation.description %></p>
-    <span> <h5>Dates : </h5><%= formation.dates %></span>
+<% @prestations.reverse.each do |prestation| %>
+  <div class="prestation">
+    <h3><%= prestation.title %></h3>
+    <p><%= prestation.description %></p>
+    <span> <h5>Dates : </h5><%= prestation.dates %></span>
     <div class="contact-link">
       <a href="#contact-form">
         <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
@@ -16,12 +16,12 @@
     </div>
   </div>
 <% end %>
-<div class="formation-photos">
-  <h3>Les précédentes formations en photos</h3>
-  <% @formations.each do |formation| %>
-    <% if formation.photos_url.attached? %>
+<div class="prestation-photos">
+  <h3>Les précédentes prestations en photos</h3>
+  <% @prestations.each do |prestation| %>
+    <% if prestation.photos_url.attached? %>
       <div class="photos">
-        <% formation.photos_url.each do |photo| %>
+        <% prestation.photos_url.each do |photo| %>
           <%= cl_image_tag photo.key %>
         <% end  %>
       </div>

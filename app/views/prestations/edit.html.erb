@@ -1,11 +1,11 @@
 <div class="dashboard-container">
   <% if current_user.admin? %>
-    <h3>Éditer <%= @formation.title %></h3>
-      <%= simple_form_for(@formation) do |f| %>
-      <%= f.input :title, placeholder: "Nom de la formation" %>
-      <%= f.rich_text_area :description, placeholder: "Description de la formation" %>
+    <h3>Éditer <%= @prestation.title %></h3>
+      <%= simple_form_for(@prestation) do |f| %>
+      <%= f.input :title, placeholder: "Nom de la prestation" %>
+      <%= f.rich_text_area :description, placeholder: "Description de la prestation" %>
       <br>
-      <%= f.input :dates, placeholder: "Dates de la formation" %>
+      <%= f.input :dates, placeholder: "Dates de la prestation" %>
       <br>
       <%= f.input :main_photo, as: :file, label: "Photo principale :" %>
       <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Autres photos :" %>

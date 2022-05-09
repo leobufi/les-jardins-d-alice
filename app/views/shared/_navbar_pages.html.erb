@@ -34,11 +34,11 @@
       </div>
       <div class="dropdown">
         <div class="drop">
-          <span>Formations</span>
+          <span>Prestations</span>
         </div>
         <div class="dropdown-content">
-          <% @formations.each do |formation| %>
-            <%= link_to "#{formation.title}", formations_path, class: "dropdown-item" %>
+          <% @prestation_categories.each do |prestation| %>
+            <%= link_to "#{prestation.title}", prestation_categories_path, class: "dropdown-item" %>
           <% end  %>
         </div>
       </div>

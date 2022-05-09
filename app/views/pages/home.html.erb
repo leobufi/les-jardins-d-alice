@@ -85,16 +85,16 @@
 </div>
 <div class="banner-items">
   <div class="banner-items-title">
-    <h3>Formations</h3>
+    <h3>Prestations</h3>
   </div>
   <div class="banner-category">
-    <% @formations.each do |f| %>
+    <% @prestations.each do |p| %>
       <div class="banner-category-card">
-        <%= link_to formations_path do %>
-          <%= f.title %>
+        <%= link_to prestation_categories_path do %>
+          <%= p.title %>
           <div class="product-image">
-            <% if f.main_photo.attached? %>
-              <%= cl_image_tag f.main_photo.key %>
+            <% if p.main_photo.attached? %>
+              <%= cl_image_tag p.main_photo.key %>
             <% else %>
               <%= image_tag "SVG/Leafs.svg" %>
             <% end %>
@@ -105,7 +105,7 @@
   </div>
   <div class="banner-items-link">
     <h4>
-      <%= link_to "Voir toutes mes formations", formations_path %>
+      <%= link_to "Voir toutes mes prestations", prestation_categories_path %>
     </h4>
   </div>
 </div>

@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
     @rayons = Rayon.all
     @coffrets = Coffret.all
     @products = Product.all
-    @formations = Formation.all
+    @prestations = Prestation.all
+    @prestation_categories = PrestationCategory.all
     @jardins = Jardin.all
     @articles = Article.all
   end

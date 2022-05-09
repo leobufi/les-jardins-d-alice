@@ -1,0 +1,13 @@
+<div class="dashboard-container">
+  <% if current_user.admin? %>
+    <h3>Éditer <%= @prestation_category.title %></h3>
+      <%= simple_form_for(@prestation_category) do |f| %>
+      <%= f.input :title, label: "Nom du type de prestation" %>
+      <button>
+        <%= f.button :submit, "Mettre à jour" %>
+      </button>
+    <% end %>
+  <% else %>
+      <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+  <% end  %>
+</div>
