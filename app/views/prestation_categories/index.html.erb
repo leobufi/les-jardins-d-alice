@@ -1,0 +1,37 @@
+<div class="title">
+  <h1>Prestations</h1>
+</div>
+
+<% @prestations.each do |prestation| %>
+  <div class="prestation">
+    <h3><%= prestation.title %></h3>
+    <em><%= prestation.prestation_category.title %></em>
+    <p><%= prestation.description %></p>
+    <h5>Dates :</h5>
+    <span><%= prestation.dates %></span>
+    <br>
+    <div class="contact-link">
+      <a href="#contact-form">
+        <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
+        <span>Pour vous inscrire, contactez-moi !</span>
+        <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
+      </a>
+    </div>
+  </div>
+<% end %>
+<div class="prestation-photos">
+  <h3>Les précédentes prestations en photos</h3>
+  <% @prestations.each do |prestation| %>
+    <% if prestation.photos_url.attached? %>
+      <div class="photos">
+        <% prestation.photos_url.each do |photo| %>
+          <%= cl_image_tag photo.key %>
+        <% end  %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div id="contact-form">
+  <h3>Contact</h3>
+  <span>Contactez-moi !</span>
+</div>

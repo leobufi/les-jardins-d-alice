@@ -6,7 +6,7 @@
     <% @articles.each do |article| %>
       <div class="articles">
         <h3><%= article.title %></h3>
-        <p><%= sanitize("#{article.content}".truncate(200)) %></p>
+        <p><%= sanitize("#{article.content}".truncate(150)) %></p>
         <span><%= link_to 'Lire plus...', article_path(article) %></span>
         <br>
         <span>Publié le <%= article.date.strftime("%d/%m/%Y") %>.</span>
