@@ -5,9 +5,16 @@ table {
   tr {
     border: black 1px solid;
   }
+
   th {
     border: black 1px solid;
     padding: 4px;
+
+    .form-check {
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
   }
 
   .table-headers {
