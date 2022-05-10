@@ -24,15 +24,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  def dashboard
-    @user = User.find(params[:id])
-    if current_user.admin?
-      @user.update(user_params)
-      redirect_to dashboard_path
-    else
-      render :new
-    end
-
   # DELETE /resource
   # def destroy
   #   super
