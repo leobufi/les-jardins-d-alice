@@ -91,3 +91,36 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.navbar-dashboard {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  columns: auto;
+  border-top: black 1px solid;
+  border-bottom: black 1px solid;
+  padding: 0px;
+  font-size: 20px;
+  position: sticky;
+  top: 75px;
+  left: 0;
+  right: 0;
+  z-index: 4000;
+
+  a {
+    flex: 1 1 0;
+    padding: 0px 8px;
+    text-align: center;
+    border-left: black 1px solid;
+  }
+
+}
+
+.active {
+  background-color: cornflowerblue;
+  color: white;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

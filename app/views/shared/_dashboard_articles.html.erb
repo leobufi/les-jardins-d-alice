@@ -2,6 +2,9 @@
   <div class="dashboard-title">
     <h2>Blog</h2>
   </div>
+  <button>
+    <%= link_to 'Créer un nouvel article de blog', new_article_path %>
+  </button>
   <h3>Mes articles</h3>
   <% @articles.reverse.each do |article| %>
     <div class="small-dash-container">
@@ -14,7 +17,7 @@
       </div>
       <div class="infos">
         <h5><%= article.title %></h5>
-        <p><%= sanitize("#{article.content}".truncate(200)) %></p>
+        <p><%= sanitize("#{article.content}".truncate(450)) %></p>
         <span>Publié le <%= article.date.strftime("%A %e %B %Y") %></span>
       </div>
       <div class="buttons">
@@ -24,7 +27,4 @@
       </div>
     </div>
   <% end %>
-  <button>
-    <%= link_to 'Créer un nouvel article de blog', new_article_path %>
-  </button>
 </div>
