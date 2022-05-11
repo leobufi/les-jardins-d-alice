@@ -18,11 +18,14 @@
     </div>
     <div class="banner-category">
       <% @products.where.not(discount: nil).each do |product| %>
-        <div class="banner-category-card">
+        <div class="banner-category-card" data-controller="hover-images">
             <%= link_to product_path(product) do %>
-            <h5> - <%= product.discount %>% sur <%= product.title %></h5>
-            <span><strong> <%= product.price_with_discount %> <%= product.price_currency %></strong> au lieu de <%= product.price %>  <%= product.price_currency %></span>
-            <div class="product-image">
+            <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
+              <h4><%= product.title %></h4>
+              <h3> - <%= product.discount %>%</h3>
+              <span><strong> <%= product.price_with_discount %> <%= product.price_currency %></strong> au lieu de <%= product.price %>  <%= product.price_currency %></span>
+            </div>
+            <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
               <% if product.main_photo.attached? %>
                 <%= cl_image_tag product.main_photo.key %>
               <% else %>
@@ -42,10 +45,12 @@
     </div>
     <div class="banner-category">
       <% rayon.categories.each do |c| %>
-        <div class="banner-category-card">
+        <div class="banner-category-card" data-controller="hover-images">
           <%= link_to rayon_path(rayon) do %>
-            <%= c.title %>
-            <div class="product-image">
+            <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
+              <h4><%= c.title %></h4>
+            </div>
+            <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
               <% if c.main_photo.attached? %>
                 <%= cl_image_tag c.main_photo.key %>
               <% else %>
@@ -69,10 +74,12 @@
   </div>
   <div class="banner-category">
     <% @coffrets.each do |c| %>
-      <div class="banner-category-card">
+      <div class="banner-category-card" data-controller="hover-images">
         <%= link_to coffrets_path do %>
-          <%= c.title %>
-          <div class="product-image">
+          <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
+            <h4><%= c.title %></h4>
+          </div>
+          <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
             <% if c.main_photo.attached? %>
               <%= cl_image_tag c.main_photo.key %>
             <% else %>
@@ -95,10 +102,12 @@
   </div>
   <div class="banner-category">
     <% @prestations.each do |p| %>
-      <div class="banner-category-card">
+      <div class="banner-category-card" data-controller="hover-images">
         <%= link_to prestation_categories_path do %>
-          <%= p.title %>
-          <div class="product-image">
+          <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
+            <h4><%= p.title %></h4>
+          </div>
+          <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
             <% if p.main_photo.attached? %>
               <%= cl_image_tag p.main_photo.key %>
             <% else %>
