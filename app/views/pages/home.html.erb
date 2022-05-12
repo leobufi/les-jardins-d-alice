@@ -106,6 +106,7 @@
         <%= link_to prestation_categories_path do %>
           <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
             <h4><%= p.title %></h4>
+            <span><%= p.dates %></span>
           </div>
           <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
             <% if p.main_photo.attached? %>
