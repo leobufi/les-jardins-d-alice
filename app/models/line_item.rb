@@ -6,11 +6,11 @@ class LineItem < ApplicationRecord
 
   def total_price
     if self.coffret_id
-    self.quantity.to_s.to_i * self.coffret.price.to_s.to_i
+    self.quantity.to_s.to_i * self.coffret.price
     elsif self.product.discount?
-      self.quantity.to_s.to_i * self.product.price_with_discount.to_s.to_i
+      self.quantity.to_s.to_i * self.product.price_with_discount
     elsif self.product_id
-      self.quantity.to_s.to_i * self.product.price.to_s.to_i
+      self.quantity.to_s.to_i * self.product.price
     end
   end
 end

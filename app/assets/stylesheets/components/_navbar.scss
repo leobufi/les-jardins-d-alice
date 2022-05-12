@@ -69,9 +69,10 @@
   min-width: 101%;
   z-index: 1;
   text-align: left;
-  text-decoration: underline;
   margin-top: 5px;
   margin-left: -6px;
+  font-weight: 300;
+
 }
 
 /* Links inside the dropdown */
@@ -83,8 +84,8 @@
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  font-family: 'Junicode italic';
   background-color: white;
+  text-decoration: underline;
 }
 
 /* Show the dropdown menu on hover */
@@ -92,7 +93,7 @@
   display: block;
 }
 
-.navbar-dashboard {
+.navbar-small {
   display: flex;
   justify-content: space-around;
   background: white;
@@ -102,7 +103,7 @@
   padding: 0px;
   font-size: 20px;
   position: sticky;
-  top: 75px;
+  top: 79px;
   left: 0;
   right: 0;
   z-index: 4000;
