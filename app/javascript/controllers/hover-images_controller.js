@@ -3,9 +3,9 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "img", "infos" ]
 
-  connect () {
-    console.log('Hi Hi Hi');
-  }
+  // connect () {
+  //   console.log('Hi Hi Hi');
+  // }
 
   showInfos() {
 

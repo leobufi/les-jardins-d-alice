@@ -1,8 +1,4 @@
 <% if current_user.admin? %>
-<div class="title">
-  <h1>Salut Alice !</h1>
-  <h3>Bienvenue sur ton tableau de bord.</h3>
-</div>
 <div data-controller="switch-tab">
   <nav class="navbar-small">
     <a href="" class="active" data-action='click->switch-tab#switch' data-switch-tab-target="tab" data-tab-name="orders">Commandes</a>
@@ -15,6 +11,10 @@
     <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="images">Images</a>
     <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="users">Utilisateurs</a>
   </nav>
+<div class="title">
+  <h1>Salut Alice !</h1>
+  <h3>Bienvenue sur ton tableau de bord.</h3>
+</div>
   <div class="" data-switch-tab-target="content" data-tab-name="orders">
     <%= render 'shared/dashboard_orders' %>
   </div>

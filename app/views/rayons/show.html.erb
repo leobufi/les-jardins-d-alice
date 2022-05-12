@@ -1,60 +1,65 @@
-<div class="navbar-small">
-<% @rayon.categories.each do |category| %>
-    <a href="#<%= category.title %>"><%= category.title %></a>
-<%end %>
-</div>
-<div class="title">
-  <h1><%= @rayon.title %></h1>
-</div>
-<% @rayon.categories.each do |category| %>
-  <div class="sticker-title" id="<%= category.title %>">
-    <h2><%= category.title %></h2>
+<div data-controller="switch-tab">
+  <div class="navbar-small">
+  <% @rayon.categories.each do |category| %>
+      <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="<%= category.title %>"><%= category.title %></a>
+  <%end %>
   </div>
-  <div class="category">
-    <div class="category-products">
-      <div class="category-infos">
-        <p><%= category.description %></p>
-      </div>
-      <% category.products.each do |product| %>
-        <div class="products" data-controller="hover-images">
-          <%= link_to product_path(product) do %>
-          <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
-            <% if product.main_photo.attached? %>
-              <%= cl_image_tag product.main_photo.key %>
-            <% else %>
-              <%= image_tag "SVG/Leafs.svg" %>
-            <% end %>
-          </div>
-          <div class="product-info d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
-            <h4><%= product.title %></h4>
-            <p><%= product.description %></p>
-            <br>
-            <span><strong>Quantité :</strong> <%= product.quantity %>.</span>
-            <br>
-            <span><strong>Origine :</strong> <%= product.origin %>.</span>
-            <br>
-            <br>
-            <% if product.discount.nil? %>
-              <h5>Prix : <%= product.price %> <%= product.price_currency %> </h5>
-            <% else %>
-              <h4 class="text-center">Promotion !</h4>
-              <h5 class="text-center">Prix : <span style="text-decoration: line-through"><%= product.price %> <%= product.price_currency %></span></h5>
-              <h5 class="text-center"><%= product.price_with_discount %> <%= product.price_currency %> (- <%= product.discount %>%)</h5>
-            <% end %>
-          </div>
-          <% end %>
-          <%= link_to line_items_path(product_id: product.id), method: :post do %>
-          <div class="cart-add">
-            <span>Ajouter au panier</span>
-          </div>
-          <% end %>
+  <div class="title">
+    <h1><%= @rayon.title %></h1>
+  </div>
+  <% @rayon.categories.each do |category| %>
+  <div class="" data-switch-tab-target="content" data-tab-name="<%= category.title %>">
+    <div class="sticker-title">
+      <h2><%= category.title %></h2>
+    </div>
+    <div class="category">
+      <div class="category-products">
+        <div class="category-infos">
+          <p><%= category.description %></p>
         </div>
-      <% end  %>
+        <% category.products.each do |product| %>
+          <div class="products" data-controller="hover-images">
+            <%= link_to product_path(product) do %>
+            <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
+              <% if product.main_photo.attached? %>
+                <%= cl_image_tag product.main_photo.key %>
+              <% else %>
+                <%= image_tag "SVG/Leafs.svg" %>
+              <% end %>
+            </div>
+            <div class="product-info d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
+              <h4><%= product.title %></h4>
+              <p><%= product.description %></p>
+              <br>
+              <span><strong>Quantité :</strong> <%= product.quantity %>.</span>
+              <br>
+              <span><strong>Origine :</strong> <%= product.origin %>.</span>
+              <br>
+              <br>
+              <% if product.discount.nil? %>
+                <h5>Prix : <%= product.price %> <%= product.price_currency %> </h5>
+              <% else %>
+                <h4 class="text-center">Promotion !</h4>
+                <h5 class="text-center">Prix : <span style="text-decoration: line-through"><%= product.price %> <%= product.price_currency %></span></h5>
+                <h5 class="text-center"><%= product.price_with_discount %> <%= product.price_currency %> (- <%= product.discount %>%)</h5>
+              <% end %>
+            </div>
+            <% end %>
+            <%= link_to line_items_path(product_id: product.id), method: :post do %>
+            <div class="cart-add">
+              <span>Ajouter au panier</span>
+            </div>
+            <% end %>
+          </div>
+        <% end  %>
+      </div>
     </div>
   </div>
-<% end %>
+  <% end %>
+  </div>
 
-<div class="selling-points">
-  <h4>Où trouver ces produits ?</h4>
-  <p> <%= @rayon.selling_points %></p>
+  <div class="selling-points">
+    <h4>Où trouver ces produits ?</h4>
+    <p> <%= @rayon.selling_points %></p>
+  </div>
 </div>
