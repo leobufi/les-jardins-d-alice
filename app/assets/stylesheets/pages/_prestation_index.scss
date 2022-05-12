@@ -1,8 +1,10 @@
 .prestation {
-  width: 80%;
+  position: relative;
+  width: 90%;
   margin: auto;
   margin-bottom: 24px;
   border: black 1px solid;
+  border-left: cornflowerblue 3px solid;
   background-color: white;
   padding: 24px;
 
@@ -24,7 +26,7 @@
 }
 
 #contact-form {
-  width: 80%;
+  width: 90%;
   margin: auto;
   margin-bottom: 24px;
   border: black 1px solid;
@@ -37,7 +39,7 @@
 }
 
 .prestation-photos {
-  width: 80%;
+  width: 90%;
   margin: auto;
   margin-bottom: 24px;
   border: black 1px solid;

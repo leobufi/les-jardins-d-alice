@@ -13,7 +13,11 @@
 @import "actiontext";
 
 body {
-  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
   font-family: 'Junicode';
   background-color: white;
   background-image: url(SVG/Wallpaper2.svg);
