@@ -33,10 +33,12 @@
   <div class="prestation-photos">
     <h3>Les précédentes prestations en photos</h3>
     <% if @images.first.prestation_galery.attached? %>
-      <div class="photos">
+      <div class="photos" data-controller="carousel">
+          <%= image_tag "SVG/Hand/Hand_left.svg" %>
           <% @images.first.prestation_galery.each do |img| %>
-            <%= cl_image_tag.img.key %>
+              <div><%= cl_image_tag.img.key %></div>
           <% end %>
+          <%= image_tag "SVG/Hand/Hand_right.svg" %>
       </div>
     <% else %>
       <p>Il n'y a pas d'images pour le moment.</p>
@@ -47,3 +49,4 @@
     <span>Contactez-moi !</span>
   </div>
 </div>
+<%= console %>
