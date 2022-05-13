@@ -27,7 +27,7 @@
       <div class="dash-images">
         <span>Galerie d'images de la page prestation :</span>
         <div class="photo">
-          <% if image.first.prestation_galery.attached? %>
+          <% if @images.first.prestation_galery.attached? %>
             <% @images.first.prestation_galery.each do |img| %>
               <%= cl_image_tag.img.key %>
             <% end %>

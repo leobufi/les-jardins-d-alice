@@ -28,10 +28,10 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     if current_user.admin?
       @image.update(image_params)
-      redirect_to dashboard_path
     else
       render :new
     end
+    redirect_to dashboard_path
   end
 
   def destroy
