@@ -2,9 +2,9 @@
   <%= image_tag "SVG/Banner_logo.svg" %>
 </div>
 <%= render 'shared/navbar_home' %>
-<% if @images.first.home_cover.attached? %>
+<% if @images.where(home: true).first.home_cover.attached? %>
   <div class="banner-image">
-    <%= cl_image_tag @images.first.home_cover.key %>
+    <%= cl_image_tag @images.where(home: true).first.home_cover.key %>
   </div>
 <% else %>
   <div class="banner-image">

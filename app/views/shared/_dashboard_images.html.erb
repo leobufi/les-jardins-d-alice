@@ -2,41 +2,51 @@
   <div class="dashboard-title">
     <h2>Images</h2>
   </div>
-  <% @images.each do |image| %>
-    <div class="image-dash-container">
-      <div class="dash-images">
-        <span>Photo de couverture de la page d'acceuil :</span>
-        <div class="photo">
-          <% if image.home_cover.attached? %>
-            <%= cl_image_tag image.home_cover.key %>
-          <% else %>
-            <%= image_tag "grange.jpg" %>
-          <% end %>
-        </div>
+  <% @images.where(home: true).each do |image| %>
+    <h4>Photo de couverture de la page d'acceuil :</h4>
+    <div class="small-dash-container">
+      <div class="main-photo">
+        <% if image.home_cover.attached? %>
+          <%= cl_image_tag image.home_cover.key %>
+        <% else %>
+          <%= image_tag "grange.jpg" %>
+        <% end %>
       </div>
-      <div class="dash-images">
-        <span>Photo de couverture de la page Jardin :</span>
-        <div class="photo">
-          <% if image.jardin_cover.attached? %>
-            <%= cl_image_tag image.jardin_cover.key %>
-          <% else %>
-            <%= image_tag "Jardins-banner-image.JPG" %>
-          <% end %>
-        </div>
-      </div>
-      <div class="dash-images">
-        <span>Galerie d'images de la page prestation :</span>
-        <div class="photo">
-          <% if @images.first.prestation_galery.attached? %>
-            <% @images.first.prestation_galery.each do |img| %>
-              <%= cl_image_tag.img.key %>
-            <% end %>
-          <% else %>
-            <%= image_tag "SVG/Logo 1.svg" %>
-          <% end %>
-        </div>
+      <div class="buttons">
+        <button><%= link_to 'Modifier', edit_image_path(image) %></button>
       </div>
     </div>
-      <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+  <% end %>
+  <% @images.where(jardin: true).each do |image| %>
+    <h4>Photo de couverture de la page Jardin :</h4>
+    <div class="small-dash-container">
+      <div class="main-photo">
+        <% if image.jardin_cover.attached? %>
+          <%= cl_image_tag image.jardin_cover.key %>
+        <% else %>
+          <%= image_tag "Jardins-banner-image.JPG" %>
+        <% end %>
+      </div>
+      <div class="buttons">
+        <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+      </div>
+    </div>
+  <% end %>
+  <% @images.where(prestation: true).each do |image| %>
+    <h4>Galerie d'images de la page prestation :</h4>
+    <div class="small-dash-container">
+      <div class="main-photo">
+        <% if image.prestation_galery.attached? %>
+          <% image.first.prestation_galery.each do |img| %>
+            <%= cl_image_tag.img.key %>
+          <% end %>
+        <% else %>
+          <%= image_tag "SVG/Logo 1.svg" %>
+        <% end %>
+      </div>
+      <div class="buttons">
+        <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+      </div>
+    </div>
   <% end %>
 </div>

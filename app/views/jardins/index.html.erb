@@ -1,5 +1,5 @@
-<% if @images.first.jardin_cover.attached? %>
-  <div class="title-jardins" style="background-image: url( <%= cl_image_path @images.first.jardin_cover.key, crop: :fill %> )">
+<% if @images.where(jardin: true).first.jardin_cover.attached? %>
+  <div class="title-jardins" style="background-image: url( <%= cl_image_path @images.where(jardin: true).first.jardin_cover.key, crop: :fill %> )">
       <h1>Les Jardins</h1>
   </div>
 <% else %>
