@@ -21,6 +21,11 @@
           <div class="products" data-controller="hover-images">
             <%= link_to product_path(product) do %>
             <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
+              <% if product.discount? %>
+              <div class="sticker-promo">
+                <em>Promo de - <%= product.discount %>%</em>
+              </div>
+              <% end %>
               <% if product.main_photo.attached? %>
                 <%= cl_image_tag product.main_photo.key %>
               <% else %>
@@ -28,26 +33,25 @@
               <% end %>
             </div>
             <div class="product-info d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
-              <h4><%= product.title %></h4>
               <p><%= product.description %></p>
-              <br>
               <span><strong>Quantité :</strong> <%= product.quantity %>.</span>
               <br>
               <span><strong>Origine :</strong> <%= product.origin %>.</span>
               <br>
-              <br>
-              <% if product.discount.nil? %>
-                <h5>Prix : <%= product.price %> <%= product.price_currency %> </h5>
-              <% else %>
-                <h4 class="text-center">Promotion !</h4>
-                <h5 class="text-center">Prix : <span style="text-decoration: line-through"><%= product.price %> <%= product.price_currency %></span></h5>
-                <h5 class="text-center"><%= product.price_with_discount %> <%= product.price_currency %> (- <%= product.discount %>%)</h5>
-              <% end %>
             </div>
             <% end %>
             <%= link_to line_items_path(product_id: product.id), method: :post do %>
             <div class="cart-add">
-              <span>Ajouter au panier</span>
+              <div class="cart-add-infos">
+                <h5><%= product.title %></h5>
+                <% if product.discount.nil? %>
+                  <span><%= product.price %> <%= product.price_currency %></span>
+                <% else %>
+                  <span style="text-decoration: line-through"><%= product.price %></span>
+                  <span><%= product.price_with_discount %> <%= product.price_currency %></span>
+                  <% end %>
+              </div>
+              <span class="cart-add-button"><%= image_tag "SVG/panier.svg" %></span>
             </div>
             <% end %>
           </div>

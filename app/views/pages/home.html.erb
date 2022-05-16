@@ -3,125 +3,28 @@
 </div>
 <%= render 'shared/navbar_home' %>
 <% if @images.where(home: true).first.home_cover.attached? %>
-  <div class="banner-image">
-    <%= cl_image_tag @images.where(home: true).first.home_cover.key %>
+  <div class="banner-image" style="background-image: url(<%= cl_image_path @images.where(home: true).first.home_cover.key, :crop=>"fit" %>)">
+    <%= link_to jardins_path do %>
+    <div class="overlay-2">
+      <div class="overlay-1">
+        <div class="jardin-button">
+          <h3>Découvrez les Jardins d'Alice !</h3>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
 <% else %>
-  <div class="banner-image">
-    <%= image_tag "grange.jpg" %>
+  <div class="banner-image" style="background-image: url(grange.jpg)">
+    <%= link_to jardins_path do %>
+    <div class="jardin-button">
+      <button>Découvrez les Jardins d'Alice !</button>
+    </div>
+    <% end %>
+    <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
   </div>
 <% end %>
-<% if Product.where.not(discount: nil) %>
-  <div class="banner-items">
-    <div class="banner-items-title">
-      <h2>Les promotions du moment</h2>
-    </div>
-    <div class="banner-category">
-      <% @products.where.not(discount: nil).each do |product| %>
-        <div class="banner-category-card" data-controller="hover-images">
-            <%= link_to product_path(product) do %>
-            <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
-              <h4><%= product.title %></h4>
-              <h3> - <%= product.discount %>%</h3>
-              <span><strong> <%= product.price_with_discount %> <%= product.price_currency %></strong> au lieu de <%= product.price %>  <%= product.price_currency %></span>
-            </div>
-            <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
-              <% if product.main_photo.attached? %>
-                <%= cl_image_tag product.main_photo.key %>
-              <% else %>
-                <%= image_tag "SVG/Leafs.svg" %>
-              <% end %>
-            </div>
-            <% end %>
-        </div>
-      <% end  %>
-    </div>
-  </div>
-<% end %>
-<% @rayons.each do |rayon| %>
-  <div class="banner-items">
-    <div class="banner-items-title">
-      <h3><%= rayon.title %></h3>
-    </div>
-    <div class="banner-category">
-      <% rayon.categories.each do |c| %>
-        <div class="banner-category-card" data-controller="hover-images">
-          <%= link_to rayon_path(rayon) do %>
-            <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
-              <h4><%= c.title %></h4>
-            </div>
-            <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
-              <% if c.main_photo.attached? %>
-                <%= cl_image_tag c.main_photo.key %>
-              <% else %>
-                <%= image_tag "SVG/Leafs.svg" %>
-              <% end %>
-            </div>
-          <% end  %>
-        </div>
-      <% end  %>
-    </div>
-    <div class="banner-items-link">
-      <h4>
-        <%= link_to "Voir tout mes produits", rayon_path(rayon) %>
-      </h4>
-    </div>
-  </div>
-<% end %>
-<div class="banner-items">
-  <div class="banner-items-title">
-    <h3>Coffrets</h3>
-  </div>
-  <div class="banner-category">
-    <% @coffrets.each do |c| %>
-      <div class="banner-category-card" data-controller="hover-images">
-        <%= link_to coffrets_path do %>
-          <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
-            <h4><%= c.title %></h4>
-          </div>
-          <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
-            <% if c.main_photo.attached? %>
-              <%= cl_image_tag c.main_photo.key %>
-            <% else %>
-              <%= image_tag "SVG/Leafs.svg" %>
-            <% end %>
-          </div>
-        <% end  %>
-      </div>
-    <% end  %>
-  </div>
-  <div class="banner-items-link">
-    <h4>
-      <%= link_to "Voir tout mes coffrets", coffrets_path %>
-    </h4>
-  </div>
-</div>
-<div class="banner-items">
-  <div class="banner-items-title">
-    <h3>Prestations</h3>
-  </div>
-  <div class="banner-category">
-    <% @prestations.each do |p| %>
-      <div class="banner-category-card" data-controller="hover-images">
-        <%= link_to prestation_categories_path do %>
-          <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
-            <h4><%= p.title %></h4>
-            <span><%= p.dates %></span>
-          </div>
-          <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
-            <% if p.main_photo.attached? %>
-              <%= cl_image_tag p.main_photo.key %>
-            <% else %>
-              <%= image_tag "SVG/Leafs.svg" %>
-            <% end %>
-          </div>
-        <% end  %>
-      </div>
-    <% end  %>
-  </div>
-  <div class="banner-items-link">
-    <h4>
-      <%= link_to "Voir toutes mes prestations", prestation_categories_path %>
-    </h4>
-  </div>
-</div>
+<%= render 'shared/home_promo' %>
+<%= render 'shared/home_rayon' %>
+<%= render 'shared/home_coffrets' %>
+<%= render 'shared/home_presta' %>

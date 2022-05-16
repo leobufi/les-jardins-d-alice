@@ -1,0 +1,27 @@
+<% if Product.where.not(discount: nil) %>
+  <div id="promo" class="banner-items">
+    <div class="banner-items-title">
+      <h2>Les promotions du moment</h2>
+    </div>
+    <div class="banner-category">
+      <% @products.where.not(discount: nil).each do |product| %>
+        <div class="banner-category-card" data-controller="hover-images">
+            <%= link_to product_path(product) do %>
+            <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
+              <h3><%= product.title %></h3>
+              <h3> - <%= product.discount %>%</h3>
+              <span><strong> <%= product.price_with_discount %> <%= product.price_currency %></strong> au lieu de <%= product.price %>  <%= product.price_currency %></span>
+            </div>
+            <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
+              <% if product.main_photo.attached? %>
+                <%= cl_image_tag product.main_photo.key %>
+              <% else %>
+                <%= image_tag "SVG/Leafs.svg" %>
+              <% end %>
+            </div>
+            <% end %>
+        </div>
+      <% end  %>
+    </div>
+  </div>
+<% end %>

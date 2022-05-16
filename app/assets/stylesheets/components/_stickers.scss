@@ -1,12 +1,11 @@
 .sticker-title {
   width: 32%;
   margin-left: 5%;
-  padding: 12px;
+  padding: 8px 12px;
   color: white;
-  border-top: rgb(231, 231, 231) 2px solid;
-  border-right: rgb(231, 231, 231) 2px solid;
-  border-top-right-radius: 100px;
-  background-color: cornflowerblue;
+  border-left: black 3px solid;
+  border-top-right-radius: 75px;
+  background-color: black;
   z-index: 1000;
 
   &.prestations {
@@ -19,11 +18,23 @@
   top: 0;
   right: 0;
   text-align: right;
-  width: 12%;
-  padding: 12px;
+  padding: 4px;
+  padding-left: 24px;
   color: white;
-  border-bottom: rgb(231, 231, 231) 2px solid;
   border-bottom-left-radius: 100px;
-  background-color: cornflowerblue;
+  background-color: $main-color;
+  font-family: "Junicode bold italic";
+}
+
+.sticker-promo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  padding: 4px;
+  padding-left: 24px;
+  color: white;
+  border-bottom-left-radius: 100px;
+  background-color: $main-color;
   font-family: "Junicode bold italic";
 }
