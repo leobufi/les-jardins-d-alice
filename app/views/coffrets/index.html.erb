@@ -24,7 +24,7 @@
         <div class="coffret-infos">
           <p><%= coffret.description %></p>
           <div class="details">
-            <h4>Prix : <strong><%= coffret.price %> <%= coffret.price_currency %></strong>.</h4>
+            <h4><%= coffret.price %> <%= coffret.price_currency %></h4>
             <%= link_to line_items_path(coffret_id: coffret.id), method: :post do %>
                   <button>Ajouter au panier</button>
             <% end %>

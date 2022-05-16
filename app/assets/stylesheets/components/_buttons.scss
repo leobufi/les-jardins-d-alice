@@ -1,13 +1,13 @@
 button {
   border: black solid 1px;
-  border-radius: 5px;
-  background-color: cornflowerblue;
+  // border-radius: 5px;
+  background-color: $complementary-color;
   font-size: 1.2em;
   padding: 4px 8px;
   margin: 4px 0px;
 
   &:hover {
-    background-color: rgb(231, 231, 231);
+    background-color: $light-gray;
     text-decoration: underline;
   }
 

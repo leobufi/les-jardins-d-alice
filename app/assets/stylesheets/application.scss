@@ -13,24 +13,27 @@
 @import "actiontext";
 
 body {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
+  background-attachment: fixed;
   font-family: 'Junicode';
-  background-color: white;
+  background-color: $light-gray;
   background-image: url(SVG/Wallpaper2.svg);
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
   background-blend-mode: overlay;
   font-size: 1.1em;
+  z-index: -100000;
 }
 
-h1, h2, h3, h4, h5 {
+h2 {
+  font-family: "Junicode bold italic";
+}
+
+h3, h4, h5 {
   font-family: "Junicode bold";
 }
 
 h1 {
-  font-size: 5em;
+  font-family: "Junicode bold";
+  font-size: 4em;
 }
 
 a {
@@ -44,5 +47,5 @@ a {
 }
 
 .product-image {
-  background-color: rgb(231, 231, 231);
+  background-color: white;
 }

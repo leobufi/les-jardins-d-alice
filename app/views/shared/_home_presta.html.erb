@@ -1,0 +1,29 @@
+<div class="banner-items">
+  <div class="banner-items-title">
+    <h3>Prestations</h3>
+  </div>
+  <div class="banner-category">
+    <% @prestations.each do |p| %>
+      <div class="banner-category-card" data-controller="hover-images">
+        <%= link_to prestation_categories_path do %>
+          <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
+            <h3><%= p.title %></h3>
+            <span><%= p.dates %></span>
+          </div>
+          <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
+            <% if p.main_photo.attached? %>
+              <%= cl_image_tag p.main_photo.key %>
+            <% else %>
+              <%= image_tag "SVG/Leafs.svg" %>
+            <% end %>
+          </div>
+        <% end  %>
+      </div>
+    <% end  %>
+  </div>
+  <%= link_to prestation_categories_path do %>
+  <div class="banner-items-link">
+    <h3>Voir toutes mes prestations</h3>
+  </div>
+  <% end %>
+</div>

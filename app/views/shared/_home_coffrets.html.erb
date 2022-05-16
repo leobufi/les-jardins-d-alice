@@ -1,0 +1,28 @@
+<div class="banner-items">
+  <div class="banner-items-title">
+    <h3>Coffrets</h3>
+  </div>
+  <div class="banner-category">
+    <% @coffrets.each do |c| %>
+      <div class="banner-category-card" data-controller="hover-images">
+        <%= link_to coffrets_path do %>
+          <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
+            <h3><%= c.title %></h3>
+          </div>
+          <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
+            <% if c.main_photo.attached? %>
+              <%= cl_image_tag c.main_photo.key %>
+            <% else %>
+              <%= image_tag "SVG/Leafs.svg" %>
+            <% end %>
+          </div>
+        <% end  %>
+      </div>
+    <% end  %>
+  </div>
+  <%= link_to coffrets_path do %>
+  <div class="banner-items-link">
+    <h3>Voir tout mes coffrets</h3>
+  </div>
+  <% end %>
+</div>

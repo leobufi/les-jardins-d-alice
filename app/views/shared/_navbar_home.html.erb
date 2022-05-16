@@ -3,7 +3,7 @@
       <% @rayons.each do |rayon| %>
         <div class="dropdown">
           <div class="drop">
-            <span><%= rayon.title %></span>
+            <%= link_to "#{rayon.title}", rayon_path(rayon) %>
           </div>
           <div class="dropdown-content">
             <% rayon.categories.each do |category| %>
@@ -14,7 +14,7 @@
       <% end %>
       <div class="dropdown">
         <div class="drop">
-          <span>Coffrets</span>
+          <%= link_to "Coffrets", coffrets_path %>
         </div>
         <div class="dropdown-content">
           <% @coffrets.each do |coffret| %>
@@ -24,7 +24,7 @@
       </div>
       <div class="dropdown">
         <div class="drop">
-          <span>Prestations</span>
+          <%= link_to "Prestations", prestation_categories_path %>
         </div>
         <div class="dropdown-content">
           <% @prestation_categories.each do |prestation| %>
@@ -34,7 +34,7 @@
       </div>
       <div class="dropdown">
         <div class="drop">
-          <span>Les Jardins</span>
+          <%= link_to "Les Jardins", jardins_path %>
         </div>
         <div class="dropdown-content">
           <% @jardins.each do |jardin| %>
@@ -44,7 +44,7 @@
       </div>
       <div class="dropdown">
         <div class="drop">
-          <span>Blog</span>
+          <%= link_to "Blog", articles_path %>
         </div>
         <div class="dropdown-content">
             <%= link_to "Blog", articles_path, class: "dropdown-item" %>
