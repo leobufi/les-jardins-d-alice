@@ -13,14 +13,14 @@
 @import "actiontext";
 
 body {
-  background-attachment: fixed;
+  font-size: 1.1em;
+  z-index: +10000;
   font-family: 'Junicode';
+  background-attachment: fixed;
   background-color: $light-gray;
   background-image: url(SVG/Wallpaper2.svg);
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.5);
   background-blend-mode: overlay;
-  font-size: 1.1em;
-  z-index: -100000;
 }
 
 h2 {

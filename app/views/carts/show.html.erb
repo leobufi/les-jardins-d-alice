@@ -1,7 +1,7 @@
 <div class="title">
   <h1>Votre panier</h1>
 </div>
-<% @cart.line_items.each do |line_item| %>
+<% @cart.line_items.sort.each do |line_item| %>
   <div class="line-items">
     <% if line_item.product_id %>
       <div class="product-image">
@@ -23,13 +23,13 @@
       </div>
       <div class="cart-buttons">
         <button>
-          <%= link_to "+1", line_item_add_path(id: line_item), method: :post %>
+          <%= link_to "+1", line_item_add_path(id: line_item), method: :post, remote: true %>
         </button>
         <button>
-          <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post %>
+          <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post, remote: true %>
         </button>
         <button>
-          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete %>
+          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete, remote: true %>
         </button>
       </div>
     <% elsif line_item.coffret_id %>
@@ -48,13 +48,13 @@
       </div>
       <div class="cart-buttons">
         <button>
-          <%= link_to "+1", line_item_add_path(id: line_item), method: :post %>
+          <%= link_to "+1", line_item_add_path(id: line_item), method: :post, remote: true %>
         </button>
         <button>
-          <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post %>
+          <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post, remote: true %>
         </button>
         <button>
-          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete %>
+          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete, remote: true %>
         </button>
       </div>
     <% end  %>

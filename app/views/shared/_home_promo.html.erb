@@ -3,7 +3,7 @@
     <div class="banner-items-title">
       <h2>Les promotions du moment</h2>
     </div>
-    <div class="banner-category">
+    <section class="banner-category">
       <% @products.where.not(discount: nil).each do |product| %>
         <div class="banner-category-card" data-controller="hover-images">
             <%= link_to product_path(product) do %>
@@ -21,7 +21,7 @@
             </div>
             <% end %>
         </div>
-      <% end  %>
-    </div>
+      <% end %>
+    </section>
   </div>
 <% end %>

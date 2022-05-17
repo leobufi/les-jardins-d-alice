@@ -1,6 +1,6 @@
 .navbar-home {
   position: sticky;
-  top: 0;
+  top: 0px;
   left: 0;
   right: 0;
   z-index: 5000;
@@ -30,6 +30,11 @@
 }
 
 .navbar-top {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5000;
   display: flex;
   justify-content: space-evenly;
   background-color: white;
@@ -107,7 +112,7 @@
   padding: 0px;
   font-size: 20px;
   position: sticky;
-  top: 79px;
+  top: 83px;
   left: 0;
   right: 0;
   z-index: 4000;

@@ -32,6 +32,7 @@ class LineItemsController < ApplicationController
 
     @line_item.save
     redirect_to cart_path(current_cart)
+    # flash[:notice] = "Produit ajouté à votre panier."
   end
 
   def destroy

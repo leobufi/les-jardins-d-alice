@@ -1,4 +1,4 @@
-<div class="banner-logo">
+<div class="banner-logo" data-controller="disappear-home" data-action="scroll@window->disappear-home#disappear">
   <%= image_tag "SVG/Banner_logo.svg" %>
 </div>
 <%= render 'shared/navbar_home' %>
@@ -8,7 +8,7 @@
     <div class="overlay-2">
       <div class="overlay-1">
         <div class="jardin-button">
-          <h3>Découvrez les Jardins d'Alice !</h3>
+          <h3>Découvrir les Jardins d'Alice</h3>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
   <div class="banner-image" style="background-image: url(grange.jpg)">
     <%= link_to jardins_path do %>
     <div class="jardin-button">
-      <button>Découvrez les Jardins d'Alice !</button>
+      <button>Découvrir les Jardins d'Alice</button>
     </div>
     <% end %>
     <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
