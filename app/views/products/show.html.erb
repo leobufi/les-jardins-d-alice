@@ -18,15 +18,14 @@
           <br>
           <span>Quantité : <strong><%= @product.quantity %></strong>.</span>
           <br>
-          <span>Prix : <strong><%= @product.price %> <%= @product.price_currency %></strong>.</span>
+          <br>
+          <h4><%= @product.price %> <%= @product.price_currency %></h4>
         </div>
-        <button>
+        <div class="cart-add">
           <%= link_to line_items_path(product_id: @product.id), method: :post do %>
-            <div class="cart-add">
-              <span>Ajouter au panier</span>
-            </div>
+              <button>Ajouter au panier <%= image_tag "SVG/panier.svg" %></button>
           <% end %>
-        </button>
+        </div>
       </div>
     </div>
   </div>

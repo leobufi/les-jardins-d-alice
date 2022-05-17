@@ -3,7 +3,7 @@
   <h2>Commande #<%= @order.id %> <small></h2>
   <h2><%= @order.state %></span></small></h2>
   <ul class="list-unstyled">
-    <li><strong>Réglement effectué le</strong> <%= @order.created_at.to_date.strftime("%A %e %B %Y") %></li>
+    <li><strong>Réglement effectué le</strong> <%= @order.created_at.to_date.strftime("%d/%m/%Y") %></li>
     <li><strong>Total : </strong> <%= @order.amount %> €</li>
     </li>
   </ul>
