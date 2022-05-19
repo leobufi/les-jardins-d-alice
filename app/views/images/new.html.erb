@@ -5,7 +5,7 @@
   <%= simple_form_for(@image) do |f| %>
     <%= f.input :home_cover, as: :file, label: "Photo de couverture de la page d'acceuil  :" %>
     <%= f.input :jardin_cover, as: :file, label: "Photo de couverture de la page Jardin :" %>
-    <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Galerie d'images de la page prestation :" %>
+    <%= f.input :prestation_galeries, as: :file, input_html: { multiple: true }, label: "Galerie d'images de la page prestation :" %>
     <hr>
     <button>
       <%= f.button :submit, "Mettre en ligne" %>

@@ -2,19 +2,19 @@
   <% if current_user.admin? %>
   <h4>Modifier l'image</h4>
   <br>
-  <%= simple_form_for(@image) do |f| %>
-    <% if @image.home? %>
-      <%= f.input :home_cover, as: :file, label: "Photo de couverture de la page d'acceuil  :" %>
-    <% elsif @image.jardin? %>
-      <%= f.input :jardin_cover, as: :file, label: "Photo de couverture de la page Jardin :" %>
-    <% elsif @image.prestation? %>
-      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Galerie d'images de la page prestation :" %>
+    <%= simple_form_for(@image) do |f| %>
+      <% if @image.home? %>
+        <%= f.input :home_cover, as: :file, label: "Photo de couverture de la page d'acceuil  :" %>
+      <% elsif @image.jardin? %>
+        <%= f.input :jardin_cover, as: :file, label: "Photo de couverture de la page Jardin :" %>
+      <% elsif @image.prestation? %>
+        <%= f.input :prestation_galeries, as: :file, input_html: { multiple: true }, label: "Galerie d'images de la page prestation :" %>
+      <% end %>
+      <hr>
+      <button>
+        <%= f.button :submit, "Mettre en ligne" %>
+      </button>
     <% end %>
-    <hr>
-    <button>
-      <%= f.button :submit, "Mettre en ligne" %>
-    </button>
-  <% end %>
   <% else %>
       <p>Vous n'êtes pas autorisé à consulter cette page.</p>
   <% end  %>

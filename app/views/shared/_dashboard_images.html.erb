@@ -36,9 +36,9 @@
     <h4>Galerie d'images de la page prestation :</h4>
     <div class="small-dash-container">
       <div class="main-photo">
-        <% if image.prestation_galery.attached? %>
-          <% image.first.prestation_galery.each do |img| %>
-            <%= cl_image_tag.img.key %>
+        <% if image.prestation_galeries.attached? %>
+          <% image.prestation_galeries.each do |img| %>
+            <%= cl_image_tag img.key %>
           <% end %>
         <% else %>
           <%= image_tag "SVG/Logo 1.svg" %>

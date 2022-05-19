@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!, :current_cart, :initializer
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :admin])
+  end
+
   def initializer
     @rayons = Rayon.all
     @coffrets = Coffret.all

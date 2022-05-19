@@ -5,6 +5,7 @@
   <button>
     <%= link_to 'Créer un nouvel article de blog', new_article_path %>
   </button>
+  <br>
   <h3>Mes articles</h3>
   <% @articles.reverse.each do |article| %>
     <div class="small-dash-container">
