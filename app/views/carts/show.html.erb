@@ -22,12 +22,15 @@
         <h5>Prix total : <%= (line_item.total_price) %> <%= (line_item.product.price_currency) %>.</h5>
       </div>
       <div class="cart-buttons">
-        <button>
-          <%= link_to "+1", line_item_add_path(id: line_item), method: :post, remote: true %>
-        </button>
-        <button>
-          <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post, remote: true %>
-        </button>
+        <div class="add-reduce-buttons">
+          <%= link_to line_item_add_path(id: line_item), method: :post, remote: true do %>
+          <span>+</span>
+          <% end %>
+          <span class="quantity"><%= line_item.quantity %></span>
+          <%= link_to line_item_reduce_path(id: line_item), method: :post, remote: true do %>
+          <span>-</span>
+          <% end %>
+        </div>
         <button>
           <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete, remote: true %>
         </button>
@@ -47,12 +50,15 @@
         <h5>Prix total : <%= (line_item.total_price) %> <%= (line_item.coffret.price_currency) %></h5>
       </div>
       <div class="cart-buttons">
-        <button>
-          <%= link_to "+1", line_item_add_path(id: line_item), method: :post, remote: true %>
-        </button>
-        <button>
-          <%= link_to "-1", line_item_reduce_path(id: line_item), method: :post, remote: true %>
-        </button>
+        <div class="add-reduce-buttons">
+          <%= link_to line_item_add_path(id: line_item), method: :post, remote: true do %>
+          <span>+</span>
+          <% end %>
+          <span class="quantity"><%= line_item.quantity %></span>
+          <%= link_to line_item_reduce_path(id: line_item), method: :post, remote: true do %>
+          <span>-</span>
+          <% end %>
+        </div>
         <button>
           <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete, remote: true %>
         </button>

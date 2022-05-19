@@ -26,14 +26,14 @@
     padding: 0 32px;
     display: flex;
     flex-direction: column;
-    // align-content: stretch;
+    justify-content: space-between;
   }
 
   .cart-buttons {
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
-    align-content: space-between;
+    justify-content: space-between;
   }
 
 }
@@ -54,4 +54,39 @@
   padding: 24px;
   margin-bottom: 24px;
   text-align: center;
+}
+
+.add-reduce-buttons {
+  border: solid 1px black;
+  display: flex;
+  justify-content: space-around;
+  background-color: $complementary-color;
+  font-family: "Junicode-bold";
+  font-size: 1.2em;
+
+  .quantity {
+    background-color: $main-color;
+    border-left: solid 1px black;
+    border-right: solid 1px black;
+
+  }
+
+  a {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+
+  span {
+    padding: 6px;
+    flex: 1 1 0;
+    text-align: center;
+    align-items: center;
+  }
 }
