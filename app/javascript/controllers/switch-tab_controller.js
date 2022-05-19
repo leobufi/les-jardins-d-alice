@@ -12,8 +12,9 @@ export default class extends Controller {
     event.preventDefault();
 
     this.tabTargets.forEach((tab) => {
+
+      // console.log(tab.dataset.tabName);
       if (tab.dataset.tabName == event.currentTarget.dataset.tabName) {
-        // console.log('Hi');
         tab.classList.add("active")
       } else {
         tab.classList.remove("active")
@@ -22,7 +23,7 @@ export default class extends Controller {
 
     this.contentTargets.forEach((content) => {
       if (content.dataset.tabName == event.currentTarget.dataset.tabName) {
-        // console.log(event.currentTarget.dataset.tabName);
+        console.log(event.currentTarget.dataset.tabName);
         content.classList.remove("d-none")
       } else {
         content.classList.add("d-none")

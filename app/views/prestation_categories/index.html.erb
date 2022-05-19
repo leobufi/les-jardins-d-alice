@@ -8,7 +8,7 @@
     <h1>Prestations</h1>
   </div>
   <% @prestations.each do |prestation| %>
-  <div class="" data-switch-tab-target="content" data-tab-name="<%= prestation.prestation_category.title %>">
+  <div id="<%= prestation.prestation_category.title %>" class="" data-switch-tab-target="content" data-tab-name="<%= prestation.prestation_category.title %>">
     <div class="sticker-title prestations">
       <h2><%= prestation.title %></h2>
     </div>
