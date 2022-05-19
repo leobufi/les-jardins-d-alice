@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :jardins
   resources :images
 
-  resources :rayons
+  resources :rayons, path: 'categories'
   resources :categories
   resources :products
   resources :orders do

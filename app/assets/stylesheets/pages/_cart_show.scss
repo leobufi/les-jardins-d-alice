@@ -58,6 +58,7 @@
 
 .add-reduce-buttons {
   border: solid 1px black;
+  border-radius: 50px;
   display: flex;
   justify-content: space-around;
   background-color: $complementary-color;
@@ -79,7 +80,8 @@
     align-items: center;
 
     &:hover {
-      background-color: $light-gray;
+      color: $light-gray;
+      font-family: "Junicode-bold-condensed" ;
     }
   }
 

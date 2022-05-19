@@ -12,9 +12,9 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
     @image.user = current_user
-    if current_user.admin?
-      @image.save
+    if current_user.admin? && @image.save
       redirect_to dashboard_path
+      raise
     else
       render :new
     end
@@ -43,7 +43,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:user_id, :home_cover, :jardin_cover, prestation_galery: [])
+    params.require(:image).permit(:user_id, :home_cover, :jardin_cover, prestation_galeries: [])
   end
 
 end
