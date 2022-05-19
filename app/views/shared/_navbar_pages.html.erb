@@ -9,12 +9,14 @@
       <%= link_to "Panier (#{@current_cart.line_items.count})", cart_path(@current_cart) %>
     </div>
   </div>
-  <div class="navbar">
+  <div class="navbar" data-controller="active-nav">
       <% @rayons.each do |rayon| %>
-        <div class="dropdown">
+        <div id="rayons/<%= rayon.id %>" class="dropdown" data-active-nav-target="title">
+          <%= link_to rayon_path(rayon) do %>
           <div class="drop">
-            <%= link_to "#{rayon.title}", rayon_path(rayon) %>
+            <span> <%= rayon.title %></span>
           </div>
+          <% end %>
           <div class="dropdown-content">
             <% rayon.categories.each do |category| %>
               <%= link_to "#{category.title}", rayon_path(rayon), class: "dropdown-item" %>
@@ -22,40 +24,48 @@
           </div>
         </div>
       <% end %>
-      <div class="dropdown">
+      <div id="coffrets" class="dropdown" data-active-nav-target="title">
+        <%= link_to coffrets_path do %>
         <div class="drop">
-          <%= link_to "Coffrets", coffrets_path %>
+          <span>Coffrets</span>
         </div>
-        <div class="dropdown-content">
+        <% end %>
+        <div class="dropdown-content" data-controller="switch-tab">
           <% @coffrets.each do |coffret| %>
-            <%= link_to "#{coffret.title}", coffrets_path, class: "dropdown-item" %>
+            <%= link_to "#{coffret.title}", coffrets_path, class: "dropdown-item"%>
           <% end  %>
         </div>
       </div>
-      <div class="dropdown">
+      <div id="prestation_categories" class="dropdown" data-active-nav-target="title">
+        <%= link_to prestation_categories_path do %>
         <div class="drop">
-          <%= link_to "Prestations", prestation_categories_path %>
+          <span>Prestations</span>
         </div>
+        <% end %>
         <div class="dropdown-content">
           <% @prestation_categories.each do |prestation| %>
-            <%= link_to "#{prestation.title}", prestation_categories_path, class: "dropdown-item" %>
+            <%= link_to "#{prestation.title}", prestation_categories_path(anchor: "#{prestation.title}"), class: "dropdown-item" %>
           <% end  %>
         </div>
       </div>
-      <div class="dropdown">
+      <div id="jardins" class="dropdown" data-active-nav-target="title">
+        <%= link_to jardins_path do %>
         <div class="drop">
-          <%= link_to "Les Jardins", jardins_path %>
+          <span>Les Jardins</span>
         </div>
+        <% end %>
         <div class="dropdown-content">
           <% @jardins.each do |jardin| %>
-            <%= link_to "#{jardin.title}", jardins_path, class: "dropdown-item" %>
+            <%= link_to "#{jardin.title}", jardins_path(anchor: "#{jardin.title}"), class: "dropdown-item" %>
           <% end  %>
         </div>
       </div>
-      <div class="dropdown">
+      <div id="articles" class="dropdown" data-active-nav-target="title">
+        <%= link_to articles_path do %>
         <div class="drop">
-          <%= link_to "Blog", articles_path %>
+          <span>Blog</span>
         </div>
+        <% end %>
         <div class="dropdown-content">
             <%= link_to "Blog", articles_path, class: "dropdown-item" %>
         </div>

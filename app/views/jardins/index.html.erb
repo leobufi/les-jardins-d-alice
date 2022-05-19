@@ -8,7 +8,7 @@
   </div>
 <% end %>
 <% @jardins.each do |jardin| %>
-  <div class="jardins-boxes">
+  <div id="<%= jardin.title %>" class="jardins-boxes">
     <h4><%= jardin.title %></h4>
     <span><%= jardin.description %></span>
     <div class="jardin-photos">

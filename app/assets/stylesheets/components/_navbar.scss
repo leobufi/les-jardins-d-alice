@@ -73,6 +73,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
+  top: 37px;
   background-color: white;
   border: black 1px solid;
   min-width: 101%;
@@ -81,7 +82,6 @@
   margin-top: 5px;
   margin-left: -6px;
   font-weight: 300;
-
 }
 
 /* Links inside the dropdown */
@@ -112,7 +112,7 @@
   padding: 0px;
   font-size: 20px;
   position: sticky;
-  top: 83px;
+  top: 82px;
   left: 0;
   right: 0;
   z-index: 4000;
@@ -129,6 +129,22 @@
 .active {
   background-color: black;
   color: white;
+
+  .dropdown-content a {
+    color: black;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  a {
+    color: white;
+
+    &:hover {
+      color: white;
+    }
+  }
 
   &:hover {
     color: white;

@@ -18,7 +18,7 @@
         </div>
         <div class="dropdown-content">
           <% @coffrets.each do |coffret| %>
-            <%= link_to "#{coffret.title}", coffrets_path, class: "dropdown-item" %>
+            <%= link_to "#{coffret.title}", coffrets_path(anchor: "#{coffret.title}"), class: "dropdown-item" %>
           <% end  %>
         </div>
       </div>
@@ -28,7 +28,7 @@
         </div>
         <div class="dropdown-content">
           <% @prestation_categories.each do |prestation| %>
-            <%= link_to "#{prestation.title}", prestation_categories_path, class: "dropdown-item" %>
+            <%= link_to "#{prestation.title}", prestation_categories_path(anchor: "#{prestation.title}"), class: "dropdown-item" %>
           <% end  %>
         </div>
       </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="dropdown-content">
           <% @jardins.each do |jardin| %>
-            <%= link_to "#{jardin.title}", jardins_path, class: "dropdown-item" %>
+            <%= link_to "#{jardin.title}", jardins_path(anchor: "#{jardin.title}"), class: "dropdown-item" %>
           <% end  %>
         </div>
       </div>
