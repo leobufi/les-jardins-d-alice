@@ -3,17 +3,21 @@
     <div class="title">
       <h1>Blog</h1>
     </div>
+    <% if @articles.empty?%>
+    <div class="articles">
+      <p>Blog en construction.</p>
+    </div>
+    <% else %>
     <% @articles.each do |article| %>
       <div class="articles">
         <h3><%= article.title %></h3>
-        <p><%= sanitize("#{article.content}".truncate(150)) %></p>
-        <span><%= link_to 'Lire plus...', article_path(article) %></span>
-        <br>
+        <p><%= sanitize("#{article.content}".truncate(150)) %><%= link_to 'Lire plus...', article_path(article) %></p>
         <span>Publié le <%= article.date.strftime("%d/%m/%Y") %>.</span>
       </div>
     <% end  %>
+    <% end %>
   </div>
   <div class="instagram-feed">
-    <h3>Instagram feed</h3>
+    <h3>Instagram</h3>
   </div>
 </div>

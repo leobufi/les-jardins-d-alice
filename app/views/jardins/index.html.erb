@@ -9,23 +9,34 @@
 <% end %>
 <% @jardins.each do |jardin| %>
   <div id="<%= jardin.title %>" class="jardins-boxes">
-    <h4><%= jardin.title %></h4>
-    <span><%= jardin.description %></span>
-    <div class="jardin-photos">
-      <% if jardin.main_photo.attached? %>
-        <%= cl_image_tag jardin.main_photo.key %>
-      <% else %>
-        <%= image_tag "SVG/Leafs.svg" %>
-      <% end %>
-    </div>
-    <div class="jardin-photos">
-      <% if jardin.photos_url.attached? %>
-        <%= jardin.photos_url.each do |photo| %>
-          <%= cl_image_tag photo.key %>
-        <% end  %>
-      <% else %>
-        <%= image_tag "SVG/Leafs.svg" %>
-      <% end %>
+    <div class="swiper" data-controller="carousel">
+      <div class="swiper-wrapper">
+        <% if jardin.main_photo.attached? %>
+        <div class="jardin-slider swiper-slide" style="background-image: url( <%= cl_image_path jardin.main_photo.key, crop: :fill %> )">
+          <h2><%= jardin.title %></h2>
+        </div>
+        <% else %>
+        <div class="jardin-slider swiper-slide" style="background-image: url(grange.jpg)">
+          <h2><%= jardin.title %></h2>
+        </div>
+        <% end %>
+        <div class="jardin-slider swiper-slide">
+          <p><%= jardin.description %></p>
+        </div>
+        <% if jardin.photos_url.attached? %>
+          <% jardin.photos_url.each do |photo| %>
+          <div class="jardin-slider swiper-slide">
+            <%= cl_image_tag photo.key %>
+          </div>
+          <% end  %>
+        <% else %>
+          <div class="jardin-slider swiper-slide">
+            <%= image_tag "SVG/Logo 1.svg" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </div>
 <% end %>

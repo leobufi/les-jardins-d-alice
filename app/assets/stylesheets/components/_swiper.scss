@@ -1,0 +1,40 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+
+}
+
+.swiper-button-next {
+  background-image: url(SVG/Hand/Hand_right.svg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  width: 9%;
+  margin-right: 16px;
+}
+
+.swiper-button-next::after {
+  display: none;
+}
+
+.swiper-button-prev {
+  background-image: url(SVG/Hand/Hand_left.svg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  width: 9%;
+  margin-left: 16px;
+}
+
+.swiper-button-prev::after {
+  display: none;
+}
+
+.swiper-pagination{
+  color: white;
+  margin-bottom: 8px;
+}
+
+.swiper-pagination-bullet-active{
+  background: white;
+}

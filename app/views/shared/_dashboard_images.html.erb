@@ -2,6 +2,7 @@
   <div class="dashboard-title">
     <h2>Images</h2>
   </div>
+  <br>
   <% @images.where(home: true).each do |image| %>
     <h4>Photo de couverture de la page d'acceuil :</h4>
     <div class="small-dash-container">
@@ -17,6 +18,7 @@
       </div>
     </div>
   <% end %>
+  <br>
   <% @images.where(jardin: true).each do |image| %>
     <h4>Photo de couverture de la page Jardin :</h4>
     <div class="small-dash-container">
@@ -32,17 +34,26 @@
       </div>
     </div>
   <% end %>
+  <br>
   <% @images.where(prestation: true).each do |image| %>
     <h4>Galerie d'images de la page prestation :</h4>
     <div class="small-dash-container">
-      <div class="main-photo">
-        <% if image.prestation_galeries.attached? %>
-          <% image.prestation_galeries.each do |img| %>
-            <%= cl_image_tag img.key %>
+      <div class="main-photo swiper" data-controller="carousel">
+        <div class="swiper-wrapper">
+          <% if image.prestation_galeries.attached? %>
+            <% image.prestation_galeries.each do |img| %>
+              <div class="swiper-slide">
+                <%= cl_image_tag img.key %>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="swiper-slide">
+              <%= image_tag "SVG/Logo 1.svg" %>
+            </div>
           <% end %>
-        <% else %>
-          <%= image_tag "SVG/Logo 1.svg" %>
-        <% end %>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
       <div class="buttons">
         <button><%= link_to 'Modifier', edit_image_path(image) %></button>

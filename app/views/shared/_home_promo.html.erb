@@ -1,27 +1,43 @@
-<% if Product.where.not(discount: nil) %>
-  <div id="promo" class="banner-items">
-    <div class="banner-items-title">
+<% if Product.where.not(discount: nil).exists? %>
+  <div id="promo" class="banner-promo">
+    <div class="banner-promo-title">
       <h2>Les promotions du moment</h2>
     </div>
-    <section class="banner-category">
-      <% @products.where.not(discount: nil).each do |product| %>
-        <div class="banner-category-card" data-controller="hover-images">
+    <section class="banner-product swiper" data-controller="carousel">
+      <div class="swiper-wrapper">
+        <% @products.where.not(discount: nil).each do |product| %>
+        <div class="banner-product-card swiper-slide">
+          <div class="product-image">
+          <%= link_to product_path(product) do %>
+            <% if product.main_photo.attached? %>
+              <%= cl_image_tag product.main_photo.key %>
+            <% else %>
+              <%= image_tag "SVG/Leafs.svg" %>
+            <% end %>
+          <% end %>
+          </div>
+          <div class="infos">
+            <div class="sticker-banner-promo">Promo de - <%= product.discount %>%</div>
             <%= link_to product_path(product) do %>
-            <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
-              <h3><%= product.title %></h3>
-              <h3> - <%= product.discount %>%</h3>
-              <span><strong> <%= product.price_with_discount %> <%= product.price_currency %></strong> au lieu de <%= product.price %>  <%= product.price_currency %></span>
-            </div>
-            <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
-              <% if product.main_photo.attached? %>
-                <%= cl_image_tag product.main_photo.key %>
-              <% else %>
-                <%= image_tag "SVG/Leafs.svg" %>
+            <h2><%= product.title %></h2>
+            <br>
+            <p><%= product.description %></p>
+            <br>
+            <h4><span style="text-decoration: line-through"><%= product.price %></span>
+            <%= product.price_with_discount %> <%= product.price_currency %></h4>
+            <div class="cart-add">
+              <%= link_to line_items_path(product_id: product.id), method: :post do %>
+                  <button>Ajouter au panier <%= image_tag "SVG/panier.svg" %></button>
               <% end %>
             </div>
             <% end %>
+          </div>
         </div>
-      <% end %>
+        <% end %>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </section>
   </div>
 <% end %>

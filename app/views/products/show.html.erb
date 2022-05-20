@@ -1,39 +1,62 @@
 <div class="product-container">
-  <div class="product-main">
-    <div class="product-image">
+  <% if @product.discount? %>
+  <div class="sticker-promo">
+    <em>Promo de - <%= @product.discount %>%</em>
+  </div>
+  <% end %>
+  <div class="product-image swiper" data-controller="carousel">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
       <% if @product.main_photo.attached? %>
         <%= cl_image_tag @product.main_photo.key %>
       <% else %>
         <%= image_tag "SVG/Leafs.svg" %>
       <% end %>
     </div>
-    <div class="product-infos">
+    <div class="swiper-slide">
+      <% if @product.photos_url.attached? %>
+        <% @product.photos_url.each do |img| %>
+        <%= cl_image_tag img.key%>
+        <% end %>
+      <% else %>
+        <%= image_tag "SVG/Logo 1.svg" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  </div>
+  <div class="product-infos">
+    <div>
+      <h3><%= @product.title %></h3>
+      <p><%= @product.description %></p>
+    </div>
+    <div class="details">
       <div>
-        <h3><%= @product.title %></h3>
-        <p><%= @product.description %></p>
-      </div>
-      <div class="details">
-        <div>
-          <span>Origine : <strong><%= @product.origin %></strong>.</span>
-          <br>
-          <span>Quantité : <strong><%= @product.quantity %></strong>.</span>
-          <br>
-          <br>
+        <span>Origine : <strong><%= @product.origin %></strong>.</span>
+        <br>
+        <span>Quantité : <strong><%= @product.quantity %></strong>.</span>
+        <br>
+        <br>
+        <% if @product.discount.nil? %>
           <h4><%= @product.price %> <%= @product.price_currency %></h4>
-        </div>
-        <div class="cart-add">
-          <%= link_to line_items_path(product_id: @product.id), method: :post do %>
-              <button>Ajouter au panier <%= image_tag "SVG/panier.svg" %></button>
-          <% end %>
-        </div>
+        <% else %>
+          <h4><span style="text-decoration: line-through"><%= @product.price %></span>
+          <%= @product.price_with_discount %> <%= @product.price_currency %></h4>
+        <% end %>
+      </div>
+      <div class="cart-add">
+        <%= link_to line_items_path(product_id: @product.id), method: :post do %>
+            <button>Ajouter au panier <%= image_tag "SVG/panier.svg" %></button>
+        <% end %>
       </div>
     </div>
   </div>
-    <% if @product.photos_url.attached? %>
-      <div class="photos_url">
-        <%= @product.photos_url.each do |photo| %>
-          <%= cl_image_tag photo.key %>
-        <% end  %>
-    <% end %>
-  </div>
+</div>
+  <% if @product.photos_url.attached? %>
+    <div class="photos_url">
+      <%= @product.photos_url.each do |photo| %>
+        <%= cl_image_tag photo.key %>
+      <% end  %>
+  <% end %>
 </div>
