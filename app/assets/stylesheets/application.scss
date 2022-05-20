@@ -12,6 +12,10 @@
 @import "pages/index";
 @import "actiontext";
 
+html {
+  // scroll-snap-type: block;
+}
+
 body {
   font-size: 1.1em;
   z-index: +10000;
@@ -48,9 +52,4 @@ a {
 
 .product-image {
   background-color: white;
-}
-
-.swiper {
-  width: 600px;
-  height: 300px;
 }

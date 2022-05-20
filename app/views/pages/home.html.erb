@@ -25,7 +25,12 @@
   </div>
 <% end %>
 
-<div class="swiper" data-controller="carousel">
+<%= render 'shared/home_promo' %>
+<%= render 'shared/home_rayon' %>
+<%= render 'shared/home_coffrets' %>
+<%= render 'shared/home_presta' %>
+
+<%# <div class="swiper" data-controller="carousel">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
@@ -43,9 +48,4 @@
 
   <!-- If we need scrollbar -->
   <div class="swiper-scrollbar"></div>
-</div>
-
-<%= render 'shared/home_promo' %>
-<%= render 'shared/home_rayon' %>
-<%= render 'shared/home_coffrets' %>
-<%= render 'shared/home_presta' %>
+</div> %>

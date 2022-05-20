@@ -1,5 +1,6 @@
 .blog {
   display: flex;
+  min-height: 80vh;
 
   .articles-feed {
     flex: 2 1 0;
@@ -35,16 +36,15 @@
 
   .article-photos {
     width: 100%;
+    height: 75vh;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    border: black solid 1px;
 
     .photos {
-      padding: 4px;
 
       img {
         width: 100%;
-        height: 200px;
+        height: 100%;
         object-fit: cover;
       }
     }

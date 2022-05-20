@@ -6,7 +6,7 @@ export default class extends Controller {
     console.log('Hi')
     new Swiper(this.element, {
     // Optional parameters
-      direction: 'vertical',
+      direction: 'horizontal',
       loop: true,
 
       // If we need pagination

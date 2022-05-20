@@ -33,13 +33,17 @@
   <div class="prestation-photos">
     <h3>Les précédentes prestations en photos</h3>
     <% if @images.where(prestation: true).first.prestation_galeries.attached? %>
-      <div class="photos" data-controller="carousel">
-          <%= image_tag "SVG/Hand/Hand_left.svg" %>
-          <% @images.where(prestation: true).first.prestation_galeries.each do |img| %>
-              <div><%= cl_image_tag img.key %></div>
-          <% end %>
-          <%= image_tag "SVG/Hand/Hand_right.svg" %>
+    <div class="photos swiper" data-controller="carousel">
+      <div class="swiper-wrapper">
+        <% @images.where(prestation: true).first.prestation_galeries.each do |img| %>
+          <div class="swiper-slide">
+              <%= cl_image_tag img.key %>
+          </div>
+        <% end %>
       </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
     <% else %>
       <p>Il n'y a pas d'images pour le moment.</p>
     <% end %>
