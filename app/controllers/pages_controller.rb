@@ -22,7 +22,15 @@ class PagesController < ApplicationController
     @images = Image.all
     @image = Image.new
     @users = User.all
-    @orders = Order.all
+    if params[:query].present?
+      @orders = Order.global_search(params[:query])
+    else
+      @orders = Order.all.reverse
+    end
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'list.html', locals: { orders: @orders } }
+    end
   end
 
   def contact

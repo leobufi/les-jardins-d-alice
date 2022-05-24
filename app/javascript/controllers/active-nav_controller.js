@@ -4,8 +4,8 @@ export default class extends Controller {
   static targets = [ "title", "link" ]
 
   connect () {
-    console.log(window.location.href);
-    console.log(this.titleTarget.id);
+    // console.log(window.location.href);
+    // console.log(this.titleTarget.id);
     this.active();
   }
 
@@ -13,7 +13,7 @@ export default class extends Controller {
 
       this.titleTargets.forEach((title) => {
         if (window.location.href.includes(title.id)) {
-          console.log(title)
+          // console.log(title)
           title.classList.add("active")
         }
     });

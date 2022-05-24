@@ -7,4 +7,11 @@ class Order < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
   validates :address, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :first_name, :last_name, :email, :address, :state, :id ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
