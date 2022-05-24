@@ -24,4 +24,8 @@ class PagesController < ApplicationController
     @users = User.all
     @orders = Order.all
   end
+
+  def contact
+    @contact = Contact.new
+  end
 end

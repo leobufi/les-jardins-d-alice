@@ -50,6 +50,17 @@
   </div>
   <div id="contact-form">
     <h3>S'inscrire</h3>
-    <span>Contactez-moi !</span>
+    <br>
+      <%= simple_form_for(@contact) do |f| %>
+        <%= f.input :name, placeholder: "Vos noms et prénoms", label: false %>
+        <%= f.input :email, placeholder: "Votre email", label: false %>
+        <%= f.input :message, placeholder: "Votre message (merci de préciser le nom du stage auquel vous souhaitez participer)", label: false, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'} %>
+        <div class= "d-none">
+          <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+        </div>
+        <button>
+          <%= f.submit 'Envoyer' %>
+        </button>
+      <% end %>
   </div>
 </div>

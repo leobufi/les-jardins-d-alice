@@ -3,6 +3,7 @@ class PrestationCategoriesController < ApplicationController
 
   def index
     @prestation_categories = PrestationCategory.all
+    @contact = Contact.new
   end
 
   def show
