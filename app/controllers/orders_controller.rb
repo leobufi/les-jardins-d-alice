@@ -52,6 +52,8 @@ class OrdersController < ApplicationController
       )
 
     @order.update(checkout_session_id: session.id)
+    OrderMailer.with(order: @order).client_confirmation.deliver_now
+    OrderMailer.with(order: @order).alice_confirmation.deliver_now
     redirect_to new_order_payment_path(@order)
   end
 

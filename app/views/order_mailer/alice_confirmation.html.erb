@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
+      body {
+        font-family: 'Merriweather', serif;
+      }
+
+      h1, h2 {
+      text-align: center;
+      }
+
+      .container {
+        width: 75%;
+        margin: 0 auto;
+        padding: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Salut Alice !</h1>
+      <h2>Une nouvelle commande vient d'être enregistrée sur ton site !</h2>
+      <p>
+        Numéro de la commande : #<%= @order.created_at %>
+        <br>
+        Client : <%= @order.first_name %> <%= @order.last_name %> - <%= @order.email %>.
+        <br>
+        Adresse : <%= @order.address %>.
+      </p>
+      <h3>Récapitulatif de la commande :</h3>
+      <p>
+        <% @order.line_items.each do |line_item| %>
+          <% if line_item.product_id %>
+            <ul>
+              <li><%= line_item.product.title %> x <%= line_item.quantity %></li>
+            </ul>
+          <% elsif line_item.coffret_id %>
+            <ul>
+              <li><%= line_item.coffret.title %> x <%= line_item.quantity %></li>
+            </ul>
+          <% end  %>
+        <% end %>
+      </p>
+      <h5>
+        Total : <strong><%= @order.amount %> €</strong>.
+      </h5>
+    </div>
+  </body>
+</html>
