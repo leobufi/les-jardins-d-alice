@@ -1,41 +1,55 @@
-<div class="dashboard-container">
+<div class="dashboard-container" data-controller="refresh-list">
   <div class="dashboard-title">
     <h2>Commandes</h2>
   </div>
-  <table>
-    <colgroup span="4" class="columns"></colgroup>
-      <tr class= "table-headers">
-        <th>Prénom</th>
-        <th>Nom</th>
-        <th>email</th>
-        <th>Adresse</th>
-        <th>Commande</th>
-        <th>Montant</th>
-        <th>Statut</th>
-        <th>Date</th>
-        <th>Supprimer</th>
-      </tr>
-      <% @orders.reverse.each do |order| %>
-      <tr class="table-line">
-        <th><%= order.first_name %></th>
-        <th><%= order.last_name %></th>
-        <th><%= order.email %></th>
-        <th><%= order.address %></th>
-        <th>
-        <% order.line_items.each do |item| %>
-          <ul>
-          <% if item.product_id %>
-            <li><%= item.product.title %> x <%= item.quantity %></li>
-          <% elsif item.coffret_id %>
-            <li><%= item.coffret.title %> x <%= item.quantity %></li>
+  <div class="search-bar">
+    <%= form_with url: dashboard_path, method: :get, html: { class: 'mb-5', data: { refresh_list_target: 'form' } } do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Recherche une commande par nom, prénom, adresse, numéro...",
+        data: {
+            refresh_list_target: 'searchInput',
+            action: "keyup->refresh-list#update"
+            } %>
+    <% end %>
+  </div>
+  <div data-refresh-list-target="list">
+    <table>
+      <colgroup span="4" class="columns"></colgroup>
+        <tr class= "table-headers">
+          <th>Nom complet</th>
+          <th>email</th>
+          <th>Adresse</th>
+          <th>N°</th>
+          <th>Commande</th>
+          <th>Montant</th>
+          <th>Statut</th>
+          <th>Date</th>
+          <th>Supprimer</th>
+        </tr>
+        <% @orders.each do |order| %>
+        <tr class="table-line">
+          <th><%= order.first_name %> <%= order.last_name %></th>
+          <th><%= order.email %></th>
+          <th><%= order.address %></th>
+          <th><%= order.id %></th>
+          <th>
+          <% order.line_items.each do |item| %>
+            <ul>
+            <% if item.product_id %>
+              <li><%= item.product.title %> x <%= item.quantity %></li>
+            <% elsif item.coffret_id %>
+              <li><%= item.coffret.title %> x <%= item.quantity %></li>
+            <% end %>
+            </ul>
           <% end %>
-          </ul>
+          </th>
+          <th><%= order.amount %> €</th>
+          <th><%= order.state %></th>
+          <th><%= order.created_at.to_date.strftime("%d/%m/%Y") %></th>
+          <th><%= link_to "Supprimer", order_path(order), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></th>
         <% end %>
-        </th>
-        <th><%= order.amount %> €</th>
-        <th><%= order.state %></th>
-        <th><%= order.created_at.to_date.strftime("%d/%m/%Y") %></th>
-        <th><%= link_to "Supprimer", order_path(order), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></th>
-      <% end %>
-  </table>
+    </table>
+  </div>
 </div>
