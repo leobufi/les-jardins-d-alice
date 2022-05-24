@@ -17,19 +17,18 @@ Rails.application.routes.draw do
 
 
   resources :articles
-  resources :prestation_categories
-  resources :prestations
-  resources :jardins
-  resources :images
-
-  resources :rayons, path: 'categories'
-  resources :categories
-  resources :products
+  resources :categories, only: [:create, :edit, :update, :destroy]
+  resources :coffrets, except: :show
+  resources :images, except: :show
+  resources :jardins, except: :show
   resources :orders do
     resources :payments, only: :new
   end
+  resources :prestation_categories, except: :new, path: 'presta'
+  resources :prestations, except: :show
+  resources :products
+  resources :rayons, except: [:index, :new], path: 'classe'
 
-  resources :coffrets
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 

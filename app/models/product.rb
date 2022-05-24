@@ -18,4 +18,8 @@ class Product < ApplicationRecord
     self.price - (self.price / (100.fdiv(self.discount)))
   end
 
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
+
 end
