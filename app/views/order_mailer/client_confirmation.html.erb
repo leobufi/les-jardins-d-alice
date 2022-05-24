@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
+      body {
+        font-family: 'Merriweather', serif;
+      }
+
+      body {
+        font-family: "Junicode";
+      }
+
+      h1 {
+      text-align: center;
+      }
+
+      img {
+        width: 50px;
+        margin: 0px 8px;
+      }
+
+      .container {
+        width: 75%;
+        margin: 0 auto;
+        padding: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Merci pour votre commande <%= @order.first_name %> <%= @order.last_name %> !</h1>
+      <p>
+        Votre commande a bien été enregistrée au numéro <%= @order.address %>.
+      </p>
+      <h3>Récapitulatif de votre commande :</h3>
+      <p>
+        <% @order.line_items.each do |line_item| %>
+          <% if line_item.product_id %>
+            <ul>
+              <li><%= line_item.product.title %> x <%= line_item.quantity %></li>
+            </ul>
+          <% elsif line_item.coffret_id %>
+            <ul>
+              <li><%= line_item.coffret.title %> x <%= line_item.quantity %></li>
+            </ul>
+          <% end  %>
+        <% end %>
+      </p>
+      <h5>
+        Total : <strong><%= @order.amount %> €</strong>.
+      </h5>
+      <p>Merci et à très vite !</p>
+      <br>
+      <%= image_tag "SVG/Logo 1.svg" %>
+      <em>Alice</em>
+      <br>
+      <br>
+      <em>Pour toute réclammation, merci de me contacter à l'adresse suivante : lesjardinsdalice(at)outlook.fr</em>
+    </div>
+  </body>
+</html>
