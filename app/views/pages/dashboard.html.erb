@@ -1,45 +1,45 @@
 <% if current_user.admin? %>
-<div data-controller="switch-tab">
+<div data-controller="switch-tab scroll">
   <nav class="navbar-small">
-    <a href="" class="active" data-action='click->switch-tab#switch' data-switch-tab-target="tab" data-tab-name="orders">Commandes</a>
-    <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="products">Produits</a>
-    <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="coffrets">Coffrets</a>
-    <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="category">Catégories</a>
-    <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="prestations">Prestations</a>
-    <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="jardins">Jardins</a>
-    <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="articles">Articles</a>
-    <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="images">Images</a>
-    <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="users">Utilisateurs</a>
+    <a href="" class="active" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-tab-name="orders">Commandes</a>
+    <a href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-tab-name="products">Produits</a>
+    <a href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-tab-name="coffrets">Coffrets</a>
+    <a href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-tab-name="category">Catégories</a>
+    <a href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-tab-name="prestations">Prestations</a>
+    <a href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-tab-name="jardins">Jardins</a>
+    <a href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-tab-name="articles">Articles</a>
+    <a href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-tab-name="images">Images</a>
+    <a href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-tab-name="users">Utilisateurs</a>
   </nav>
-<div class="title">
-  <h1>Salut Alice !</h1>
-  <h3>Bienvenue sur ton tableau de bord.</h3>
-</div>
-  <div class="" data-switch-tab-target="content" data-tab-name="orders">
+  <div class="title">
+    <h1>Salut Alice !</h1>
+    <h3 data-scroll-target="title">Bienvenue sur ton tableau de bord.</h3>
+  </div>
+  <div id="orders" class="" data-switch-tab-target="content" data-tab-name="orders">
     <%= render 'shared/dashboard_orders' %>
   </div>
-  <div class="d-none" data-switch-tab-target="content" data-tab-name="products">
+  <div id="products" class="d-none" data-switch-tab-target="content" data-tab-name="products">
     <%= render 'shared/dashboard_products' %>
   </div>
-  <div class="d-none" data-switch-tab-target="content" data-tab-name="coffrets">
+  <div id="coffrets" class="d-none" data-switch-tab-target="content" data-tab-name="coffrets">
     <%= render 'shared/dashboard_coffrets' %>
   </div>
-  <div class="d-none" data-switch-tab-target="content" data-tab-name="category">
+  <div id="category" class="d-none" data-switch-tab-target="content" data-tab-name="category">
     <%= render 'shared/dashboard_category' %>
   </div>
-  <div class="d-none" data-switch-tab-target="content" data-tab-name="prestations">
+  <div id="prestations" class="d-none" data-switch-tab-target="content" data-tab-name="prestations">
     <%= render 'shared/dashboard_prestations' %>
   </div>
-  <div class="d-none" data-switch-tab-target="content" data-tab-name="jardins">
+  <div id="jardins" class="d-none" data-switch-tab-target="content" data-tab-name="jardins">
     <%= render 'shared/dashboard_jardins' %>
   </div>
-  <div class="d-none" data-switch-tab-target="content" data-tab-name="articles">
+  <div id="articles" class="d-none" data-switch-tab-target="content" data-tab-name="articles">
     <%= render 'shared/dashboard_articles' %>
   </div>
-  <div class="d-none" data-switch-tab-target="content" data-tab-name="images">
+  <div id="images" class="d-none" data-switch-tab-target="content" data-tab-name="images">
     <%= render 'shared/dashboard_images' %>
   </div>
-  <div class="d-none" data-switch-tab-target="content" data-tab-name="users">
+  <div id="users" class="d-none" data-switch-tab-target="content" data-tab-name="users">
     <%= render 'shared/dashboard_users' %>
   </div>
 </div>

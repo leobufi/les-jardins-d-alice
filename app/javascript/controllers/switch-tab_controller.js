@@ -1,11 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "tab", "content" ]
+  static targets = [ "tab", "content"]
 
-  // connect () {
-  //   console.log('Hi Léo');
-  // }
+  connect () {
+
+  }
 
   switch(event) {
 
@@ -23,8 +23,8 @@ export default class extends Controller {
 
     this.contentTargets.forEach((content) => {
       if (content.dataset.tabName == event.currentTarget.dataset.tabName) {
-        console.log(event.currentTarget.dataset.tabName);
-        content.classList.remove("d-none")
+        // console.log(content.id);
+        content.classList.remove("d-none");
       } else {
         content.classList.add("d-none")
       }

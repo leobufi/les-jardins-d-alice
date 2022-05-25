@@ -1,7 +1,7 @@
 <div class="product-container">
   <% if @product.discount? %>
   <div class="sticker-promo">
-    <em>Promo de - <%= @product.discount %>%</em>
+    <em>- <%= @product.discount %>%</em>
   </div>
   <% end %>
   <div class="product-image swiper" data-controller="carousel">

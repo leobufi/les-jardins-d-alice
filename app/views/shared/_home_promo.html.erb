@@ -17,7 +17,9 @@
           <% end %>
           </div>
           <div class="infos">
-            <div class="sticker-banner-promo">Promo de - <%= product.discount %>%</div>
+            <div class="sticker-banner-promo">
+              <span>- <%= product.discount %> %</span>
+            </div>
             <%= link_to product_path(product) do %>
             <h2><%= product.title %></h2>
             <br>

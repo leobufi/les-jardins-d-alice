@@ -19,12 +19,12 @@
       <div class="infos">
         <h5><%= article.title %></h5>
         <p><%= sanitize("#{article.content}".truncate(450)) %></p>
-        <span>Publié le <%= article.date.strftime("%A %e %B %Y") %></span>
+        <span>Publié le <%= article.date.strftime("%d/%m/%Y") %></span>
       </div>
       <div class="buttons">
         <button><%= link_to 'Voir', article_path(article) %></button>
         <button><%= link_to 'Éditer', edit_article_path(article) %></button>
-        <button><%= link_to "Supprimer", article_path(article), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+        <button><%= link_to "Supprimer", article_path(article), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
       </div>
     </div>
   <% end %>

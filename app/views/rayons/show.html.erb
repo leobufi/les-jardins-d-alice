@@ -1,14 +1,14 @@
-<div data-controller="switch-tab">
+<div data-controller="switch-tab scroll active-nav">
   <div class="navbar-small">
   <% @rayon.categories.each do |category| %>
-      <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="<%= category.title %>"><%= category.title %></a>
-  <%end %>
+      <a id="<%= I18n.transliterate(category.title.gsub(/\s+/, "")) %>" href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-active-nav-target="tab" data-switch-tab-target="tab" data-tab-name="<%= category.title %>"><%= category.title %></a>
+  <% end %>
   </div>
-  <div class="title">
+  <div class="title" data-scroll-target="title">
     <h1><%= @rayon.title %></h1>
   </div>
   <% @rayon.categories.each do |category| %>
-  <div class="" data-switch-tab-target="content" data-tab-name="<%= category.title %>">
+  <div id="<%= I18n.transliterate(category.title.gsub(/\s+/, "")) %>" class="" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= category.title %>">
     <div class="sticker-title">
       <h2><%= category.title %></h2>
     </div>
@@ -23,7 +23,7 @@
             <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
               <% if product.discount? %>
               <div class="sticker-promo">
-                <em>Promo de - <%= product.discount %>%</em>
+                <em>- <%= product.discount %>%</em>
               </div>
               <% end %>
               <% if product.main_photo.attached? %>
