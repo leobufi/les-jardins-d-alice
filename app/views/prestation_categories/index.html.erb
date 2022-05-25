@@ -1,10 +1,10 @@
-<div data-controller="switch-tab">
+<div data-controller="switch-tab scroll">
   <div class="navbar-small">
   <% @prestations.each do |prestation| %>
-      <a href="" class="" data-action="click->switch-tab#switch" data-switch-tab-target="tab" data-tab-name="<%= prestation.prestation_category.title %>"><%= prestation.prestation_category.title %></a>
+      <a href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-tab-name="<%= prestation.prestation_category.title %>"><%= prestation.prestation_category.title %></a>
   <%end %>
   </div>
-  <div class="title">
+  <div class="title" data-scroll-target="title">
     <h1>Prestations</h1>
   </div>
   <% @prestations.each do |prestation| %>

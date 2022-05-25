@@ -18,10 +18,10 @@
     <table>
       <colgroup span="4" class="columns"></colgroup>
         <tr class= "table-headers">
-          <th>Nom complet</th>
+          <th>N°</th>
+          <th>Nom</th>
           <th>email</th>
           <th>Adresse</th>
-          <th>N°</th>
           <th>Commande</th>
           <th>Montant</th>
           <th>Statut</th>
@@ -30,25 +30,28 @@
         </tr>
         <% @orders.each do |order| %>
         <tr class="table-line">
+          <th><%= order.id %></th>
           <th><%= order.first_name %> <%= order.last_name %></th>
           <th><%= order.email %></th>
           <th><%= order.address %></th>
-          <th><%= order.id %></th>
           <th>
           <% order.line_items.each do |item| %>
-            <ul>
             <% if item.product_id %>
-              <li><%= item.product.title %> x <%= item.quantity %></li>
+              <span><%= item.product.title %> x <%= item.quantity %></span>
             <% elsif item.coffret_id %>
-              <li><%= item.coffret.title %> x <%= item.quantity %></li>
+              <span><%= item.coffret.title %> x <%= item.quantity %></span>
             <% end %>
-            </ul>
+
           <% end %>
           </th>
           <th><%= order.amount %> €</th>
           <th><%= order.state %></th>
           <th><%= order.created_at.to_date.strftime("%d/%m/%Y") %></th>
-          <th><%= link_to "Supprimer", order_path(order), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></th>
+          <th>
+          <%= link_to order_path(order), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } do %>
+            <i class="fa fa-trash-can"></i>
+          <% end %>
+          </th>
         <% end %>
     </table>
   </div>

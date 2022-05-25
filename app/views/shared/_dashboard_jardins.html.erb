@@ -18,7 +18,7 @@
       </div>
       <div class="buttons">
         <button><%= link_to 'Éditer', edit_jardin_path(jardin) %></button>
-        <button><%= link_to "Supprimer", jardin_path(jardin), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+        <button><%= link_to "Supprimer", jardin_path(jardin), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
       </div>
     </div>
   <% end %>

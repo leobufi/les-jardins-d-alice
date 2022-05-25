@@ -11,7 +11,7 @@
       </div>
       <div class="buttons">
       <button><%= link_to 'Éditer', edit_prestation_category_path(prestation) %></button>
-      <button><%= link_to "Supprimer", prestation_category_path(prestation), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+      <button><%= link_to "Supprimer", prestation_category_path(prestation), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
       </div>
     </div>
   <% end %>
@@ -42,7 +42,7 @@
       </div>
       <div class="buttons">
       <button><%= link_to 'Éditer', edit_prestation_path(prestation) %></button>
-      <button><%= link_to "Supprimer", prestation_path(prestation), method: :delete, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+      <button><%= link_to "Supprimer", prestation_path(prestation), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
       </div>
     </div>
   <% end %>

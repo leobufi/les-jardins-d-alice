@@ -14,6 +14,7 @@ class Product < ApplicationRecord
   validates :price_cents, presence: true
   validates :category, presence: true
 
+
   def price_with_discount
     self.price - (self.price / (100.fdiv(self.discount)))
   end

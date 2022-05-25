@@ -23,7 +23,8 @@
   color: white;
   border-bottom-left-radius: 100px;
   background-color: $main-color;
-  font-family: "Junicode bold italic";
+  font-family: "Junicode bold";
+  font-size: 1.1em;
 }
 
 .sticker-promo {
@@ -36,14 +37,14 @@
   color: white;
   border-bottom-left-radius: 100px;
   background-color: $main-color;
-  font-family: "Junicode bold italic";
+  font-family: "Junicode bold";
+  font-size: 1.1em;
 }
 
 .sticker-banner-promo {
   position: absolute;
   top: 0;
   right: 0;
-  width: 50%;
   text-align: right;
   padding: 4px;
   padding-left: 24px;
