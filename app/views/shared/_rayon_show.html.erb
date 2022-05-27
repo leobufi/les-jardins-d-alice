@@ -1,0 +1,53 @@
+<div id="<%= I18n.transliterate(@rayon.title.downcase) %>" class="" data-active-nav-target="partial" data-switch-tab-target="partial">
+<% @rayon.categories.each do |category| %>
+  <div class="sticker-title">
+    <h2><%= category.title %></h2>
+  </div>
+  <div class="category">
+    <div class="category-products">
+      <div class="category-infos">
+        <p><%= category.description %></p>
+      </div>
+      <% category.products.each do |product| %>
+        <div class="products" data-controller="hover-images">
+          <%= link_to product_path(product) do %>
+          <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
+            <% if product.discount? %>
+            <div class="sticker-promo">
+              <em>- <%= product.discount %>%</em>
+            </div>
+            <% end %>
+            <% if product.main_photo.attached? %>
+              <%= cl_image_tag product.main_photo.key %>
+            <% else %>
+              <%= image_tag "SVG/Leafs.svg" %>
+            <% end %>
+          </div>
+          <div class="product-info d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
+            <p><%= product.description %></p>
+            <span><strong>Quantité :</strong> <%= product.quantity %>.</span>
+            <br>
+            <span><strong>Origine :</strong> <%= product.origin %>.</span>
+            <br>
+          </div>
+          <% end %>
+          <%= link_to line_items_path(product_id: product.id), method: :post do %>
+          <div class="cart-add">
+            <div class="cart-add-infos">
+              <h5><%= product.title %></h5>
+              <% if product.discount.nil? %>
+                <span><%= product.price %> <%= product.price_currency %></span>
+              <% else %>
+                <span style="text-decoration: line-through"><%= product.price %></span>
+                <span><%= product.price_with_discount %> <%= product.price_currency %></span>
+              <% end %>
+            </div>
+            <span class="cart-add-button"><%= image_tag "SVG/panier.svg" %></span>
+          </div>
+          <% end %>
+        </div>
+      <% end  %>
+    </div>
+  </div>
+<% end %>
+</div>

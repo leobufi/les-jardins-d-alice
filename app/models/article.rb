@@ -9,4 +9,7 @@ class Article < ApplicationRecord
   has_one_attached :main_photo
   has_many_attached :photos_url
 
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
 end

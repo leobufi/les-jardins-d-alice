@@ -1,15 +1,5 @@
-<div data-controller="switch-tab scroll active-nav">
-  <div class="navbar-small">
-  <% @coffrets.each do |coffret| %>
-      <a id="<%= I18n.transliterate(coffret.title.gsub(/\s+/, "")) %>" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-active-nav-target="tab" data-tab-name="<%= coffret.title %>"><%= coffret.title %></a>
-  <%end %>
-  </div>
-  <div class="title" data-scroll-target="title" data-active-nav-target="scroll">
-    <h1>Coffrets</h1>
-  </div>
-  <%= render 'shared/coffrets_index' %>
-  <% @coffrets.each do |coffret| %>
-  <div id="<%= I18n.transliterate(coffret.title.gsub(/\s+/, "")) %>" class="" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= coffret.title %>">
+<div id="coffrets" class="" data-active-nav-target="partial" data-switch-tab-target="partial">
+<% @coffrets.each do |coffret| %>
     <div class="sticker-title">
       <h2><%= coffret.title %></h2>
     </div>
@@ -52,6 +42,5 @@
         <% end %>
       </div>
     </div>
-  </div>
-  <% end %>
+<% end %>
 </div>

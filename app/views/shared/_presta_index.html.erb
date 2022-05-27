@@ -1,0 +1,23 @@
+<div id="presta" class="" data-active-nav-target="partial" data-switch-tab-target="partial">
+  <% @prestations.each do |prestation| %>
+    <div class="sticker-title prestations">
+      <h2><%= prestation.title %></h2>
+    </div>
+    <div class="prestation">
+      <div class="sticker-presta">
+        <em><%= prestation.prestation_category.title %></em>
+      </div>
+      <p><%= prestation.description %></p>
+      <h5>Dates :</h5>
+      <span><%= prestation.dates %></span>
+      <br>
+      <div class="contact-link">
+        <a href="#contact-form">
+          <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
+          <span>Pour vous inscrire, contactez-moi !</span>
+          <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
+        </a>
+      </div>
+    </div>
+  <% end %>
+</div>
