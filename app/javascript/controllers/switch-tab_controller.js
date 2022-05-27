@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "tab", "content"]
+  static targets = [ "tab", "content", "partial"]
 
   connect () {
 
@@ -25,6 +25,7 @@ export default class extends Controller {
       if (content.dataset.tabName == event.currentTarget.dataset.tabName) {
         // console.log(content.id);
         content.classList.remove("d-none");
+        this.partialTarget.classList.add("visually-hidden")
       } else {
         content.classList.add("d-none")
       }

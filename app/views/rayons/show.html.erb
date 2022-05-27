@@ -4,9 +4,10 @@
       <a id="<%= I18n.transliterate(category.title.gsub(/\s+/, "")) %>" href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-active-nav-target="tab" data-switch-tab-target="tab" data-tab-name="<%= category.title %>"><%= category.title %></a>
   <% end %>
   </div>
-  <div class="title" data-scroll-target="title">
+  <div class="title" data-scroll-target="title" data-active-nav-target="scroll">
     <h1><%= @rayon.title %></h1>
   </div>
+  <%= render 'shared/rayon_show' %>
   <% @rayon.categories.each do |category| %>
   <div id="<%= I18n.transliterate(category.title.gsub(/\s+/, "")) %>" class="" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= category.title %>">
     <div class="sticker-title">
@@ -60,7 +61,6 @@
     </div>
   </div>
   <% end %>
-  </div>
 
   <div class="selling-points">
     <h4>Où trouver ces produits ?</h4>

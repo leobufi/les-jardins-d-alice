@@ -32,7 +32,7 @@
         <% end %>
         <div class="dropdown-content">
           <% @coffrets.each do |coffret| %>
-            <%= link_to "#{coffret.title}", coffrets_path, class: "dropdown-item"%>
+            <%= link_to "#{coffret.title}", coffrets_path(anchor: "#{I18n.transliterate(coffret.title.gsub(/\s+/, ""))}"), class: "dropdown-item"%>
           <% end  %>
         </div>
       </div>
@@ -44,7 +44,7 @@
         <% end %>
         <div class="dropdown-content">
           <% @prestation_categories.each do |prestation| %>
-            <%= link_to "#{prestation.title}", prestation_categories_path(anchor: "#{prestation.title}"), class: "dropdown-item" %>
+            <%= link_to "#{prestation.title}", prestation_categories_path(anchor: "#{I18n.transliterate(prestation.title.gsub(/\s+/, ""))}"), class: "dropdown-item" %>
           <% end  %>
         </div>
       </div>

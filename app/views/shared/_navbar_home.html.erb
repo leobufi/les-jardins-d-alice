@@ -1,51 +1,61 @@
 <div class="navbar-home">
-  <div class="navbar">
+    <div class="navbar">
       <% @rayons.each do |rayon| %>
-        <div class="dropdown">
+        <div id="classe/<%= rayon.id %>-<%= I18n.transliterate(rayon.title.downcase) %>" class="dropdown">
+          <%= link_to rayon_path(rayon) do %>
           <div class="drop">
-            <%= link_to "#{rayon.title}", rayon_path(rayon) %>
+            <span> <%= rayon.title %></span>
           </div>
+          <% end %>
           <div class="dropdown-content">
             <% rayon.categories.each do |category| %>
-              <%= link_to "#{category.title}", rayon_path(rayon), class: "dropdown-item" %>
+              <%= link_to "#{category.title}", rayon_path(rayon, anchor: "#{I18n.transliterate(category.title.gsub(/\s+/, ""))}"), class: "dropdown-item" %>
             <% end  %>
           </div>
         </div>
       <% end %>
-      <div class="dropdown">
+      <div id="coffrets" class="dropdown">
+        <%= link_to coffrets_path do %>
         <div class="drop">
-          <%= link_to "Coffrets", coffrets_path %>
+          <span>Coffrets</span>
         </div>
+        <% end %>
         <div class="dropdown-content">
           <% @coffrets.each do |coffret| %>
-            <%= link_to "#{coffret.title}", coffrets_path(anchor: "#{coffret.title}"), class: "dropdown-item" %>
+            <%= link_to "#{coffret.title}", coffrets_path(anchor: "#{I18n.transliterate(coffret.title.gsub(/\s+/, ""))}"), class: "dropdown-item"%>
           <% end  %>
         </div>
       </div>
-      <div class="dropdown">
+      <div id="presta" class="dropdown">
+        <%= link_to prestation_categories_path do %>
         <div class="drop">
-          <%= link_to "Prestations", prestation_categories_path %>
+          <span>Prestations</span>
         </div>
+        <% end %>
         <div class="dropdown-content">
           <% @prestation_categories.each do |prestation| %>
-            <%= link_to "#{prestation.title}", prestation_categories_path(anchor: "#{prestation.title}"), class: "dropdown-item" %>
+            <%= link_to "#{prestation.title}", prestation_categories_path(anchor: "#{I18n.transliterate(prestation.title.gsub(/\s+/, ""))}"), class: "dropdown-item" %>
           <% end  %>
         </div>
       </div>
-      <div class="dropdown">
+      <div id="jardins" class="dropdown">
+        <%= link_to jardins_path do %>
         <div class="drop">
-          <%= link_to "Les Jardins", jardins_path %>
+          <span>Les Jardins</span>
         </div>
+        <% end %>
         <div class="dropdown-content">
           <% @jardins.each do |jardin| %>
             <%= link_to "#{jardin.title}", jardins_path(anchor: "#{jardin.title}"), class: "dropdown-item" %>
           <% end  %>
         </div>
       </div>
-      <div class="dropdown">
+      <div id="articles" class="dropdown">
+        <%= link_to articles_path do %>
         <div class="drop">
-          <%= link_to "Blog", articles_path %>
+          <span>Blog</span>
         </div>
+        <% end %>
         <div class="dropdown-content">
             <%= link_to "Blog", articles_path, class: "dropdown-item" %>
         </div>
