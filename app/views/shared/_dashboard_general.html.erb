@@ -1,0 +1,121 @@
+<div class="dashboard-container">
+  <div class="dashboard-title">
+    <h2>À propos</h2>
+  </div>
+  <br>
+  <% @about_mes.where(about: true).each do |about_me| %>
+    <h4>À propos :</h4>
+    <div class="small-dash-container">
+      <div class="main-photo">
+        <% if about_me.main_photo.attached? %>
+          <%= cl_image_tag about_me.main_photo.key %>
+        <% else %>
+          <%= image_tag "grange.jpg" %>
+        <% end %>
+      </div>
+      <div class="infos">
+        <p><%= about_me.description %></p>
+      </div>
+      <div class="buttons">
+        <button><%= link_to 'Modifier', edit_about_me_path(about_me) %></button>
+      </div>
+    </div>
+  <% end %>
+  <%# <h4>About Alice</h4>
+  <br>
+  <%= simple_form_for(@about_me) do |f| %>
+      <%#= f.input :description, placeholder: "Description", label: false %>
+      <%#= f.input :main_photo, as: :file, placeholder: "Photo principale", label: "Photo principale" %>
+      <%# <button> %>
+        <%#= f.button :submit, "Publier" %>
+      <%# </button> %>
+  <%# end %>
+</div>
+<div class="dashboard-container">
+  <div class="dashboard-title">
+    <h2>Images</h2>
+  </div>
+  <br>
+  <div class="dashboard-container-images">
+    <% @images.where(home: true).each do |image| %>
+      <div class="small-dash-images-container">
+        <h4>Photo de couverture de la page d'acceuil</h4>
+        <div class="main-photo">
+          <% if image.home_cover.attached? %>
+            <%= cl_image_tag image.home_cover.key %>
+          <% else %>
+            <%= image_tag "grange.jpg" %>
+          <% end %>
+        </div>
+        <div class="buttons">
+          <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+        </div>
+      </div>
+    <% end %>
+    <% @images.where(jardin: true).each do |image| %>
+      <div class="small-dash-images-container">
+        <h4>Photo de couverture de la page Jardin</h4>
+        <div class="main-photo">
+          <% if image.jardin_cover.attached? %>
+            <%= cl_image_tag image.jardin_cover.key %>
+          <% else %>
+            <%= image_tag "Jardins-banner-image.JPG" %>
+          <% end %>
+        </div>
+        <div class="buttons">
+          <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+        </div>
+      </div>
+    <% end %>
+    <% @images.where(prestation: true).each do |image| %>
+      <div class="small-dash-images-container">
+        <h4>Galerie d'images de la page prestation</h4>
+        <div class="main-photo swiper" data-controller="carousel">
+          <div class="swiper-wrapper">
+            <% if image.prestation_galeries.attached? %>
+              <% image.prestation_galeries.each do |img| %>
+                <div class="swiper-slide">
+                  <%= cl_image_tag img.key %>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="swiper-slide">
+                <%= image_tag "SVG/Logo_1.svg" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <div class="buttons">
+          <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+        </div>
+      </div>
+    <% end %>
+    <% @images.where(logos: true).each do |image| %>
+      <div class="small-dash-images-container">
+        <h4>Logos labélisations</h4>
+        <div class="main-photo swiper" data-controller="carousel">
+          <div class="swiper-wrapper">
+            <% if image.logos_img.attached? %>
+              <% image.logos_img.each do |img| %>
+                <div class="swiper-slide">
+                  <%= cl_image_tag img.key %>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="swiper-slide">
+                <%= image_tag "SVG/Logo_1.svg" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <div class="buttons">
+          <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

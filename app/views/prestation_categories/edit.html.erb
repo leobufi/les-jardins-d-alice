@@ -3,6 +3,8 @@
     <h3>Éditer <%= @prestation_category.title %></h3>
       <%= simple_form_for(@prestation_category) do |f| %>
       <%= f.input :title, label: "Nom du type de prestation" %>
+      <%= f.input :description, label: "Description du type de prestation" %>
+      <%= f.input :main_photo, as: :file, placeholder: "Photo principale", label: "Photo principale" %>
       <button>
         <%= f.button :submit, "Mettre à jour" %>
       </button>

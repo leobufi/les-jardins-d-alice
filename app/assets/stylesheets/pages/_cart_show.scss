@@ -49,6 +49,10 @@
 }
 
 .cart-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 80%;
   margin: auto;
   padding: 24px;
@@ -57,16 +61,17 @@
 }
 
 .add-reduce-buttons {
+  width: 50%;
   border: solid 1px black;
-  border-radius: 50px;
+  border-radius: 15px;
   display: flex;
   justify-content: space-around;
-  background-color: $complementary-color;
+  background-color: $light-gray;
   font-family: "Junicode-bold";
   font-size: 1.2em;
 
   .quantity {
-    background-color: $main-color;
+    background-color: $complementary-color;
     border-left: solid 1px black;
     border-right: solid 1px black;
 
@@ -80,7 +85,6 @@
     align-items: center;
 
     &:hover {
-      color: $light-gray;
       font-family: "Junicode-bold-condensed" ;
     }
   }

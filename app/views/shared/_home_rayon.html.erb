@@ -1,29 +1,38 @@
 <% @rayons.each do |rayon| %>
   <div class="banner-items">
     <div class="banner-items-title">
-      <h3><%= rayon.title %></h3>
+      <h2><%= rayon.title %></h2>
     </div>
-    <div class="banner-category">
-      <% rayon.categories.each do |c| %>
-        <div class="banner-category-card" data-controller="hover-images">
-          <%= link_to rayon_path(rayon) do %>
-            <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
-              <h3><%= c.title %></h3>
-            </div>
-            <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
-              <% if c.main_photo.attached? %>
-                <%= cl_image_tag c.main_photo.key %>
-              <% else %>
-                <%= image_tag "SVG/Leafs.svg" %>
-              <% end %>
-            </div>
-          <% end  %>
-        </div>
-      <% end  %>
+    <div class="banner-category swiper" data-controller="carousel">
+      <div class="swiper-wrapper">
+        <% rayon.categories.each do |c| %>
+          <div class="banner-category-card swiper-slide" data-controller="hover-images">
+            <%= link_to rayon_path(rayon, anchor: "#{I18n.transliterate(c.title.gsub(/\s+/, ""))}") do %>
+              <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
+                <p><%= c.description %></p>
+              </div>
+              <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
+                <% if c.main_photo.attached? %>
+                <div class="background" style="background-image: url(<%= cl_image_path c.main_photo.key, :crop=>"fit" %>)">
+                  <h3><%= c.title %></h3>
+                </div>
+                <% else %>
+                <div class="background" style="background-color: rgb(231, 231, 231)">
+                  <h3><%= c.title %></h3>
+                </div>
+                <% end %>
+              </div>
+            <% end  %>
+          </div>
+        <% end  %>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
     <%= link_to rayon_path(rayon) do %>
     <div class="banner-items-link">
-      <h3>Voir tout mes produits</h3>
+      <h3>Voir tout les produits</h3>
     </div>
     <% end %>
   </div>

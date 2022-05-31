@@ -1,10 +1,19 @@
 <div class="navbar-top">
+  <div class="nav-top-links">
+    <a href="https://www.instagram.com/les_jardins_dalice/?hl=fr"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://www.facebook.com/lesjardinsdalice"><i class="fa-brands fa-facebook"></i></a>
+  </div>
   <div class="nav-top-logo">
     <%= link_to root_path do %>
       <%= image_tag "SVG/Banner_logo.svg" %>
     <% end %>
   </div>
+  <%= link_to cart_path(@current_cart) do %>
   <div class="cart">
-    <%= link_to "Panier (#{@current_cart.line_items.count})", cart_path(@current_cart) %>
+    <div class="cart-items">
+      <%= @current_cart.line_items.count %>
+    </div>
+      <%= image_tag 'SVG/panier.svg' %>
   </div>
+  <% end %>
 </div>

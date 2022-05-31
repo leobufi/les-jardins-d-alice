@@ -22,6 +22,8 @@ class PagesController < ApplicationController
     @rayons = Rayon.all
     @rayon = Rayon.new
     @users = User.all
+    @about_me = AboutMe.new
+    @about_mes = AboutMe.all
 
     # // ORDERS \\ #
 

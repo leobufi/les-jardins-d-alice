@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
     @jardins = Jardin.all
     @articles = Article.all
     @images = Image.all
+    @about_mes = AboutMe.all
     @cart = @current_cart
   end
 

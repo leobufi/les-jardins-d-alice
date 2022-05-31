@@ -3,7 +3,7 @@
       <h1>Les Jardins</h1>
   </div>
 <% else %>
-  <div class="title-jardins" style="background-image: url(Jardins-banner-image.JPG)">
+  <div class="title-jardins" style="background-image: url(<%= asset_path('Jardins-banner-image.JPG') %>)">
       <h1>Les Jardins</h1>
   </div>
 <% end %>
@@ -16,7 +16,7 @@
           <h2><%= jardin.title %></h2>
         </div>
         <% else %>
-        <div class="jardin-slider swiper-slide" style="background-image: url(grange.jpg)">
+        <div class="jardin-slider swiper-slide" style="background-image: url(<%= asset_path('grange.jpg') %>)">
           <h2><%= jardin.title %></h2>
         </div>
         <% end %>
@@ -31,7 +31,7 @@
           <% end  %>
         <% else %>
           <div class="jardin-slider swiper-slide">
-            <%= image_tag "SVG/Logo 1.svg" %>
+            <%= image_tag "SVG/Logo_1.svg" %>
           </div>
         <% end %>
       </div>

@@ -2,23 +2,31 @@
   <%= image_tag "SVG/Banner_logo.svg" %>
 </div>
 <%= render 'shared/navbar_home' %>
+<%= link_to cart_path(@current_cart) do %>
+<div class="home-cart">
+    <%= image_tag 'SVG/panier.svg' %>
+  <div class="cart-items">
+    <%= @current_cart.line_items.count %>
+  </div>
+</div>
+<% end %>
 <% if @images.where(home: true).first.home_cover.attached? %>
   <div class="banner-image" style="background-image: url(<%= cl_image_path @images.where(home: true).first.home_cover.key, :crop=>"fit" %>)">
     <%= link_to jardins_path do %>
     <div class="overlay-2">
       <div class="overlay-1">
         <div class="jardin-button">
-          <h3>Découvrir les Jardins d'Alice</h3>
+          <h3>Découvrir les Jardins</h3>
         </div>
       </div>
     </div>
     <% end %>
   </div>
 <% else %>
-  <div class="banner-image" style="background-image: url(grange.jpg)">
+  <div class="banner-image" style="background-image: url(<%= asset_path('grange.jpg') %>)">
     <%= link_to jardins_path do %>
     <div class="jardin-button">
-      <button>Découvrir les Jardins d'Alice</button>
+      <button>Découvrir les Jardins</button>
     </div>
     <% end %>
     <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
@@ -26,9 +34,13 @@
 <% end %>
 
 <%= render 'shared/home_promo' %>
-<%= render 'shared/home_rayon' %>
-<%= render 'shared/home_coffrets' %>
-<%= render 'shared/home_presta' %>
+<%= render 'shared/home_about_me' %>
+
+<div class="home-products">
+  <%= render 'shared/home_rayon' %>
+  <%= render 'shared/home_coffrets' %>
+  <%= render 'shared/home_presta' %>
+</div>
 
 <%# <div class="swiper" data-controller="carousel">
   <!-- Additional required wrapper -->

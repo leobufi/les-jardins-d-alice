@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_13_133501) do
+ActiveRecord::Schema.define(version: 2022_05_31_070034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "about_mes", force: :cascade do |t|
+    t.text "description"
+    t.string "main_photo"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "about", default: false, null: false
+    t.index ["user_id"], name: "index_about_mes_on_user_id"
+  end
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -105,6 +115,8 @@ ActiveRecord::Schema.define(version: 2022_05_13_133501) do
     t.boolean "home", default: false, null: false
     t.boolean "jardin", default: false, null: false
     t.boolean "prestation", default: false, null: false
+    t.boolean "logos", default: false, null: false
+    t.string "logos_img"
     t.index ["user_id"], name: "index_images_on_user_id"
   end
 
@@ -150,6 +162,8 @@ ActiveRecord::Schema.define(version: 2022_05_13_133501) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
     t.bigint "user_id"
+    t.text "description"
+    t.string "main_photo"
     t.index ["user_id"], name: "index_prestation_categories_on_user_id"
   end
 
@@ -211,6 +225,7 @@ ActiveRecord::Schema.define(version: 2022_05_13_133501) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "about_mes", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "categories", "rayons"
