@@ -1,0 +1,28 @@
+<div class="banner-about-me">
+  <div class="banner-about-me-title">
+    <h2>À propos d'Alice</h2>
+  </div>
+  <div class="banner-about-img-desc">
+    <% @about_mes.each do |a| %>
+      <div class="about-desc-logos">
+        <p><%= a.description %></p>
+        <div class="logos">
+          <% if @images.where(logos: true).first.logos_img.attached? %>
+            <% @images.where(logos: true).first.logos_img.each do |img|%>
+              <%= cl_image_tag img.key %>
+            <% end %>
+          <% else %>
+            <%= image_tag 'SVG/Logo_1.svg' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="about-image">
+        <% if a.main_photo.attached? %>
+          <%= cl_image_tag a.main_photo.key %>
+        <% else %>
+          <%= image_tag "SVG/Logo_1.svg" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

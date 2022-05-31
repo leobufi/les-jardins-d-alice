@@ -36,21 +36,42 @@
   right: 0;
   z-index: 5000;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: white;
   align-items: center;
-  padding: 5px;
+  padding: 5px 16px;
   text-align: center;
+
+  .nav-top-links {
+    font-size: 1.1em;
+  }
 
   .nav-top-logo {
     flex-grow: 3;
     text-align: center;
-    padding-left: 50px;
   }
 
   img {
     flex-grow: 3 ;
     height: 25px;
+  }
+
+  .cart {
+    display: flex;
+
+    .cart-items {
+      width: 20px;
+      height: 20px;
+      background-color: $light-gray;
+      border: black solid 1px;
+      border-radius: 50%;
+      position: absolute;
+      top: 1px;
+      right: 30px;
+      text-align: center;
+      font-family: "Junicode bold";
+      font-size: 0.8em;
+    }
   }
 }
 

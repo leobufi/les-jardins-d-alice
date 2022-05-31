@@ -1,14 +1,5 @@
 <div class="navbar-pages">
-  <div class="navbar-top">
-    <div class="nav-top-logo">
-      <%= link_to root_path do %>
-        <%= image_tag "SVG/Banner_logo.svg" %>
-      <% end %>
-    </div>
-    <div class="cart">
-      <%= link_to "Panier (#{@current_cart.line_items.count})", cart_path(@current_cart) %>
-    </div>
-  </div>
+  <%= render 'shared/navbar_top' %>
   <div class="navbar" data-controller="active-nav">
       <% @rayons.each do |rayon| %>
         <div id="classe/<%= rayon.id %>-<%= I18n.transliterate(rayon.title.downcase) %>" class="dropdown" data-active-nav-target="title">

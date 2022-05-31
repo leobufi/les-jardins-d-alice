@@ -6,20 +6,31 @@
   <h3>Types de prestations </h3>
   <% @prestation_categories.each do |prestation| %>
     <div class="small-dash-container">
+      <div class="main-photo">
+        <% if prestation.main_photo.attached? %>
+          <%= cl_image_tag prestation.main_photo.key %>
+        <% else %>
+          <%= image_tag "SVG/Leafs.svg" %>
+        <% end %>
+      </div>
       <div class="infos">
         <h5><%= prestation.title %></h5>
+        <p><%= prestation.description %></p>
       </div>
       <div class="buttons">
       <button><%= link_to 'Éditer', edit_prestation_category_path(prestation) %></button>
       <button><%= link_to "Supprimer", prestation_category_path(prestation), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
       </div>
     </div>
+    <hr>
   <% end %>
   <br>
-  <h4>Créer une nouveau type de prestation</h4>
+  <h4>Créer un nouveau type de prestation</h4>
   <br>
   <%= simple_form_for(@prestation_category) do |f| %>
       <%= f.input :title, placeholder: "Nom du type de prestation", label: false %>
+      <%= f.input :description, placeholder: "Description du type de prestation", label: false %>
+      <%= f.input :main_photo, as: :file, placeholder: "Photo principale", label: "Photo principale" %>
       <button>
         <%= f.button :submit, "Créer le type de prestation" %>
       </button>
@@ -45,6 +56,7 @@
       <button><%= link_to "Supprimer", prestation_path(prestation), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
       </div>
     </div>
+    <hr>
   <% end %>
   <br>
   <h4>Créer une nouvelle prestation</h4>
@@ -54,9 +66,6 @@
       <%= f.rich_text_area :description, placeholder: "Description de la prestation", label: false %>
       <br>
       <%= f.input :dates, placeholder: "Dates de la prestation", label: false %>
-      <hr>
-      <%= f.input :main_photo, as: :file, label: "Photo principale :" %>
-      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Autres photos :" %>
       <hr>
       <%= f.association :prestation_category, prompt: "Selectionne un type de prestation", label: false %>
       <hr>

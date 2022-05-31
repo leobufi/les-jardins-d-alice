@@ -27,8 +27,7 @@ class PrestationCategoriesController < ApplicationController
 
   def update
     @prestation_category = PrestationCategory.find(params[:id])
-    if current_user.admin?
-      @prestation_category.update(prestation_category_params)
+    if current_user.admin? && @prestation_category.update(prestation_category_params)
       redirect_to dashboard_path
     else
       render :new
@@ -44,6 +43,6 @@ class PrestationCategoriesController < ApplicationController
   private
 
   def prestation_category_params
-    params.require(:prestation_category).permit(:title, :user_id)
+    params.require(:prestation_category).permit(:title, :description, :main_photo, :user_id)
   end
 end

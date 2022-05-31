@@ -31,6 +31,21 @@
     </div>
   </div>
   <% end %>
+  <div id="contact-form">
+    <h3>S'inscrire</h3>
+    <br>
+      <%= simple_form_for(@contact) do |f| %>
+        <%= f.input :name, placeholder: "Vos noms et prénoms", label: false %>
+        <%= f.input :email, placeholder: "Votre email", label: false %>
+        <%= f.input :message, placeholder: "Votre message (merci de préciser le nom du stage auquel vous souhaitez participer)", label: false, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'} %>
+        <div class= "d-none">
+          <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+        </div>
+        <button>
+          <%= f.submit 'Envoyer' %>
+        </button>
+      <% end %>
+  </div>
   <div class="prestation-photos">
     <h3>Les précédentes prestations en photos</h3>
     <% if @images.where(prestation: true).first.prestation_galeries.attached? %>
@@ -48,20 +63,5 @@
     <% else %>
       <p>Il n'y a pas d'images pour le moment.</p>
     <% end %>
-  </div>
-  <div id="contact-form">
-    <h3>S'inscrire</h3>
-    <br>
-      <%= simple_form_for(@contact) do |f| %>
-        <%= f.input :name, placeholder: "Vos noms et prénoms", label: false %>
-        <%= f.input :email, placeholder: "Votre email", label: false %>
-        <%= f.input :message, placeholder: "Votre message (merci de préciser le nom du stage auquel vous souhaitez participer)", label: false, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'} %>
-        <div class= "d-none">
-          <%= f.input :nickname, :hint => 'Leave this field blank!' %>
-        </div>
-        <button>
-          <%= f.submit 'Envoyer' %>
-        </button>
-      <% end %>
   </div>
 </div>
