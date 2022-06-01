@@ -28,7 +28,7 @@
         <% if product.discount.nil? %>
             <span><strong>Il n'y a pas de promotion sur ce produit.</strong></span>
           <% else %>
-            <span class="promo"><strong>Promotion :</strong> <%= product.price_with_discount %> <%= product.price_currency %></span>
+            <span class="promo"><strong>Promotion :</strong> <%= product.price_with_discount %> <%= product.price_currency %> (- <%= product.discount %>%)</span>
         <% end %>
         <%# IMAGES %>
       </div>

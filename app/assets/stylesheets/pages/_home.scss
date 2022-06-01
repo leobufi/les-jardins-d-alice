@@ -372,6 +372,11 @@
 
   &:hover {
     background-color: $light-gray;
+
+    .cart-items {
+      background-color: $main-color;
+    }
+
   }
 
   .cart-items {

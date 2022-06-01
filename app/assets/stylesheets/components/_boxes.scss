@@ -154,7 +154,10 @@
   padding: 48px;
   background-color: white;
   border: black 1px solid;
-  text-align: center;
+
+  .order-button {
+    text-align: center;
+  }
 }
 
 .dashboard-container {
@@ -423,5 +426,25 @@
         }
       }
     }
+  }
+}
+
+.devise-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 86%;
+  min-height: 75vh;
+  margin: 48px auto;
+  background-color: $light-gray;
+  border: black solid 1px;
+  padding: 48px;
+
+  h2 {
+    text-align: center;
+  }
+
+  .devise-links {
+    text-align: center;
   }
 }

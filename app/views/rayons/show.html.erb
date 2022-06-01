@@ -42,18 +42,33 @@
             </div>
             <% end %>
             <%= link_to line_items_path(product_id: product.id), method: :post do %>
-            <div class="cart-add">
-              <div class="cart-add-infos">
-                <h5><%= product.title %></h5>
-                <% if product.discount.nil? %>
-                  <span><%= product.price %> <%= product.price_currency %></span>
-                <% else %>
-                  <span style="text-decoration: line-through"><%= product.price %></span>
-                  <span><%= product.price_with_discount %> <%= product.price_currency %></span>
-                <% end %>
-              </div>
-              <span class="cart-add-button"><%= image_tag "SVG/panier.svg" %></span>
+            <div class="cart-add" data-action='mouseleave->hover-images#showCartInfos mouseenter->hover-images#showCart' data-hover-images-target="cartInfos">
+            <div class="cart-add-infos">
+              <h5><%= product.title %></h5>
+              <% if product.discount.nil? %>
+                <span><%= product.price %> <%= product.price_currency %></span>
+              <% else %>
+                <span style="text-decoration: line-through"><%= product.price %></span>
+                <span><%= product.price_with_discount %> <%= product.price_currency %></span>
+              <% end %>
             </div>
+            <div class="add-to-cart d-none">
+              <span>Ajouter au panier</span>
+            </div>
+            <span class="cart-add-button"><%= image_tag "SVG/panier.svg" %></span>
+          </div>
+          <div class="cart-add d-none" data-action='mouseleave->hover-images#showCartInfos mouseenter->hover-images#showCart' data-hover-images-target="cart">
+            <div class="cart-add-infos">
+              <h5>Ajouter au panier</h5>
+              <% if product.discount.nil? %>
+                <span><%= product.price %> <%= product.price_currency %></span>
+              <% else %>
+                <span style="text-decoration: line-through"><%= product.price %></span>
+                <span><%= product.price_with_discount %> <%= product.price_currency %></span>
+              <% end %>
+            </div>
+            <span class="cart-add-button"><%= image_tag "SVG/panier.svg" %></span>
+          </div>
             <% end %>
           </div>
         <% end  %>
