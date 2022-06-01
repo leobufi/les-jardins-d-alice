@@ -23,24 +23,27 @@
         </div>
       </div>
       <div class="coffret-products">
-        <% coffret.coffret_products.each do |product| %>
-          <div class="products" data-controller="hover-images">
-              <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
-                <% if product.main_photo.attached? %>
-                  <%= cl_image_tag product.main_photo.key %>
-                <% else %>
-                  <%= image_tag "SVG/Leafs.svg" %>
-                <% end %>
-              </div>
-              <div class="product-info d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
-                <h5><%= product.title %></h5>
-                <p><%= product.description %></p>
-                <p><strong>Quantité :</strong> <%= product.quantity %></p>
-                <p><strong>Origine :</strong> <%= product.origin %></p>
-              </div>
-          </div>
-        <% end %>
+          <% coffret.coffret_products.each do |product| %>
+            <div class="product" data-controller="hover-images">
+                <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
+                  <% if product.main_photo.attached? %>
+                    <div class="background" style="background-image: url(<%= cl_image_path product.main_photo.key %>)">
+                      <h4><%= product.title %></h4>
+                    </div>
+                  <% else %>
+                    <div class="background" style="background-color: rgb(231, 231, 231)">
+                      <h4><%= product.title %></h4>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="product-info d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
+                  <p><%= product.description %></p>
+                  <p><strong>Quantité :</strong> <%= product.quantity %></p>
+                  <p><strong>Origine :</strong> <%= product.origin %></p>
+                </div>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
 <% end %>
 </div>

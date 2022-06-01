@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_31_070034) do
+ActiveRecord::Schema.define(version: 2022_06_01_152724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(version: 2022_05_31_070034) do
     t.string "state"
     t.integer "amount_cents", default: 0, null: false
     t.string "checkout_session_id"
+    t.boolean "data", default: false, null: false
   end
 
   create_table "prestation_categories", force: :cascade do |t|

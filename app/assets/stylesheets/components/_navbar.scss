@@ -71,6 +71,13 @@
       text-align: center;
       font-family: "Junicode bold";
       font-size: 0.8em;
+
+    }
+
+    &:hover {
+      .cart-items {
+        background-color: $main-color;
+      }
     }
   }
 }

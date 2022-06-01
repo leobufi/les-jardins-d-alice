@@ -8,9 +8,17 @@
     <%= f.input :last_name, placeholder: "Veuillez renseigner votre nom", label: false %>
     <%= f.input :email, placeholder: "Veuillez renseigner votre email", label: false %>
     <%= f.input :address, placeholder: "Veuillez renseigner votre adresse complète", label: false %>
+    <p>
+      Vos données personnelles seront utilisées pour le traitement de votre commande,
+      vous accompagner au cours de votre visite du site web, et pour d’autres raisons
+      décrites dans dans les <%= link_to "conditions générales de vente",cgv_path %>.
     </p>
-    <button>
-      <%= f.button :submit, "Valider vos informations" %>
-    </button>
+    <%= f.input :data, as: :boolean, checked_value: true, unchecked_value: false, placeholder: "J’ai lu et j’accepte les #{link_to "conditions générales de vente",cgv_path}", label: "J’ai lu et j’accepte les conditions générales de vente" %>
+    </p>
+    <div class="order-button">
+      <button>
+        <%= f.button :submit, "Valider vos informations" %>
+      </button>
+    </div>
   <% end %>
 </div>

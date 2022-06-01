@@ -5,7 +5,7 @@
   <%= simple_form_for(@coffret) do |f| %>
       <%= f.input :title, placeholder: "Nom du coffret", label: false %>
       <%= f.input :description, placeholder: "Description du coffret", label: false %>
-      <%= f.input :price_cents, label: "Prix du coffret", label: "Prix du coffret :" %>
+      <%= f.input :price_cents, label: "Prix du coffret (mettre le prix en centimes)" %>
       <%= f.input :main_photo, as: :file, placeholder: "Photo du coffret", label: "Photo du coffret" %>
       <%= f.association :products, label: "Selectionne plusieurs produits pour ton coffret :" %>
       <button>
