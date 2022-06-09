@@ -13,6 +13,16 @@
   // }
 }
 
+.order-title {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
 .article-title {
   display: flex;
   flex-direction: column;
@@ -21,6 +31,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-size: 100%;
+  background-position: center;
   background-color: rgba(231, 231, 231, 0.3);
   background-blend-mode: overlay;
 }

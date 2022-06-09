@@ -141,7 +141,7 @@
   padding: 0px;
   font-size: 20px;
   position: sticky;
-  top: 82px;
+  top: 83px;
   left: 0;
   right: 0;
   z-index: 4000;
@@ -151,6 +151,9 @@
     padding: 0px 8px;
     text-align: center;
     border-left: black 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
 }

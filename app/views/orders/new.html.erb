@@ -1,5 +1,5 @@
 <div class="order-container">
-  <div class="title">
+  <div class="order-title">
     <h2>Informations concernant l'envoi de votre colis :</h2>
   </div>
   <%= simple_form_for(@order) do |f| %>
@@ -11,7 +11,7 @@
     <p>
       Vos données personnelles seront utilisées pour le traitement de votre commande,
       vous accompagner au cours de votre visite du site web, et pour d’autres raisons
-      décrites dans dans les <%= link_to "conditions générales de vente",cgv_path %>.
+      décrites dans dans les <%= link_to "conditions générales de vente",cgv_path(anchor: "prop-intel") %>.
     </p>
     <%= f.input :data, as: :boolean, checked_value: true, unchecked_value: false, placeholder: "J’ai lu et j’accepte les #{link_to "conditions générales de vente",cgv_path}", label: "J’ai lu et j’accepte les conditions générales de vente" %>
     </p>

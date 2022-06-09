@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   disappear() {
-    if (window.scrollY >= window.innerHeight/2) {
+    if (window.scrollY >= window.innerHeight/4) {
       this.element.classList.add("d-none")
     } else {
       this.element.classList.remove("d-none")
