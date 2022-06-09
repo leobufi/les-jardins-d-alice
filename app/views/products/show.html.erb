@@ -53,10 +53,3 @@
     </div>
   </div>
 </div>
-  <% if @product.photos_url.attached? %>
-    <div class="photos_url">
-      <%= @product.photos_url.each do |photo| %>
-        <%= cl_image_tag photo.key %>
-      <% end  %>
-  <% end %>
-</div>

@@ -1,0 +1,826 @@
+@media(max-width: 1180px) {
+  p {
+    font-size: 1em;
+    line-height: 1.1em;
+  }
+
+  .jardins-boxes .jardin-slider {
+    background-size: 125%;
+  }
+
+  .navbar-small a {
+    border-left: none;
+  }
+
+  .dropdown {
+    border-left: none;
+  }
+}
+
+@media(max-width: 920px) {
+
+  body {
+    font-size: 1em;
+  }
+
+  p {
+    font-size: 0.9em;
+    line-height: 1em;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .navbar-small a {
+    border-left: none;
+  }
+
+  .sticker-title {
+    margin-top: 48px;
+  }
+
+  .dropdown {
+    border-left: none;
+  }
+  // Home \\
+
+  .banner-image {
+    height: 38.5vh;
+  }
+
+  .home-cart {
+    top: 25vh;
+  }
+
+  .banner-promo {
+    height: 40vh;
+  }
+
+  .banner-about-me {
+    height: 40vh;
+
+    .banner-about-img-desc .about-desc-logos .logos {
+      width: 30px;
+    }
+  }
+
+  .banner-items {
+    height: 25vh;
+
+    h3 {
+      font-size: 1em;
+    }
+  }
+
+  // RAYONS \\
+
+  .category {
+
+    .category-products {
+
+      .category-infos {
+        min-height: 25vh;
+      }
+
+      .products {
+        height: 25vh;
+
+       .product-image {
+         height: 15vh;
+
+          img {
+            height: 120%;
+          }
+       }
+
+       .product-info {
+         height: 15vh;
+         padding-top: 36px;
+
+       }
+
+       .cart-add {
+         font-size: 1em;
+         line-height: 1em;
+         padding: 6px;
+
+         h5 {
+           font-size: 1em;
+         }
+       }
+      }
+    }
+  }
+
+  // PRODUCT \\
+
+  .product-container {
+    height: 40vh;
+    margin: 32px auto;
+  }
+
+  // COFFRETS \\
+
+  .coffret-container {
+
+    .coffret-products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      .product {
+        border: none;
+        height: 16vh;
+
+        .product-image {
+          height: 16vh;
+        }
+      }
+    }
+  }
+
+  // PRESTATIONS \\
+
+  .prestation-photos {
+    max-height: 75vh;
+  }
+
+  // JARDINS \\
+
+  .title-jardins {
+    height: 40vh;
+  }
+
+  .jardins-boxes {
+    height: 40vh;
+
+    .jardin-slider {
+
+      background-size: 135%;
+
+      .trix-content {
+        line-height: 1.3em;
+      }
+    }
+  }
+
+  //  ARTICLES \\
+
+  .blog {
+    .articles-feed {
+      margin-top: 24px;
+    }
+  }
+
+  .article-title {
+    max-height: 24vh;
+    background-position: center;
+  }
+
+  .article-photos {
+    max-height: 24vh;
+  }
+
+  // CART \\
+
+  .line-items {
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+
+  .total-price {
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+
+  // ORDER \\
+
+  .order-container {
+    min-height: 0vh;
+
+    h2 {
+      font-size: 1.5em;
+    }
+  }
+
+  // DASHBOARD \\
+
+  .dashboard-container {
+    min-height: 40vh;
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    margin: -1px auto;
+  }
+
+  table {
+    font-size: 0.8em;
+  }
+
+}
+
+@media(max-width: 460px) {
+
+  body {
+    font-size: 0.9em;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+
+  h2, h3 {
+    font-size: 1.2rem;
+  }
+
+  h4, h5 {
+    font-size: 1.1rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .navbar {
+    font-size: 0.8rem;
+    line-height: 1rem;
+  }
+
+  .navbar-small {
+    top : 67px;
+
+    a {
+      padding: 2px 4px;
+      border-left: none;
+      font-size: 0.7rem;
+      line-height: 1rem;
+    }
+  }
+
+  .navbar-top img {
+    height: 20px;
+  }
+
+  .dropdown {
+    border-left: none;
+
+    .dropdown-content {
+      top: 21px;
+    }
+  }
+
+  .sticker-title {
+    width: 50%;
+    margin-top: 48px;
+
+    &.prestations {
+      width: 60%;
+      padding: 8px 24px 8px 12px;
+    }
+  }
+
+  .footer {
+    font-size: 0.8rem;
+    line-height: 1.1rem;
+  }
+
+  .swiper-button-next {
+    margin-right: 8px;
+  }
+
+  .swiper-button-prev {
+    margin-left: 8px;
+  }
+
+  // Home \\
+
+  .banner-image {
+    height: 24.5vh;
+
+    a {
+      width: 40%;
+      text-align: center;
+    }
+  }
+
+  .home-cart {
+    top: 25vh;
+    padding: 20px 5px;
+
+    img {
+      width: 25px;
+    }
+
+    .cart-items {
+      right: 18px;
+    }
+  }
+
+  .banner-promo {
+    height: 30vh;
+    width: 90%;
+
+    .sticker-banner-promo {
+      font-size: 1rem;
+      padding: 2px;
+      padding-left: 18px;
+      line-height: 1rem;
+    }
+
+    .banner-product {
+
+      .banner-product-card {
+
+        .infos {
+          padding-top: 18px;
+          line-height: 0rem;
+
+          p {
+            display: none;
+          }
+
+          .cart-add {
+
+            img {
+              display: none;
+            }
+
+            button {
+              line-height: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .banner-about-me {
+    height: 60vh;
+    width: 90%;
+    margin-top: 24px;
+
+    .banner-about-me-title {
+      height: 8%;
+    }
+
+    .banner-about-img-desc {
+      display: inline-block;
+      height: 92%;
+
+      .about-desc-logos {
+        padding: 12px;
+        margin-right: 0px;
+        height: 55%;
+
+        .logos {
+          width: 30px;
+        }
+
+        p {
+          margin-bottom: 4px;
+        }
+      }
+
+      .about-image {
+        margin-left: 0px;
+        margin-top: 8px;
+        height: 43%;
+      }
+
+    }
+  }
+
+  .home-products {
+    display: block;
+    margin: 24px auto;
+    width: 90%;
+
+    .banner-items {
+      width: 100%;
+      height: 25vh;
+      margin: 0px;
+      margin-bottom: 24px;
+
+      h3 {
+        font-size: 1em;
+      }
+
+      .banner-category .banner-category-card .infos {
+        padding: 16px 64px;
+      }
+    }
+  }
+
+
+  // RAYONS \\
+
+  .category {
+
+    .category-products {
+      grid-template-columns: repeat(2, 1fr);
+
+
+      .category-infos {
+        min-height: 30vh;
+      }
+
+      .products {
+        height: 30vh;
+        margin: 4px 4px 0px 0px;
+
+       .product-image {
+         height: 20vh;
+
+          img {
+            height: 120%;
+          }
+       }
+
+       .product-info {
+         height: 20vh;
+         padding-top: 56px;
+         font-size: 1rem;
+         line-height: 1rem;
+       }
+
+       .cart-add {
+         height: 100%;
+         font-size: 1rem;
+         line-height: 1rem;
+         padding: 3px 6px;
+
+         h5 {
+           font-size: 1rem;
+           margin-bottom: 4px;
+         }
+       }
+      }
+    }
+  }
+
+  // PRODUCT \\
+
+  .product-container {
+    height: 70vh;
+    margin: 32px auto;
+    padding: 24px;
+    display: block;
+
+    .product-image {
+      height: 50%;
+      margin-right: 12px;
+    }
+
+    .product-infos {
+      padding: 16px 0px;
+
+      .details {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  // COFFRETS \\
+
+  .coffret-container {
+    padding: 24px;
+
+    .coffret-main {
+      display: block;
+      margin-bottom: 24px;
+
+      .coffret-image img {
+        max-height: 200px;
+      }
+
+      .coffret-infos {
+        margin: 12px 0px;
+      }
+    }
+
+    .coffret-products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      .product {
+        border: none;
+        height: 16vh;
+
+        .product-image {
+          height: 16vh;
+        }
+
+        .product-info {
+          padding: 8px;
+
+          p {
+            line-height: 0.8rem;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  // PRESTATIONS \\
+
+  .prestation {
+    line-height: 1rem;
+    font-size: 1rem;
+
+    .contact-link {
+      margin: 0px 0px;
+
+      a img {
+        width: 14px;
+        margin: 0px 10px;
+      }
+    }
+
+  }
+
+  .prestation-photos {
+    max-height: 50vh;
+  }
+
+  // JARDINS \\
+
+  .title-jardins {
+    height: 28vh;
+    margin-bottom: 48px;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  .jardins-boxes {
+    height: 28vh;
+    margin-bottom: 48px;
+    margin-top: 0px;
+
+    .jardin-slider {
+      background-size: 140%;
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .trix-content {
+        line-height: 0.75rem;
+        font-size: 0.7rem;
+      }
+
+      p {
+        padding: 25px 28px;
+      }
+
+    }
+  }
+
+  //  ARTICLES \\
+
+  .blog {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+
+    .articles-feed {
+      margin-top: 24px;
+      margin-left: 0px;
+
+      .articles {
+        padding: 12px;
+        line-height: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    .instagram-feed {
+      width: 100%;
+      margin: 24px 0px 0px 0px;
+    }
+  }
+
+  .article-container {
+
+    .article-title {
+      max-height: 16vh;
+      background-position: center;
+    }
+
+    .article-content {
+      line-height: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .article-photos {
+      max-height: 16vh;
+    }
+
+    span em {
+      font-size: 0.8rem;
+    }
+  }
+
+  // CART \\
+
+  .line-items {
+    display: block;
+    margin-top: 24px;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    padding: 12px;
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+    }
+
+    .product-info {
+      padding: 12px 0px;
+    }
+
+    .cart-buttons {
+
+      .add-reduce-buttons {
+        width: 100%;
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  .total-price {
+    padding: 12px;
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+
+  .cart-validation {
+    padding: 12px 32px;
+    font-size: 1.3rem;
+    margin-bottom: 0px;
+  }
+
+  // ORDER \\
+
+  .order-container {
+    min-height: 0vh;
+    width: 90%;
+    margin: 48px auto;
+    padding: 12px;
+
+    .order-title {
+      padding-bottom: 0px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+  }
+
+  // DASHBOARD \\
+
+  .dashboard-container {
+    min-height: 40vh;
+    padding: 18px;
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    margin: -1px auto;
+
+    .search-bar {
+      form {
+        input {
+          font-size: 0.7rem;
+        }
+      }
+    }
+
+    .small-dash-container {
+      display: block;
+      font-size: 0.9rem;
+      line-height: 1.2rem;
+      padding: 12px 0px;
+
+      .main-photo {
+        height: 200px;
+      }
+
+      .infos {
+        padding-right: 0px;
+        padding: 8px 0px;
+      }
+    }
+  }
+
+  .dashboard-container-images {
+    display: block;
+
+    .small-dash-images-container {
+      width: 100%;
+    }
+  }
+
+  table {
+    font-size: 0.5rem;
+
+    th {
+      padding: 1px;
+    }
+  }
+
+}
+
+@media(max-width: 375px) {
+
+  .navbar {
+    .dropdown {
+      height: 6vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .dropdown-content {
+        top: 35px;
+      }
+    }
+  }
+
+  .navbar-small {
+    top: 81px;
+  }
+
+  // HOME \\
+  .banner-image {
+    height: 30vh;
+  }
+
+  .banner-promo {
+    width: 95%;
+    height: 40vh
+  }
+
+  .banner-about-me {
+    width: 95%;
+    height: 72vh;
+  }
+
+  .home-products {
+    .banner-items{
+      width: 95%;
+      height: 32vh;
+    }
+  }
+
+  //RAYONS\\
+
+  .category .category-products .products {
+    height: 38vh;
+
+    .product-image {
+      height: 24vh;
+    }
+
+    .product-info {
+      height: 24vh;
+      font-size: 0.9rem;
+      line-height: 0.9rem;
+
+      p {
+        font-size: 0.9rem;
+        line-height: 0.9rem;
+      }
+    }
+  }
+
+  // COFFRETS \\
+
+  .coffret-container {
+    .coffret-products {
+      .product {
+        height: 20vh;
+
+        .product-image {
+          height: 20vh;
+        }
+      }
+    }
+  }
+
+}

@@ -6,7 +6,7 @@
     <%= link_to 'Mettre en ligne un nouveau produit', new_product_path %>
   </button>
   <br>
-  <% @products.reverse.each do |product| %>
+  <% @products.each do |product| %>
     <div class="small-dash-container">
       <div class="main-photo">
         <% if product.main_photo.attached? %>
