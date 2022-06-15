@@ -291,6 +291,14 @@
   .footer {
     font-size: 0.8rem;
     line-height: 1.1rem;
+
+    .left .links {
+      padding: 0px 0px;
+    }
+
+    .right {
+      font-size: 16px;
+    }
   }
 
   .swiper-button-next {
@@ -768,7 +776,7 @@
 
   // HOME \\
   .banner-image {
-    height: 30vh;
+    height: 26vh;
   }
 
   .banner-promo {
@@ -809,6 +817,12 @@
     }
   }
 
+  // PRODUCT \\
+
+  .product-container {
+    height: 90vh;
+  }
+
   // COFFRETS \\
 
   .coffret-container {
@@ -820,6 +834,16 @@
           height: 20vh;
         }
       }
+    }
+  }
+
+  // PRESTATIONS \\
+
+  .prestation {
+
+    .contact-link a img {
+      width: 14px;
+      margin: 0px 8px;
     }
   }
 
