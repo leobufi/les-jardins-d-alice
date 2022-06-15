@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post 'line_items/:id/reduce', to: "line_items#reduce_quantity", as: "line_item_reduce"
 
 
-  resources :about_mes, only: [:create, :edit, :update, :destroy]
+  resources :about_mes, only: [:new, :create, :edit, :update, :destroy]
   resources :articles
   resources :categories, only: [:create, :edit, :update, :destroy]
   resources :coffrets, except: :show

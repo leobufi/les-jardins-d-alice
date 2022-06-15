@@ -14,7 +14,6 @@ class ImagesController < ApplicationController
     @image.user = current_user
     if current_user.admin? && @image.save
       redirect_to dashboard_path
-      raise
     else
       render :new
     end
