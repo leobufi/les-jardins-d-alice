@@ -1,6 +1,10 @@
 class AboutMesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+  def new
+    @about_me = AboutMe.new
+  end
+
   def create
     @about_me = AboutMe.new(about_me_params)
     @about_me.user = current_user
