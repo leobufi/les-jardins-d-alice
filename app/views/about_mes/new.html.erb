@@ -1,6 +1,6 @@
 <div class="dashboard-container">
   <% if current_user.admin? %>
-    <h4>Modifier À Propos</h4>
+    <h4>À Propos</h4>
     <br>
     <%= simple_form_for(@about_me) do |f| %>
         <%= f.input :description, placeholder: "Description", label: false %>
