@@ -12,7 +12,7 @@ class OrderMailer < ApplicationMailer
   def alice_confirmation
     @order = params[:order]
     mail(
-      to: "lesjardinsdalice@outlook.fr",
+      to: "bufi.leo@gmail.fr",
       from:"lesjardinsdalice@outlook.fr",
       subject: "Nouvelle commande ! N°#{@order.id}"
     )

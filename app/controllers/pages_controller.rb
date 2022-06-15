@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :contact, :cgv]
 
   def home
   end
@@ -44,6 +44,8 @@ class PagesController < ApplicationController
     @contact = Contact.new
   end
 
+  def cgv
+  end
 
   private
 

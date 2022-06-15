@@ -11,14 +11,14 @@
               <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
                 <p><%= c.description %></p>
               </div>
-              <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
+              <div class="product-image" data-hover-images-target="img">
                 <% if c.main_photo.attached? %>
                 <div class="background" style="background-image: url(<%= cl_image_path c.main_photo.key, :crop=>"fit" %>)">
-                  <h3><%= c.title %></h3>
+                  <h3 data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos'><%= c.title %></h3>
                 </div>
                 <% else %>
                 <div class="background" style="background-color: rgb(231, 231, 231)">
-                  <h3><%= c.title %></h3>
+                  <h3 data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos'><%= c.title %></h3>
                 </div>
                 <% end %>
               </div>
