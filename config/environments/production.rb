@@ -125,7 +125,7 @@ Rails.application.configure do
   :address        => ENV['MAILGUN_SMTP_SERVER'],
   :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
   :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-  :domain         => 'les-jardins-dalice.herokuapp.com',
+  :domain         => 'www.les-jardins-dalice.herokuapp.com',
   :authentication => :plain,
   }
   ActionMailer::Base.delivery_method = :smtp
