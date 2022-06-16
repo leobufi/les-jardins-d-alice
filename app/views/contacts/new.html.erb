@@ -1,0 +1,15 @@
+<div id="contact-form" class="my-5">
+  <h3>Me contacter</h3>
+  <br>
+    <%= simple_form_for(@contact) do |f| %>
+      <%= f.input :name, placeholder: "Vos noms et prénoms", label: false %>
+      <%= f.input :email, placeholder: "Votre email", label: false %>
+      <%= f.input :message, placeholder: "Votre message", label: false, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'} %>
+      <div class= "d-none">
+        <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+      </div>
+      <button>
+        <%= f.submit 'Envoyer' %>
+      </button>
+    <% end %>
+</div>

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :categories, only: [:create, :edit, :update, :destroy]
   resources :coffrets, except: :show
-  resources :contacts, only: [:create]
+  resources :contacts, only: [:new, :create]
   resources :images, except: :show
   resources :jardins, except: :show
   resources :orders do
