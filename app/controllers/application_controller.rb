@@ -40,4 +40,9 @@ class ApplicationController < ActionController::Base
       session[:cart_id] = @current_cart.id
     end
   end
+
+  def default_url_options
+  { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
 end

@@ -1,3 +1,5 @@
+<% content_for :meta_title, "#{@rayon.title} - #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, "Découvrez toute ma gamme de produits biologiques ceuillis à la main dans mes jardins de Beuil(1400m) et de Cantaron(600m)." %>
 <div data-controller="switch-tab scroll active-nav">
   <div class="navbar-small">
   <% @rayon.categories.each do |category| %>

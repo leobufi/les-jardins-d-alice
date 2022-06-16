@@ -1,3 +1,5 @@
+<% content_for :meta_title, "Les Jardins - #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, "Découvrez mes jardins de Beuil (1400m) et de Cantaron (600m)" %>
 <% if @images.where(jardin: true).first.jardin_cover.attached? %>
   <div class="title-jardins" style="background-image: url( <%= cl_image_path @images.where(jardin: true).first.jardin_cover.key, crop: :fill %> )">
       <h1>Les Jardins</h1>

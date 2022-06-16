@@ -1,3 +1,8 @@
+<% content_for :meta_title, "#{@product.title} - #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @product.description %>
+<% if @product.main_photo.attached? %>
+  <% content_for :meta_image, cl_image_path(@product.main_photo.key) %>
+<% end %>
 <div class="product-container">
   <% if @product.discount? %>
   <div class="sticker-promo">
