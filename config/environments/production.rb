@@ -4,15 +4,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # ActionMailer::Base.smtp_settings = {
-  # :port           => ENV['MAILGUN_SMTP_PORT'],
-  # :address        => ENV['MAILGUN_SMTP_SERVER'],
-  # :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-  # :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-  # :domain         => 'les-jardins-dalice.herokuapp.com',
-  # :authentication => :plain,
-  # }
-  # ActionMailer::Base.delivery_method = :smtp
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -128,4 +119,15 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  ActionMailer::Base.smtp_settings = {
+  :port           => ENV['MAILGUN_SMTP_PORT'],
+  :address        => ENV['MAILGUN_SMTP_SERVER'],
+  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  :domain         => 'les-jardins-dalice.herokuapp.com',
+  :authentication => :plain,
+  }
+  ActionMailer::Base.delivery_method = :smtp
+
 end
