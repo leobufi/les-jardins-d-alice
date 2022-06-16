@@ -8,8 +8,8 @@ class Contact < MailForm::Base
   # in ActionMailer accepts.
   def headers
     {
-      subject: "Tu as reçu un message de #{name}",
-      to: "bufi.leo@gmail.com",
+      subject: "Tu as reçu un message de #{name} - Les Jardins d'Alice",
+      to: "lesjardinsdalice@outlook.fr",
       from: "#{name} - <#{email}>"
     }
   end
