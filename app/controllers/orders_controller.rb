@@ -33,13 +33,13 @@ class OrdersController < ApplicationController
           'CA', 'CN', 'CY', 'DK', 'ES', 'EE', 'FI', 'GR', 'HU', 'IN',
           'IE', 'IT', 'JP', 'LV'],
       },
-      shipping_options: [
-        {
-          shipping_rate: "shr_1KxSU7K8Fc6uMHLbTmMGiAxe",
-        },
-        {
-          shipping_rate: "shr_1KxSXPK8Fc6uMHLbmwCB76EI",
-        },
+      # shipping_options: [
+      #   {
+      #     shipping_rate: "shr_1KxSU7K8Fc6uMHLbTmMGiAxe",
+      #   },
+      #   {
+      #     shipping_rate: "shr_1KxSXPK8Fc6uMHLbmwCB76EI",
+      #   },
       ],
       line_items: [{
         name: 'Votre commande pour Les Jardins d\'Alice',
