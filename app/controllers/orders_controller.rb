@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
       #   {
       #     shipping_rate: "shr_1KxSXPK8Fc6uMHLbmwCB76EI",
       #   },
-      ],
+      # ],
       line_items: [{
         name: 'Votre commande pour Les Jardins d\'Alice',
         amount: @order.amount_cents,
