@@ -24,6 +24,7 @@
           <th>Adresse</th>
           <th>CGV ?</th>
           <th>Commande</th>
+          <th>Chèque ?</th>
           <th>Montant</th>
           <th>Statut</th>
           <th>Date</th>
@@ -50,6 +51,13 @@
               <span><%= item.coffret.title %> x <%= item.quantity %></span>
             <% end %>
           <% end %>
+          </th>
+          <th>
+            <% if order.check? %>
+              <span>Oui</span>
+            <% else %>
+              <span>Non</span>
+            <% end %>
           </th>
           <th><%= order.amount %> €</th>
           <th><%= order.state %></th>
