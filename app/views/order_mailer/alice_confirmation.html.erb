@@ -28,11 +28,15 @@
       <h1>Salut Alice !</h1>
       <h2>Une nouvelle commande vient d'être enregistrée sur ton site !</h2>
       <p>
-        Numéro de la commande : #<%= @order.created_at %>
+        Numéro de la commande : #<%= @order.id %>
         <br>
         Client : <%= @order.first_name %> <%= @order.last_name %> - <%= @order.email %>.
         <br>
         Adresse : <%= @order.address %>.
+        <br>
+        <% if @order.check? %>
+         <strong>RÈGLEMENT PAR CHÈQUE</strong>
+        <% end %>
       </p>
       <h3>Récapitulatif de la commande :</h3>
       <p>
