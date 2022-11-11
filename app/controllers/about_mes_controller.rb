@@ -22,7 +22,7 @@ class AboutMesController < ApplicationController
   def update
     @about_me = AboutMe.find(params[:id])
     if current_user.admin? && @about_me.update(about_me_params)
-      redirect_to about_me_path(@about_me)
+      redirect_to dashboard_path
     else
       render :new
     end
