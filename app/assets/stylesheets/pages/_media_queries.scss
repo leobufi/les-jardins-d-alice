@@ -58,7 +58,7 @@
   }
 
   .banner-promo {
-    height: 40vh;
+    height: 45vh;
   }
 
   .banner-about-me {
@@ -87,33 +87,33 @@
         min-height: 25vh;
       }
 
-      .products {
-        height: 25vh;
+      // .products {
+      //   height: 25vh;
 
-       .product-image {
-         height: 15vh;
+      //  .product-image {
+      //    height: 15vh;
 
-          img {
-            height: 120%;
-          }
-       }
+      //     img {
+      //       height: 120%;
+      //     }
+      //  }
 
-       .product-info {
-         height: 15vh;
-         padding-top: 36px;
+      //  .product-info {
+      //    height: 15vh;
+      //    padding-top: 36px;
 
-       }
+      //  }
 
        .cart-add {
          font-size: 1em;
-         line-height: 1em;
          padding: 6px;
 
          h5 {
+           line-height: 0.8em;
            font-size: 1em;
          }
        }
-      }
+
     }
   }
 
@@ -372,7 +372,7 @@
   }
 
   .banner-about-me {
-    height: 60vh;
+    height: 70vh;
     width: 90%;
     margin-top: 24px;
 
@@ -442,33 +442,19 @@
       }
 
       .products {
-        height: 30vh;
-        margin: 4px 4px 0px 0px;
-
-       .product-image {
-         height: 20vh;
-
-          img {
-            height: 120%;
-          }
-       }
 
        .product-info {
-         height: 20vh;
-         padding-top: 56px;
          font-size: 1rem;
          line-height: 1rem;
        }
 
        .cart-add {
-         height: 100%;
-         font-size: 1rem;
-         line-height: 1rem;
-         padding: 3px 6px;
+        min-height: 25%;
+        font-size: 1rem;
+        line-height: 1rem;
 
          h5 {
            font-size: 1rem;
-           margin-bottom: 4px;
          }
        }
       }

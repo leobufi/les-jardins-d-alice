@@ -8,7 +8,8 @@
         <div class="banner-category-card swiper-slide" data-controller="hover-images">
           <%= link_to coffrets_path(anchor: "#{I18n.transliterate(c.title.gsub(/\s+/, ""))}") do %>
             <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
-              <p><%= c.description %></p>
+              <span><%= sanitize("#{c.description}".truncate(200)) %></span>
+              <b>Cliquez pour en savoir plus...</b>
             </div>
             <div class="product-image" data-hover-images-target="img">
               <% if c.main_photo.attached? %>

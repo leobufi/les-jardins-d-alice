@@ -156,7 +156,7 @@
 
 .banner-about-me {
   width: 86%;
-  height: 80vh;
+  height: 85vh;
   background-color: white;
   border: black 1px solid;
   margin: auto;
@@ -207,7 +207,7 @@
 
         img {
           border-radius: 5px;
-          width: 100%;
+          width: 50%;
           object-fit: cover;
           margin-right: 4px;
         }
@@ -290,7 +290,7 @@
         text-align: left;
         height: 100%;
         padding: 16px;
-        padding-top: 48px;
+        padding-top: 36px;
         background-color: $light-gray;
         margin-left: 8px;
         border: black solid 1px;
