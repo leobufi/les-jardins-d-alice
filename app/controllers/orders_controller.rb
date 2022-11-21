@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
       item.cart_id = nil
     end
 
-    if @order.check
+    if @order.Chèque?
       @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
@@ -76,7 +76,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:first_name, :last_name, :email, :address, :state, :amount_cents, :data, :check, :card, :checkout_session_id, :line_item_ids)
+    params.require(:order).permit(:first_name, :last_name, :email, :address, :state, :amount_cents, :data, :check, :card, :payment_method, :checkout_session_id, :line_item_ids)
   end
 
 end

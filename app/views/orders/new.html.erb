@@ -8,8 +8,11 @@
     <%= f.input :last_name, placeholder: "Veuillez renseigner votre nom", label: false, input_html: { required: true } %>
     <%= f.input :email, placeholder: "Veuillez renseigner votre email", label: false, input_html: { required: true } %>
     <%= f.input :address, placeholder: "Veuillez renseigner votre adresse complète", label: false, input_html: { required: true } %>
-    <%= f.input :check, as: :boolean, checked_value: true, unchecked_value: false, label: "Je souhaite payer par chèque (vous recevrez un email avec les informations nécessaires à l'envoi de votre chèque)." %>
-    <%= f.input :card, as: :boolean, checked_value: true, unchecked_value: false, label: "Je souhaite payer par carte bleue." %>
+    <%# <%= f.input :check, as: :boolean, checked_value: true, unchecked_value: false, label: "Je souhaite payer par chèque (vous recevrez un email avec les informations nécessaires à l'envoi de votre chèque)." %>
+    <%# <%= f.input :card, as: :boolean, checked_value: true, unchecked_value: false, label: "Je souhaite payer par carte bleue." %>
+    <%= f.input :payment_method, as: :select, collection:Order::PAYMENT_METHOD, selected: Order::PAYMENT_METHOD.first, label: "Choisissez votre moyen de paiement :" %>
+    <p><em>*Si vous choisissez le paiement par chèque, vous recevrez un email avec les informations nécessaires à l'envoi de votre chèque.</em></p>
+    <br>
     <p>
       Vos données personnelles seront utilisées pour le traitement de votre commande,
       vous accompagner au cours de votre visite du site web, et pour d’autres raisons

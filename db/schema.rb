@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_21_155914) do
+ActiveRecord::Schema.define(version: 2022_11_21_172104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(version: 2022_11_21_155914) do
     t.boolean "data", default: false, null: false
     t.boolean "check", default: false, null: false
     t.boolean "card", default: false, null: false
+    t.string "payment_method"
   end
 
   create_table "prestation_categories", force: :cascade do |t|
