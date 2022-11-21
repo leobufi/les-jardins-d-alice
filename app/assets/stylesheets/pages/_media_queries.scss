@@ -31,6 +31,25 @@
   .category .category-products .products {
     height: 62vh;
   }
+
+
+  .banner-promo {
+    width: 86%;
+    height: 80vh;
+  }
+
+  .banner-about-me {
+    width: 86%;
+    height: 85vh;
+  }
+
+  .home-products {
+    width: 86%;
+
+    .banner-items {
+      height: 50vh;
+    }
+  }
 }
 
 @media(max-width: 1180px) {
@@ -822,7 +841,7 @@
 
   .banner-about-me {
     width: 95%;
-    height: 72vh;
+    height: 90vh;
   }
 
   .home-products {
