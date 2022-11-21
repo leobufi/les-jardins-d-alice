@@ -29,7 +29,7 @@
 
 @media(max-width: 1440px) {
   .category .category-products .products {
-    height: 62vh;
+    height: 70vh;
   }
 
 
@@ -74,9 +74,6 @@
     border-left: none;
   }
 
-  .products {
-    height: 45vh;
-  }
 }
 
 @media(max-width: 920px) {
@@ -131,7 +128,7 @@
     }
   }
 
-  .banner-items {
+  .home-products .banner-items {
     height: 25vh;
 
     h3 {
@@ -157,7 +154,7 @@
       }
 
       .products {
-        height: 32vh;
+        height: 42vh;
       }
 
       .cart-add {
