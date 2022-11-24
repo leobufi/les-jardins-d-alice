@@ -43,6 +43,6 @@ class PrestationCategoriesController < ApplicationController
   private
 
   def prestation_category_params
-    params.require(:prestation_category).permit(:title, :description, :main_photo, :user_id)
+    params.require(:prestation_category).permit(:title, :description, :main_photo, :user_id, photos:[])
   end
 end

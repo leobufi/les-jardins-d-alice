@@ -5,6 +5,7 @@
       <%= f.input :title, label: "Nom du type de prestation" %>
       <%= f.input :description, label: "Description du type de prestation" %>
       <%= f.input :main_photo, as: :file, placeholder: "Photo principale", label: "Photo principale" %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, placeholder: "Galerie de photos pour le type de prestation", label: "Galerie de photos pour le type de prestation créée :" %>
       <button>
         <%= f.button :submit, "Mettre à jour" %>
       </button>
