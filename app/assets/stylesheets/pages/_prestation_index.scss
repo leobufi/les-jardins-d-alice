@@ -27,22 +27,25 @@
 
 .prestation-photos {
   width: 90%;
-  height: 80vh;
+  // height: 80vh;
   margin: auto;
-  margin-bottom: 24px;
+  margin-bottom: 48px;
   border: black 1px solid;
   background-color: white;
   padding: 24px;
 
   h3 {
+    margin-top: 24px;
     text-align: center;
     height: 15%;
   }
 
   .photos {
-    width: 96%;
-    height: 83%;
+    width: 60vw;
+    height: 50vh;
     border: black solid 1px;
+    margin-top: 24px;
+    background-color: $light-gray;
 
     img {
       width: 100%;

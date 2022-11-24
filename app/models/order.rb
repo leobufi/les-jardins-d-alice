@@ -8,8 +8,8 @@ class Order < ApplicationRecord
   validates :email, presence: true
   validates :address, presence: true
   validates :data, presence: true
-  PAYMENT_METHOD = {"Carte bleue": "0", "Chèque": "1"}
 
+  PAYMENT_METHOD = {"Carte bleue": "0", "Chèque": "1"}
   enum payment_method: PAYMENT_METHOD
 
   include PgSearch::Model

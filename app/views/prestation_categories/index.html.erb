@@ -11,59 +11,61 @@
   </div>
   <%= render 'shared/presta_index' %>
   <% @prestations.each do |prestation| %>
-  <div id="<%= I18n.transliterate(prestation.prestation_category.title.gsub(/\s+/, "")) %>" class="" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= prestation.prestation_category.title %>">
-    <div class="sticker-title prestations">
-      <h2><%= prestation.title %></h2>
-    </div>
-    <div class="prestation">
-      <div class="sticker-presta">
-        <em><%= prestation.prestation_category.title %></em>
+    <div id="<%= I18n.transliterate(prestation.prestation_category.title.gsub(/\s+/, "")) %>" class="" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= prestation.prestation_category.title %>">
+      <div class="sticker-title prestations">
+        <h2><%= prestation.title %></h2>
       </div>
-      <p><%= prestation.description %></p>
-      <h5>Dates :</h5>
-      <span><%= prestation.dates %></span>
-      <br>
-      <div class="contact-link">
-        <a href="#contact-form">
-          <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
-          <span>Pour vous inscrire, contactez-moi !</span>
-          <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
-        </a>
+      <div class="prestation">
+        <div class="sticker-presta">
+          <em><%= prestation.prestation_category.title %></em>
+        </div>
+        <p><%= prestation.description %></p>
+        <h5>Dates :</h5>
+        <span><%= prestation.dates %></span>
+        <br>
+        <div class="contact-link">
+          <a href="#contact-form">
+            <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
+            <span>Pour vous inscrire, contactez-moi !</span>
+            <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
+          </a>
+        </div>
+      </div>
+      <div class="prestation-photos">
+        <h3>Les précédentes <%= prestation.prestation_category.title.downcase %> en photos</h3>
+          <div class="photos swiper" data-controller="carousel" >
+            <% if prestation.prestation_category.photos.attached? %>
+              <div class="swiper-wrapper">
+                <% prestation.prestation_category.photos.each do |img| %>
+                  <div class="swiper-slide">
+                      <%= cl_image_tag img.key %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            <% else %>
+              <%= image_tag "SVG/Logo_1.svg" %>
+            <% end %>
+          </div>
       </div>
     </div>
-  </div>
   <% end %>
   <div id="contact-form">
     <h3>S'inscrire</h3>
+    <span><em>Vous pouvez utiliser le formulaire ci-dessous, ou m'envoyer directement un email à lesjardinsdalice(a)outlook.fr</em></span>
     <br>
-      <%= simple_form_for(@contact) do |f| %>
-        <%= f.input :name, placeholder: "Vos noms et prénoms", label: false %>
-        <%= f.input :email, placeholder: "Votre email", label: false %>
-        <%= f.input :message, placeholder: "Votre message (merci de préciser le nom du stage auquel vous souhaitez participer)", label: false, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'} %>
-        <div class= "d-none">
-          <%= f.input :nickname, :hint => 'Leave this field blank!' %>
-        </div>
-        <button>
-          <%= f.submit 'Envoyer' %>
-        </button>
-      <% end %>
-  </div>
-  <div class="prestation-photos">
-    <h3>Les précédentes prestations en photos</h3>
-    <% if @images.where(prestation: true).first.prestation_galeries.attached? %>
-    <div class="photos swiper" data-controller="carousel">
-      <div class="swiper-wrapper">
-        <% @images.where(prestation: true).first.prestation_galeries.each do |img| %>
-          <div class="swiper-slide">
-              <%= cl_image_tag img.key %>
-          </div>
-        <% end %>
+    <br>
+    <%= simple_form_for(@contact) do |f| %>
+      <%= f.input :name, placeholder: "Vos noms et prénoms", label: false %>
+      <%= f.input :email, placeholder: "Votre email", label: false %>
+      <%= f.input :message, placeholder: "Votre message (merci de préciser le nom du stage auquel vous souhaitez participer)", label: false, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'} %>
+      <div class= "d-none">
+        <%= f.input :nickname, :hint => 'Leave this field blank!' %>
       </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-    <% else %>
-      <p>Il n'y a pas d'images pour le moment.</p>
+      <button>
+        <%= f.submit 'Envoyer' %>
+      </button>
     <% end %>
   </div>
 </div>
