@@ -314,6 +314,12 @@
   body {
     font-size: 0.9em;
     width: 100%;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+
   }
 
   a {
@@ -429,7 +435,7 @@
   }
 
   .banner-promo {
-    height: 30vh;
+    height: 40vh;
     width: 90%;
 
     .sticker-banner-promo {
@@ -656,7 +662,7 @@
   }
 
   .jardins-boxes {
-    height: 28vh;
+    height: 40vh;
     margin-bottom: 48px;
     margin-top: 0px;
 
@@ -843,6 +849,14 @@
 
 @media(max-width: 375px) {
 
+  body {
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+
   .navbar {
     .dropdown {
       height: 6vh;
@@ -867,7 +881,7 @@
 
   .banner-promo {
     width: 95%;
-    height: 40vh
+    height: 44vh
   }
 
   .banner-about-me {
