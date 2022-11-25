@@ -2,7 +2,6 @@
 
   body {
     background-attachment: fixed;
-    background-blend-mode: overlay;
   }
 
   .products {
@@ -42,7 +41,6 @@
 
   body {
     background-attachment: fixed;
-    background-blend-mode: overlay;
   }
 
   .category .category-products .products {
@@ -109,7 +107,6 @@
   body {
     font-size: 1em;
     background-attachment: fixed;
-    background-blend-mode: unset;
   }
 
   p {
@@ -330,6 +327,7 @@
     background-attachment: initial;
     background-size: 100%;
     background-blend-mode: unset;
+    width: 375px;
   }
 
   a {
@@ -862,7 +860,6 @@
   body {
     background-attachment: initial;
     background-size: 100%;
-    background-blend-mode: unset;
   }
 
   .navbar {
