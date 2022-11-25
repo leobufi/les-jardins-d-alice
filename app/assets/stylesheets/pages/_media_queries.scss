@@ -421,6 +421,7 @@
 
     .right {
       font-size: 12px;
+      color: aliceblue;
     }
   }
 
@@ -588,13 +589,12 @@
   // PRODUCT \\
 
   .product-container {
-    height: 70vh;
     margin: 32px auto;
     padding: 24px;
     display: block;
 
     .product-image {
-      height: 50%;
+      height: 32vh;
       margin-right: 12px;
     }
 
@@ -942,7 +942,6 @@
   // PRODUCT \\
 
   .product-container {
-    height: 90vh;
   }
 
   // COFFRETS \\
