@@ -325,7 +325,7 @@
 
   body {
     background-attachment: initial;
-    background-size: 100vw 100vh;
+    background-size: 100vw, cover;
   }
 
   a {
@@ -857,7 +857,7 @@
 
   body {
     background-attachment: initial;
-    background-size: 100vw 100vh;
+    background-size: 100vw, cover;
   }
 
   .navbar {
