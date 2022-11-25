@@ -405,17 +405,19 @@
     font-size: 0.8rem;
     line-height: 1.1rem;
     width: 100%;
-    width: 100%;
     height: 100px;
+    justify-content: flex-start;
 
     .left {
-      display: none;
+
+      img {
+        width: 45px;
+      }
 
       .links {
         padding: 0px 8px;
       }
     }
-
 
     .right {
       font-size: 12px;
