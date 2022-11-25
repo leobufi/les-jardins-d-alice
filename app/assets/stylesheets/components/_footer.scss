@@ -11,9 +11,9 @@
   .left {
     display: flex;
 
-    image {
-      width: 130px;
-    }
+    // image {
+    //   width: 130px;
+    // }
 
     .links {
       display: flex;
@@ -29,6 +29,6 @@
     flex-direction: column;
     justify-content: flex-end;
     font-family: "Junicode bold italic condensed";
-    font-size: 10px;
+    font-size: 16px;
   }
 }
