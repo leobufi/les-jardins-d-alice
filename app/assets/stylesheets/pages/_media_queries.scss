@@ -25,6 +25,11 @@
     }
   }
 
+  .prestation-photos .photos {
+    width: 75%;
+    height: 60vh;
+  }
+
 }
 
 @media(max-width: 1440px) {
@@ -50,6 +55,11 @@
       height: 50vh;
     }
   }
+
+  .prestation-photos .photos {
+    width: 75%;
+    height: 60vh;
+  }
 }
 
 @media(max-width: 1180px) {
@@ -72,6 +82,11 @@
 
   .dropdown {
     border-left: none;
+  }
+
+  .prestation-photos .photos {
+    width: 75%;
+    height: 60vh;
   }
 
 }
@@ -181,6 +196,10 @@
 
   .coffret-container {
 
+    .coffret-main .coffret-image {
+      height: 24vh;
+    }
+
     .coffret-products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -204,6 +223,11 @@
 
   .prestation-photos {
     max-height: 75vh;
+  }
+
+  .prestation-photos .photos {
+    width: 100%;
+    height: 45vh;
   }
 
   // JARDINS \\
@@ -289,19 +313,32 @@
 
   body {
     font-size: 0.9em;
+    width: 100%;
+  }
+
+  a {
+    font-family: "Junicode bold italic";
   }
 
   p {
     font-size: 1rem;
     line-height: 1rem;
+    font-family: 'Junicode';
   }
 
-  h2, h3 {
-    font-size: 1.2rem;
+  h2 {
+    font-size: 1.1rem;
+    font-family: "Junicode bold italic";
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-family: "Junicode bold";
   }
 
   h4, h5 {
     font-size: 1.1rem;
+    font-family: "Junicode bold";
   }
 
   button {
@@ -356,10 +393,6 @@
 
     .left .links {
       padding: 0px 0px;
-    }
-
-    .right {
-      font-size: 16px;
     }
   }
 
@@ -452,7 +485,7 @@
         height: 55%;
 
         .logos {
-          width: 55px;
+          display: none;
         }
 
         p {
@@ -555,8 +588,8 @@
       display: block;
       margin-bottom: 24px;
 
-      .coffret-image img {
-        max-height: 200px;
+      .coffret-image {
+        height: 32vh;
       }
 
       .coffret-infos {
@@ -606,8 +639,9 @@
 
   }
 
-  .prestation-photos {
-    max-height: 50vh;
+  .prestation-photos .photos {
+    width: 100%;
+    height: 32vh;
   }
 
   // JARDINS \\
@@ -902,4 +936,8 @@
     }
   }
 
+  .prestation-photos .photos {
+    width: 100%;
+    height: 32vh;
+  }
 }
