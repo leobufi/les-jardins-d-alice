@@ -4,6 +4,31 @@
     background-attachment: fixed;
   }
 
+  h2 {
+    font-family: "Junicode bold italic";
+  }
+
+  h3,
+  h4,
+  h5 {
+    font-family: "Junicode bold";
+  }
+
+  h1 {
+    font-family: "Junicode bold";
+    font-size: 4em;
+  }
+
+  a {
+    font-family: "Junicode bold italic";
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: black;
+    }
+  }
+
   .products {
     height: 45vh;
   }
@@ -41,6 +66,31 @@
 
   body {
     background-attachment: fixed;
+  }
+
+  h2 {
+    font-family: "Junicode bold italic";
+  }
+
+  h3,
+  h4,
+  h5 {
+    font-family: "Junicode bold";
+  }
+
+  h1 {
+    font-family: "Junicode bold";
+    font-size: 4em;
+  }
+
+  a {
+    font-family: "Junicode bold italic";
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: black;
+    }
   }
 
   .category .category-products .products {
@@ -83,6 +133,31 @@
     line-height: 1.1em;
   }
 
+  h2 {
+    font-family: "Junicode bold italic";
+  }
+
+  h3,
+  h4,
+  h5 {
+    font-family: "Junicode bold";
+  }
+
+  h1 {
+    font-family: "Junicode bold";
+    font-size: 4em;
+  }
+
+  a {
+    font-family: "Junicode bold italic";
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: black;
+    }
+  }
+
   .jardins-boxes .jardin-slider {
     background-size: 125%;
   }
@@ -116,6 +191,28 @@
 
   h1 {
     font-size: 2em;
+    font-family: "Junicode bold";
+  }
+
+  h2 {
+    font-family: "Junicode bold italic";
+  }
+
+  h3,
+  h4,
+  h5 {
+    font-family: "Junicode bold";
+  }
+
+
+  a {
+    font-family: "Junicode bold italic";
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: black;
+    }
   }
 
   .title {
@@ -331,7 +428,8 @@
   }
 
   a {
-    font-family: "Junicode bold italic";
+    font-family: "Junicode bold";
+    font-style: italic;
   }
 
   p {
@@ -342,7 +440,7 @@
 
   h2 {
     font-size: 1.1rem;
-    font-family: "Junicode bold italic";
+    font-family: "Junicode bold";
   }
 
   h3 {
@@ -366,6 +464,8 @@
   .navbar {
     font-size: 0.8rem;
     line-height: 1rem;
+    font-family: "Junicode bold";
+    font-style: italic;
   }
 
   .navbar-small {
@@ -376,6 +476,8 @@
       border-left: none;
       font-size: 0.7rem;
       line-height: 1rem;
+      font-family: "Junicode";
+      font-style: italic;
     }
   }
 
