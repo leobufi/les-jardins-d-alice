@@ -2,7 +2,6 @@
 
   body {
     background-attachment: fixed;
-    background-image: url(SVG/Wallpaper3.svg);
   }
 
   .products {
@@ -42,7 +41,6 @@
 
   body {
     background-attachment: fixed;
-    background-image: url(SVG/Wallpaper3.svg);
   }
 
   .category .category-products .products {
@@ -79,7 +77,6 @@
   body {
       font-size: 1em;
       background-attachment: fixed;
-      background-image: url(SVG/Wallpaper3.svg);
     }
 
   p {
@@ -110,7 +107,6 @@
   body {
     font-size: 1em;
     background-attachment: fixed;
-    background-image: url(SVG/Wallpaper3.svg);
   }
 
   p {
@@ -329,8 +325,7 @@
 
   body {
     background-attachment: initial;
-    background-image: none;
-    width: 100vw;
+    background-size: 100vw 100vh;
   }
 
   a {
@@ -862,7 +857,7 @@
 
   body {
     background-attachment: initial;
-    background-image: none;
+    background-size: 100vw 100vh;
   }
 
   .navbar {
