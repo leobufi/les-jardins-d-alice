@@ -16,6 +16,12 @@
 //   scroll-snap-type: block;
 // }
 
+@supports (-moz-appearance:none) {
+  body {
+    background-blend-mode: normal;
+  }
+}
+
 body {
   font-size: 1.1em;
   z-index: +10000;
@@ -24,7 +30,6 @@ body {
   background-color: $light-gray;
   background-image: url(SVG/Wallpaper3.svg);
   background-color: rgba(255, 255, 255, 0.3);
-  background-blend-mode: overlay;
 }
 
 // h2 {
