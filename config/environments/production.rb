@@ -120,14 +120,14 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  ActionMailer::Base.smtp_settings = {
-  :port           => ENV['MAILGUN_SMTP_PORT'],
-  :address        => ENV['MAILGUN_SMTP_SERVER'],
-  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-  :domain         => 'www.jardinsdalice.com',
-  :authentication => :plain,
-  }
-  ActionMailer::Base.delivery_method = :smtp
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  port: 587,
+  address: ENV['SMTP_ADDRESS'],
+  user_name: ENV['SMTP_USER_NAME'],
+  password: ENV['SMTP_PASSWORD'],
+  authentication: :plain,
+  enable_starttls_auto: true
+}
 
 end
