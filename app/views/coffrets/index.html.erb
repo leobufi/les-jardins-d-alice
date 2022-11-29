@@ -17,12 +17,20 @@
     </div>
     <div class="coffret-container">
       <div class="coffret-main">
-        <div class="coffret-image">
-          <% if coffret.main_photo.attached? %>
-            <%= cl_image_tag coffret.main_photo.key %>
-          <% else %>
-            <%= image_tag "SVG/Leafs.svg" %>
-          <% end %>
+        <div class="coffret-image swiper" data-controller="carousel">
+          <div class="swiper-wrapper">
+            <% if coffret.main_photo.attached? %>
+              <% coffret.main_photo.each do |img| %>
+                <div class="swiper-slide">
+                 <%= cl_image_tag img.key %>
+                </div>
+              <% end %>
+            <% else %>
+              <%= image_tag "SVG/Leafs.svg" %>
+            <% end %>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
         <div class="coffret-infos">
           <p><%= coffret.description %></p>

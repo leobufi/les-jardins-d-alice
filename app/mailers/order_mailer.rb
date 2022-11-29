@@ -4,7 +4,7 @@ class OrderMailer < ApplicationMailer
     @order = params[:order]
     mail(
         to: @order.email,
-        from: "bufi.leo@gmail.fr",
+        from: "lesjardinsdalice@outlook.fr",
         subject: "Votre commande aux Jardins d\'Alice a bien été prise en compte"
       )
   end
@@ -12,8 +12,8 @@ class OrderMailer < ApplicationMailer
   def alice_confirmation
     @order = params[:order]
     mail(
-      to: "bufi.leo@gmail.fr",
-      from:"bufi.leo@gmail.fr",
+      to: "lesjardinsdalice@outlook.fr",
+      from:"lesjardinsdalice@outlook.fr",
       subject: "Nouvelle commande ! N°#{@order.id}"
     )
   end

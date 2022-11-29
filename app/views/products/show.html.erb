@@ -10,26 +10,26 @@
   </div>
   <% end %>
   <div class="product-image swiper" data-controller="carousel">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <% if @product.main_photo.attached? %>
-        <%= cl_image_tag @product.main_photo.key %>
-      <% else %>
-        <%= image_tag "SVG/Leafs.svg" %>
-      <% end %>
-    </div>
-    <div class="swiper-slide">
-      <% if @product.photos_url.attached? %>
-        <% @product.photos_url.each do |img| %>
-        <%= cl_image_tag img.key%>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <% if @product.main_photo.attached? %>
+          <%= cl_image_tag @product.main_photo.key %>
+        <% else %>
+          <%= image_tag "SVG/Leafs.svg" %>
         <% end %>
-      <% else %>
-        <%= image_tag "SVG/Logo_1.svg" %>
-      <% end %>
+      </div>
+      <div class="swiper-slide">
+        <% if @product.photos_url.attached? %>
+          <% @product.photos_url.each do |img| %>
+          <%= cl_image_tag img.key%>
+          <% end %>
+        <% else %>
+          <%= image_tag "SVG/Logo_1.svg" %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
   <div class="product-infos">
     <div>

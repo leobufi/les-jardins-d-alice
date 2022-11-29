@@ -6,7 +6,7 @@
       <%= f.input :title, placeholder: "Nom du coffret", label: false %>
       <%= f.input :description, placeholder: "Description du coffret", label: false %>
       <%= f.input :price_cents, label: "Prix du coffret (mettre le prix en centimes)" %>
-      <%= f.input :main_photo, as: :file, placeholder: "Photo du coffret", label: "Photo du coffret" %>
+      <%= f.input :main_photo, as: :file, input_html: { multiple: true }, placeholder: "Photos du coffret", label: "Photos du coffret" %>
       <%= f.association :products, label: "Selectionne plusieurs produits pour ton coffret :" %>
       <button>
         <%= f.button :submit, "Publier" %>
