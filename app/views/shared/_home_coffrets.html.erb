@@ -13,7 +13,7 @@
             </div>
             <div class="product-image" data-hover-images-target="img">
               <% if c.main_photo.attached? %>
-              <div class="background" style="background-image: url(<%= cl_image_path c.main_photo.key, :crop=>"fit" %>)">
+              <div class="background" style="background-image: url(<%= cl_image_path c.main_photo.first.key, :crop=>"fit" %>)">
                 <h3 data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos'><%= c.title %></h3>
               </div>
               <% else %>

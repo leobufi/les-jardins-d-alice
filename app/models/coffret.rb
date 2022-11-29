@@ -3,7 +3,7 @@ class Coffret < ApplicationRecord
   belongs_to :user
   has_many :line_items, dependent: :destroy
 
-  has_one_attached :main_photo
+  has_many_attached :main_photo
 
   serialize :coffret_products, Array
 

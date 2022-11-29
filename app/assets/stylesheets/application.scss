@@ -19,6 +19,11 @@
 @supports (-moz-appearance:none) {
   body {
     background-blend-mode: normal;
+    font-size: 1.1em;
+  }
+
+  .navbar-small {
+    top: 74px;
   }
 }
 
