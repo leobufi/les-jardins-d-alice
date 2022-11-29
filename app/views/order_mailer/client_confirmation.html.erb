@@ -38,9 +38,9 @@
       <h1>Merci pour votre commande <%= @order.first_name %> <%= @order.last_name %> !</h1>
       <p>
         Votre commande a bien été enregistrée au numéro <%= @order.address %>.
-        L'envoi de votre colis se fera très prochainement.
+        L'envoi de votre colis se fera très prochainement, une fois que votre paiement ait été validé.
       </p>
-      <% if @order.check? %>
+      <% if @order.Chèque? %>
        <p>Veuillez envoyer votre chèque à l'adresse ci-dessous (le montant de cotre commande est affiché dans le présent email) :</p>
        <p>Madame Corsini Alice, 23 rue Gubernatis 06000 NICE</p>
        <p>L'envoi de votre colis se fera dès réception do votre chèque.</p>

@@ -34,7 +34,9 @@
         <br>
         Adresse : <%= @order.address %>.
         <br>
-        <% if @order.check? %>
+        <p>La commande n'a peut être pas été réglée, vérifie sur ton compte stripe que c'est bien le cas avant d'envoyer ton colis.</p>
+        <br>
+        <% if @order.Chèque? %>
          <strong>RÈGLEMENT PAR CHÈQUE</strong>
         <% end %>
       </p>
