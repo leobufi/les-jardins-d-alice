@@ -39,7 +39,7 @@
     <% elsif line_item.coffret_id %>
       <div class="product-image">
         <% if line_item.coffret.main_photo.attached? %>
-          <%= cl_image_tag line_item.coffret.main_photo.key %>
+          <%= cl_image_tag line_item.coffret.main_photo.first.key %>
         <% else %>
           <%= image_tag "SVG/Leafs.svg" %>
         <% end %>
