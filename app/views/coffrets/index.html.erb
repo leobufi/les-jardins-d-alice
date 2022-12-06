@@ -1,5 +1,6 @@
 <% content_for :meta_title, "Mes Coffrets bio - #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, "Découvrez mes coffrets à base de plantes bio ceuillies dans mes jardins de Beuil et de Cantaron" %>
+<% content_for :meta_image, cl_image_path(@coffrets.first.main_photo.first.key) if @coffrets.first.main_photo.first.present? %>
 <div data-controller="switch-tab scroll active-nav">
   <div class="navbar-small">
   <% @coffrets.each do |coffret| %>

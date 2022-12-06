@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :admin])
   end
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   def initializer
     @rayons = Rayon.all
     @coffrets = Coffret.all
@@ -39,10 +43,6 @@ class ApplicationController < ActionController::Base
       @current_cart = Cart.create
       session[:cart_id] = @current_cart.id
     end
-  end
-
-  def default_url_options
-  { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 
 end

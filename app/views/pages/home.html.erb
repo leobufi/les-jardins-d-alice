@@ -1,3 +1,4 @@
+<% content_for :meta_image, cl_image_path(@images.where(home: true).first.home_cover.key) if @images.where(home: true).first.home_cover.attached? %>
 <div class="banner-logo" data-controller="disappear-home" data-action="scroll@window->disappear-home#disappear">
   <%= image_tag "SVG/Banner_logo.svg" %>
 </div>
