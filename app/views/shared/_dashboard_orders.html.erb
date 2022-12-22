@@ -30,7 +30,7 @@
           <th>Date</th>
           <th>Supprimer</th>
         </tr>
-        <% @orders.each do |order| %>
+        <% @orders.sort.reverse.each do |order| %>
         <tr class="table-line">
           <th><%= order.id %></th>
           <th><%= order.first_name %> <%= order.last_name %></th>
