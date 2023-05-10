@@ -3,8 +3,8 @@
 <% content_for :meta_image, cl_image_path(@prestation_categories.first.main_photo.key) if @prestation_categories.first.main_photo.attached? %>
 <div data-controller="switch-tab scroll active-nav">
   <div class="navbar-small">
-  <% @prestations.each do |prestation| %>
-      <a id="<%= I18n.transliterate(prestation.prestation_category.title.gsub(/\s+/, "")) %>" href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-active-nav-target="tab" data-tab-name="<%= prestation.prestation_category.title %>"><%= prestation.prestation_category.title %></a>
+  <% @prestation_categories.each do |prestation| %>
+      <a id="<%= I18n.transliterate(prestation.title.gsub(/\s+/, "")) %>" href="" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-active-nav-target="tab" data-tab-name="<%= prestation.title %>"><%= prestation.title %></a>
   <%end %>
   </div>
   <div class="title" data-scroll-target="title" data-active-nav-target="scroll">

@@ -7,6 +7,8 @@
       <br>
       <%= f.input :dates, placeholder: "Dates de la prestation" %>
       <br>
+      <%= f.association :prestation_category, prompt: "Selectionne un type de prestation", label: false %>
+      <br>
       <button>
         <%= f.button :submit, "Mettre à jour" %>
       </button>
