@@ -4,24 +4,27 @@
     <span><%= link_to 'Voir tous les jardins', jardins_path %></span>
   </div>
   <% @jardins.each do |jardin| %>
-    <div class="small-dash-container">
-      <div class="main-photo">
-        <% if jardin.main_photo.attached? %>
-          <%= cl_image_tag jardin.main_photo.key %>
-        <% else %>
-          <%= image_tag "SVG/Leafs.svg" %>
-        <% end %>
+      <div class="title-btn">
+        <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= jardin.title %>"><%= jardin.title %></h5>
+        <button data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= jardin.title %>">↓</button>
       </div>
-      <div class="infos">
-        <h4><%= jardin.title %></h4>
-        <p><%= sanitize("#{jardin.description}".truncate(100)) %></p>
-      </div>
-      <div class="buttons">
-        <button><%= link_to 'Éditer', edit_jardin_path(jardin) %></button>
-        <button><%= link_to "Supprimer", jardin_path(jardin), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
-      </div>
+      <div class="small-dash-container" data-switch-tab-target="project" data-tab-name="<%= jardin.title %>">
+        <div class="main-photo">
+          <% if jardin.main_photo.attached? %>
+            <%= cl_image_tag jardin.main_photo.key %>
+          <% else %>
+            <%= image_tag "SVG/Leafs.svg" %>
+          <% end %>
+        </div>
+        <div class="infos">
+          <p><%= jardin.description %></p>
+        </div>
+        <div class="buttons">
+          <button><%= link_to 'Éditer', edit_jardin_path(jardin) %></button>
+          <button><%= link_to "Supprimer", jardin_path(jardin), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+        </div>
     </div>
-    <hr>
+  <hr>
   <% end %>
   <br>
   <h4>Créer un nouveau jardin</h4>
