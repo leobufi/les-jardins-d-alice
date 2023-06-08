@@ -1,0 +1,57 @@
+// .tab {
+//   display: none;
+
+//   &.activate {
+//     display: inline-block;
+//   }
+// }
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  padding: 2em 0em;
+  border-bottom: 1px dashed black;
+
+  h3 {
+    cursor: pointer;
+    padding: 0.5em 0.75em;
+    border: 1px solid black;
+    border-radius: 50px;
+  }
+
+  .colored {
+    color: $complementary-color;
+    background-color: rgb(26, 26, 26);
+  }
+
+}
+
+.title-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 2em;
+
+  h5 {
+    font-family: "Junicode bold italic";
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+}
+
+.cat-principale-form {
+  display: none;
+
+  &.show {
+    display: inline-block;
+  }
+}
+
+.panel {
+  display: none;
+
+  &.activate {
+    display: flex;
+    flex-direction: column;
+  }
+}

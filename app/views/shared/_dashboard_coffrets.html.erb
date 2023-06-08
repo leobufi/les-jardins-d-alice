@@ -4,7 +4,11 @@
     <span><%= link_to 'Voir tous les coffrets', coffrets_path %></span>
   </div>
   <% @coffrets.each do |coffret| %>
-    <div class="small-dash-container">
+    <div class="title-btn">
+      <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= coffret.title %>"><%= coffret.title %></h5>
+      <button data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= coffret.title %>">↓</button>
+    </div>
+    <div class="small-dash-container" data-switch-tab-target="project" data-tab-name="<%= coffret.title %>">
       <div class="main-photo">
         <% if coffret.main_photo.attached? %>
           <%= cl_image_tag coffret.main_photo.first.key %>
@@ -13,7 +17,6 @@
         <% end %>
       </div>
       <div class="infos">
-        <h4><%= coffret.title %></h4>
         <p><%= coffret.description %></p>
         <div class="coffret-products">
           <strong>Ce coffret est composé de :</strong>

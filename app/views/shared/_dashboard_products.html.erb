@@ -6,8 +6,12 @@
     <%= link_to 'Mettre en ligne un nouveau produit', new_product_path %>
   </button>
   <br>
-  <% @products.each do |product| %>
-    <div class="small-dash-container">
+  <% @products.sort_by{|e| e.title}.each do |product| %>
+    <div class="title-btn">
+      <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= product.title %>"><%= product.title %></h5>
+      <button data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= product.title %>">↓</button>
+    </div>
+    <div class="small-dash-container" data-switch-tab-target="project" data-tab-name="<%= product.title %>">
       <div class="main-photo">
         <% if product.main_photo.attached? %>
           <%= cl_image_tag product.main_photo.key %>
@@ -16,7 +20,6 @@
         <% end %>
       </div>
       <div class="infos">
-        <h4><%= product.title %></h4>
         <span><strong>Ce produit appartient à la catégorie <%= product.category.title %></strong></span>
         <br>
         <p><%= product.description %></p>
