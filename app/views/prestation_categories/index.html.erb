@@ -32,12 +32,16 @@
           </a>
         </div>
       </div>
+    </div>
+  <% end %>
+  <% @prestation_categories.each do |prestation| %>
+    <div id="<%= I18n.transliterate(prestation.title.gsub(/\s+/, "")) %>" class="" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= prestation.title %>">
       <div class="prestation-photos">
-        <h3>Les précédentes <%= prestation.prestation_category.title.downcase %> en photos</h3>
+        <h3>Les précédentes <%= prestation.title.downcase %> en photos</h3>
           <div class="photos swiper" data-controller="carousel" >
-            <% if prestation.prestation_category.photos.attached? %>
+            <% if prestation.photos.attached? %>
               <div class="swiper-wrapper">
-                <% prestation.prestation_category.photos.each do |img| %>
+                <% prestation.photos.each do |img| %>
                   <div class="swiper-slide">
                       <%= cl_image_tag img.key %>
                   </div>

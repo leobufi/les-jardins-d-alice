@@ -19,23 +19,25 @@
         </a>
       </div>
     </div>
-    <div class="prestation-photos">
-      <h3>Les précédentes <%= prestation.prestation_category.title.downcase %> en photos</h3>
-        <div class="photos swiper" data-controller="carousel" >
-          <% if prestation.prestation_category.photos.attached? %>
-            <div class="swiper-wrapper">
-              <% prestation.prestation_category.photos.each do |img| %>
-                <div class="swiper-slide">
-                    <%= cl_image_tag img.key %>
-                </div>
-              <% end %>
-            </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          <% else %>
-            <%= image_tag "SVG/Logo_1.svg" %>
-          <% end %>
-        </div>
-    </div>
+  <% end %>
+  <% @prestation_categories.each do |prestation| %>
+      <div class="prestation-photos">
+        <h3>Les précédentes <%= prestation.title.downcase %> en photos</h3>
+          <div class="photos swiper" data-controller="carousel" >
+            <% if prestation.photos.attached? %>
+              <div class="swiper-wrapper">
+                <% prestation.photos.each do |img| %>
+                  <div class="swiper-slide">
+                      <%= cl_image_tag img.key %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            <% else %>
+              <%= image_tag "SVG/Logo_1.svg" %>
+            <% end %>
+          </div>
+      </div>
   <% end %>
 </div>
