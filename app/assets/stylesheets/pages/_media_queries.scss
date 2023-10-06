@@ -56,11 +56,6 @@
     }
   }
 
-  .prestation-photos .photos {
-    width: 75%;
-    height: 60vh;
-  }
-
 }
 
 @media(max-width: 1440px) {
@@ -116,11 +111,6 @@
       height: 50vh;
     }
   }
-
-  .prestation-photos .photos {
-    width: 75%;
-    height: 60vh;
-  }
 }
 
 @media(max-width: 1180px) {
@@ -169,11 +159,6 @@
 
   .dropdown {
     border-left: none;
-  }
-
-  .prestation-photos .photos {
-    width: 75%;
-    height: 60vh;
   }
 
 }
@@ -331,13 +316,27 @@
 
   // PRESTATIONS \\
 
-  .prestation-photos {
-    max-height: 75vh;
-  }
+  #presta {
+    .prestation-container {
+      display: block;
+    }
 
-  .prestation-photos .photos {
-    width: 100%;
-    height: 45vh;
+    .prestation-boxes {
+      display: block;
+
+      .prestation-list {
+        width: 100%;
+        min-height: 0%;
+        border-right: black solid 1px;
+      }
+
+      .prestation-photos {
+        width: 100%;
+        height: 30vh;
+        border-right: black solid 1px;
+      }
+    }
+
   }
 
   // JARDINS \\
@@ -773,7 +772,7 @@
 
   .prestation-photos .photos {
     width: 100%;
-    height: 32vh;
+    height: 100%;
   }
 
   // JARDINS \\
@@ -1074,6 +1073,6 @@
 
   .prestation-photos .photos {
     width: 100%;
-    height: 32vh;
+    height: 100%;
   }
 }
