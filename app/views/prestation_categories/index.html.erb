@@ -11,48 +11,58 @@
     <h1>Prestations</h1>
   </div>
   <%= render 'shared/presta_index' %>
-  <% @prestations.each do |prestation| %>
-    <div id="<%= I18n.transliterate(prestation.prestation_category.title.gsub(/\s+/, "")) %>" class="" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= prestation.prestation_category.title %>">
-      <div class="sticker-title prestations">
-        <h2><%= prestation.title %></h2>
-      </div>
-      <div class="prestation">
-        <div class="sticker-presta">
-          <em><%= prestation.prestation_category.title %></em>
-        </div>
-        <p><%= prestation.description %></p>
-        <h5>Dates :</h5>
-        <span><%= prestation.dates %></span>
-        <br>
-        <div class="contact-link">
-          <a href="#contact-form">
-            <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
-            <span>Pour vous inscrire, contactez-moi !</span>
-            <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
-          </a>
-        </div>
-      </div>
-    </div>
-  <% end %>
   <% @prestation_categories.each do |prestation| %>
     <div id="<%= I18n.transliterate(prestation.title.gsub(/\s+/, "")) %>" class="" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= prestation.title %>">
-      <div class="prestation-photos">
-        <h3>Les précédentes <%= prestation.title.downcase %> en photos</h3>
-          <div class="photos swiper" data-controller="carousel" >
-            <% if prestation.photos.attached? %>
-              <div class="swiper-wrapper">
-                <% prestation.photos.each do |img| %>
-                  <div class="swiper-slide">
-                      <%= cl_image_tag img.key %>
-                  </div>
-                <% end %>
-              </div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-            <% else %>
-              <%= image_tag "SVG/Logo_1.svg" %>
-            <% end %>
+      <div id="presta">
+        <div class="prestation-container">
+          <div class="sticker-title prestations">
+            <h2><%= prestation.title %></h2>
           </div>
+          <div class="presta-infos">
+            <h5><%= prestation.description %></h5>
+          </div>
+          <div class="prestation-boxes">
+            <div class="prestation-list" data-controller="switch-tab">
+              <% prestation.prestations.each do |prestation| %>
+                <div class="presta-tab">
+                  <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= prestation.title %>"><%= prestation.title %></h5>
+                  <span data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= prestation.title %>">↓</span>
+                </div>
+                <div class="prestation" data-switch-tab-target="project" data-tab-name="<%= prestation.title %>">
+                  <p><%= prestation.description %></p>
+                  <div class="dates">
+                    <h5>Dates :</h5>
+                    <span><%= prestation.dates %></span>
+                  </div>
+                  <div class="contact-link">
+                    <a href="#contact-form">
+                      <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
+                      <span>Pour vous inscrire, contactez-moi !</span>
+                      <%= image_tag "SVG/Hand/Hand_bottom.svg" %>
+                    </a>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="prestation-photos">
+                <div class="photos swiper" data-controller="carousel" >
+                  <% if prestation.photos.attached? %>
+                    <div class="swiper-wrapper">
+                      <% prestation.photos.each do |img| %>
+                        <div class="swiper-slide">
+                            <%= cl_image_tag img.key %>
+                        </div>
+                      <% end %>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                  <% else %>
+                    <%= image_tag "SVG/Logo_1.svg" %>
+                  <% end %>
+                </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
