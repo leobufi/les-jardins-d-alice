@@ -26,8 +26,10 @@
             <div class="prestation-list" data-controller="switch-tab">
               <% prestation.prestations.each do |prestation| %>
                 <div class="presta-tab">
-                  <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= prestation.title %>"><%= prestation.title %></h5>
-                  <span data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= prestation.title %>">↓</span>
+                  <h5 data-switch-tab-target="title" data-action="click->switch-tab#show" data-tab-name="<%= prestation.title %>"><%= prestation.title %></h5>
+                  <div class="arrow"  data-switch-tab-target="arrow" data-switch-tab-target="title" data-action="click->switch-tab#show" data-tab-name="<%= prestation.title %>">
+                    <span>↓</span>
+                  </div>
                 </div>
                 <div class="prestation" data-switch-tab-target="project" data-tab-name="<%= prestation.title %>">
                   <p><%= prestation.description %></p>
