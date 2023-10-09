@@ -8,11 +8,12 @@ export default class extends Controller {
     "content",
     "partial",
     "title",
-    "project"
+    "project",
+    "arrow"
   ]
 
   connect () {
-
+     console.log(this.arrowTargets)
   }
 
   activate(event) {
@@ -61,10 +62,22 @@ export default class extends Controller {
   show(event) {
     event.preventDefault()
     const title = event.target
+
+    console.log(this.arrowTargets)
+
+    this.arrowTargets.forEach((arrow) => {
+      if (arrow.dataset.tabName == title.dataset.tabName) {
+        arrow.classList.toggle("rotate")
+      } else {
+        arrow.classList.remove("rotate")
+      }
+    })
+
     this.titleTargets.forEach((titleTarget) => {
       // console.log(title.dataset.tabName)
       titleTarget.classList.toggle("show", titleTarget == title)
     })
+
 
     this.projectTargets.forEach((project) => {
       // console.log(project.dataset.tabName)
@@ -74,5 +87,6 @@ export default class extends Controller {
         project.classList.remove("show")
       }
     })
+
   }
 }
