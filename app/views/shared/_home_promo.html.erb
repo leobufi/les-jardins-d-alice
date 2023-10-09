@@ -22,7 +22,10 @@
             </div>
             <%= link_to product_path(product) do %>
             <h2><%= product.title %></h2>
-            <p><%= sanitize("#{product.description}".truncate(250)) %><b><%= link_to 'Découvrir le produit...', product_path(product) %></b></p>
+            <p><%= sanitize("#{product.description}".truncate(150)) %></p>
+            <div class="discover">
+              <span><%= link_to 'Découvrir le produit', product_path(product) %></span>
+            </div>
             <h4><span style="text-decoration: line-through"><%= product.price %></span>
             <%= product.price_with_discount %> <%= product.price_currency %></h4>
             <div class="cart-add">
