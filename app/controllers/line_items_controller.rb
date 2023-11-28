@@ -14,6 +14,12 @@ class LineItemsController < ApplicationController
       chosen_coffret = nil
     end
 
+    if params[:coffret_on_demand_id]
+      chosen_coffret_on_demand = CoffretOnDemand.find(params[:coffret_on_demand_id])
+    else
+      chosen_coffret_on_demand = nil
+    end
+
     current_cart = @current_cart
 
 
@@ -23,11 +29,15 @@ class LineItemsController < ApplicationController
     elsif current_cart.coffrets.include?(chosen_coffret)
       @line_item = current_cart.line_items.find_by(coffret_id: chosen_coffret)
       @line_item.quantity += 1
+    elsif current_cart.coffret_on_demands.include?(chosen_coffret_on_demand)
+      @line_item = current_cart.line_items.find_by(coffret_on_demand_id: chosen_coffret_on_demand)
+      @line_item.quantity += 1
     else
       @line_item = LineItem.new
       @line_item.cart = current_cart
       @line_item.product = chosen_product
       @line_item.coffret = chosen_coffret
+      @line_item.coffret_on_demand = chosen_coffret_on_demand
     end
 
     @line_item.save

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :categories, only: [:create, :edit, :update, :destroy]
   resources :coffrets, except: :show
+  resources :coffret_on_demands, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :contacts, only: [:new, :create]
   resources :images, except: :show
   resources :jardins, except: :show
@@ -30,7 +31,6 @@ Rails.application.routes.draw do
   resources :prestations, except: :show
   resources :products
   resources :rayons, except: [:index, :new], path: 'classe'
-
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 

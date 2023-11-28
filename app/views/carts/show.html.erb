@@ -64,6 +64,30 @@
           <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete, remote: true %>
         </button>
       </div>
+    <% elsif line_item.coffret_on_demand_id %>
+      <div class="product-image">
+        <%= image_tag "SVG/Leafs.svg" %>
+      </div>
+      <div class="product-info">
+        <h4>Votre Coffret à la demande x <%= line_item.quantity %></h4>
+        <span>Prix à l'unité : <%= (line_item.coffret_on_demand.price) %> <%= (line_item.coffret_on_demand.price_currency) %></span>
+        <br>
+        <h5>Prix total : <%= (line_item.total_price) %> <%= (line_item.coffret_on_demand.price_currency) %></h5>
+      </div>
+      <div class="cart-buttons">
+        <div class="add-reduce-buttons">
+          <%= link_to line_item_add_path(id: line_item), method: :post, remote: true do %>
+          <span>+</span>
+          <% end %>
+          <span class="quantity"><%= line_item.quantity %></span>
+          <%= link_to line_item_reduce_path(id: line_item), method: :post, remote: true do %>
+          <span>-</span>
+          <% end %>
+        </div>
+        <button>
+          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete, remote: true %>
+        </button>
+      </div>
     <% end  %>
   </div>
 <% end %>

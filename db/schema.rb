@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_22_095130) do
+ActiveRecord::Schema.define(version: 2023_11_14_132218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,14 @@ ActiveRecord::Schema.define(version: 2022_11_22_095130) do
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
+  create_table "coffret_on_demands", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents"
+    t.string "price_currency", default: "EUR", null: false
+    t.string "products"
+  end
+
   create_table "coffrets", force: :cascade do |t|
     t.string "title"
     t.integer "price_cents", default: 0, null: false
@@ -139,8 +147,10 @@ ActiveRecord::Schema.define(version: 2022_11_22_095130) do
     t.bigint "order_id"
     t.bigint "cart_id"
     t.bigint "product_id"
+    t.bigint "coffret_on_demand_id"
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["coffret_id"], name: "index_line_items_on_coffret_id"
+    t.index ["coffret_on_demand_id"], name: "index_line_items_on_coffret_on_demand_id"
     t.index ["order_id"], name: "index_line_items_on_order_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
   end
@@ -201,8 +211,10 @@ ActiveRecord::Schema.define(version: 2022_11_22_095130) do
     t.bigint "user_id"
     t.bigint "coffret_id"
     t.integer "discount"
+    t.bigint "coffret_on_demand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["coffret_id"], name: "index_products_on_coffret_id"
+    t.index ["coffret_on_demand_id"], name: "index_products_on_coffret_on_demand_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 

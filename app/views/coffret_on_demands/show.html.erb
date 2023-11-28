@@ -1,0 +1,37 @@
+<% content_for :meta_title, "Votre coffret à la demande - #{DEFAULT_META["meta_product_name"]}" %>
+<div class="product-container">
+  <div class="product-image swiper" data-controller="carousel">
+    <div class="swiper-wrapper">
+      <% @coffret_on_demand.products.each do |product| %>
+      <div class="swiper-slide">
+          <%= cl_image_tag product.main_photo.key %>
+      </div>
+      <% end %>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  <div class="product-infos">
+    <div>
+      <h2>Votre coffret sur mesure</h2>
+    </div>
+    <h4>Votre coffret contient :</h4>
+    <div class="details">
+      <ul>
+        <% @coffret_on_demand.products.each do |product| %>
+            <li><%= product.title %> - <span><%= product.price %> <%= product.price_currency %></span></li>
+        <% end  %>
+      </ul>  
+    </div>
+    <div class="price">
+        <h4>Prix : <%= @coffret_on_demand.price %> <%= @coffret_on_demand.price_currency %></h4>
+        <span>2€ ont été ajouté pour le conditionnement et d'autres délicatesses.</span>
+    </div>
+    <div class="cart-add">
+      <button><%= link_to 'Modifier le coffret', edit_coffret_on_demand_path(@coffret_on_demand) %></button>
+      <%= link_to line_items_path(coffret_on_demand_id: @coffret_on_demand.id), method: :post, data: { confirm: "Une fois le coffret validé vous ne pourrez plus le modifier, êtes vous sûr de votre choix?" } do %>
+          <button>Ajouter au panier <%= image_tag "SVG/panier.svg" %></button>
+      <% end %>
+    </div>
+  </div>
+</div>

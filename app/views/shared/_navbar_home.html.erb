@@ -21,6 +21,7 @@
         </div>
         <% end %>
         <div class="dropdown-content">
+          <%= link_to "Coffrets à la demande", new_coffret_on_demand_path, class: "dropdown-item" %>
           <% @coffrets.each do |coffret| %>
             <%= link_to "#{coffret.title}", coffrets_path(anchor: "#{I18n.transliterate(coffret.title.gsub(/\s+/, ""))}"), class: "dropdown-item"%>
           <% end  %>

@@ -3,6 +3,8 @@ class CoffretsController < ApplicationController
 
   def index
     @coffrets = Coffret.all
+    @products = Product.all
+    @coffret_on_demand = CoffretOnDemand.new
   end
 
   def new
