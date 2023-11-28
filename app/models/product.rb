@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :coffret, optional: true
+  belongs_to :coffret_on_demand, optional: true
   belongs_to :category
   belongs_to :user
   has_many :line_items, dependent: :destroy

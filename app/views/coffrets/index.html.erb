@@ -10,6 +10,7 @@
   <div class="title" data-scroll-target="title" data-active-nav-target="scroll">
     <h1>Coffrets</h1>
   </div>
+  <%= render 'shared/pop_up' %>
   <%= render 'shared/coffrets_index' %>
   <% @coffrets.each do |coffret| %>
   <div id="<%= I18n.transliterate(coffret.title.gsub(/\s+/, "")) %>" class="" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= coffret.title %>">

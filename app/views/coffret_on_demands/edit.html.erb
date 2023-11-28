@@ -1,0 +1,53 @@
+<% content_for :meta_title, "Coffrets bio à la demande - #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, "Découvrez mes coffrets à base de plantes bio ceuillies dans mes jardins de Beuil et de Cantaron" %>
+
+<div class="title" data-scroll-target="title" data-active-nav-target="scroll">
+  <h1>Coffret à la demande</h1>
+</div>
+<div class="sticker-title">
+  <h2>Coffret à la demande</h2>
+  </div>
+<div class="coffret-container">
+  <h4>Nouveauté chez les Jardins d'Alice, vous pouvez désormais créer vous même  vos coffrets ! 
+      Choisissez jusqu'à 4 produits parmis la liste ci-dessous et validez votre coffret !
+  </h4>
+  <div class="coffret-main">
+    <div class="coffret-on-demand">
+    <%= simple_form_for(@coffret_on_demand) do |f| %>
+      <div class="choice" id="myForm">
+          <h3 class="sticker-title coffret">Produits</h3>
+            <%= f.association :products, collection: Product.all.order('title'), as: :check_boxes  %>
+      </div>
+        <span>Le prix s'affichera à la prochaine page.</span>
+      <button>
+      <%= f.button :submit, "Valider votre coffret" %>
+      </button>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('myForm');
+  var checkboxes = form.querySelectorAll('input[type="checkbox"]');
+  var maxCheckboxes = 4;
+
+  form.addEventListener('change', function(event) {
+    var checkedCount = 0;
+    checkboxes.forEach(function(checkbox) {
+      if (checkbox.checked) {
+        checkedCount++;
+        checkbox.closest('.form-check').classList.add('checked');
+      } else {
+        checkbox.closest('.form-check').classList.remove('checked');
+      }
+    });
+
+    if (checkedCount > maxCheckboxes) {
+      event.target.checked = false;
+      event.target.closest('.form-check').classList.remove('checked');
+    }
+  });
+});
+</script>

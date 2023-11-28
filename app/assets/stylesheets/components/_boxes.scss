@@ -114,6 +114,7 @@
           }
         }
       }
+      
     }
 
   }
@@ -319,6 +320,14 @@
       display: flex;
       justify-content: space-between;
 
+      ul {
+        li {
+          span {
+            font-family: "Junicode bold italic";
+          }
+        }
+      }
+
       .cart-add {
         display: flex;
         flex-direction: column;
@@ -336,6 +345,23 @@
         }
       }
     }
+
+    .price {
+      span {
+        font-family: "Junicode italic";
+        font-size: 1em;
+      }
+    }
+
+    .cart-add {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    img {
+      width: 40px;
+      padding-left: 8px;
+    }
   }
 }
 
@@ -348,6 +374,9 @@
   border: black 1px solid;
   border-left: black 3px solid;
   z-index: -1000;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2em;
 
   .coffret-main {
     display: flex;
@@ -391,6 +420,81 @@
 
         }
       }
+    }
+
+    .coffret-on-demand {
+      display: flex;
+      flex-direction: column;
+      column-gap: 2em;
+      width: 100%;
+
+      .choice {
+        
+        h3 {
+          font-family: "Junicode bold italic";
+        }
+        
+        fieldset {
+          background-color: transparent;
+          padding: 2em;
+          max-height: 20em;
+          border-left: 2px solid black;
+          border-top: 1px solid black;
+          border-right: 1px solid black;
+          border-bottom: 1px solid black;
+          font-size: 1em;
+          overflow: auto;
+
+          legend {
+            display: none;
+          }
+
+          .form-check {
+            padding: 0.5em;
+            margin-bottom: 0;
+
+            &:hover {
+              background-color: $complementary-color;
+            }
+            
+            &.checked {
+              background-color: $main-color;
+            }
+
+            
+            .form-check-input {
+              margin-left: 0em;
+              margin-right: 1em;
+
+              &:checked {
+                background-color: $complementary-color;
+              }
+
+            }
+
+            .form-check-input[type="checkbox"] {
+              border-radius: 0;
+              border: 1px solid black;
+            }
+
+            .form-check-label {
+              color: black;
+            }
+
+          }
+
+        }
+      }
+
+      span {
+        font-family: "Junicode italic";
+        font-size: 1em;
+      }
+    }
+
+    button {
+      width: 100%;
+      margin-top: 2em;
     }
   }
 
