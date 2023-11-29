@@ -6,23 +6,23 @@
 </div>
 <div class="sticker-title">
   <h2>Coffret à la demande</h2>
-  </div>
+</div>
 <div class="coffret-container">
   <h4>Nouveauté chez les Jardins d'Alice, vous pouvez désormais créer vous même  vos coffrets ! 
       Choisissez jusqu'à 4 produits parmis la liste ci-dessous et validez votre coffret !
   </h4>
   <div class="coffret-main">
-    <div class="coffret-on-demand" data-controller="check-boxes">
+    <div class="coffret-on-demand">
     <%= simple_form_for(@coffret_on_demand) do |f| %>
       <div class="choice" id="myForm">
-          <h3 class="sticker-title coffret">Produits</h3>
-            <%= f.association :products, collection: Product.all.order('title'), as: :check_boxes %>
+        <h3 class="sticker-title coffret">Produits</h3>
+        <%= f.association :products, collection: Product.all.order('title'), as: :check_boxes %>
       </div>
       <span>Le prix total s'affichera à la prochaine page. 2€ seront ajoutés pour le conditionnement et d'autres délicatesses.</span>
       <button>
       <%= f.button :submit, "Valider votre coffret" %>
       </button>
-      <% end %>
+    <% end %>
     </div>
   </div>
 </div>

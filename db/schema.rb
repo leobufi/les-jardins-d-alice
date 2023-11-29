@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_14_132218) do
+ActiveRecord::Schema.define(version: 2023_11_29_162956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,8 @@ ActiveRecord::Schema.define(version: 2023_11_14_132218) do
     t.boolean "prestation", default: false, null: false
     t.boolean "logos", default: false, null: false
     t.string "logos_img"
+    t.boolean "coffret_on_demand", default: false, null: false
+    t.string "coffret_on_demand_img"
     t.index ["user_id"], name: "index_images_on_user_id"
   end
 

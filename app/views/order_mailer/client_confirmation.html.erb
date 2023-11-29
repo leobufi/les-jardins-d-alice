@@ -56,6 +56,10 @@
             <ul>
               <li><%= line_item.coffret.title %> x <%= line_item.quantity %></li>
             </ul>
+          <% elsif line_item.coffret_on_demand_id %>
+            <ul>
+              <li>Coffret n°<%= line_item.coffret_on_demand.id %> x <%= line_item.quantity %></li>
+            </ul>
           <% end  %>
         <% end %>
       </p>

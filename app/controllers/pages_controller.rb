@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     @articles = Article.all
     @category = Category.new
     @categories = Category.all
+    @coffret_on_demands = CoffretOnDemand.all
     @coffrets = Coffret.all
     @coffret = Coffret.new
     @images = Image.all

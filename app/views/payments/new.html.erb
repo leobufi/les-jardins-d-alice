@@ -7,6 +7,8 @@
         <h4><%= line_item.product.title %> x <%= line_item.quantity %></h4>
     <% elsif line_item.coffret_id %>
         <h4><%= line_item.coffret.title %> x <%= line_item.quantity %></h4>
+    <% elsif line_item.coffret_on_demand_id %>
+        <h4>Coffret n°<%= line_item.coffret_on_demand.id %> x <%= line_item.quantity %></h4>
     <% end  %>
   <% end %>
   <P>Commande à envoyer à <%= @order.first_name%> <%= @order.last_name %>  au <%= @order.address %></P>

@@ -15,39 +15,14 @@
     <div class="coffret-on-demand">
     <%= simple_form_for(@coffret_on_demand) do |f| %>
       <div class="choice" id="myForm">
-          <h3 class="sticker-title coffret">Produits</h3>
-            <%= f.association :products, collection: Product.all.order('title'), as: :check_boxes  %>
+        <h3 class="sticker-title coffret">Produits</h3>
+        <%= f.association :products, collection: Product.all.order('title'), as: :check_boxes %>
       </div>
-        <span>Le prix total s'affichera à la prochaine page. 2€ seront ajoutés pour le conditionnement et d'autres délicatesses.</span>
+      <span>Le prix total s'affichera à la prochaine page. 2€ seront ajoutés pour le conditionnement et d'autres délicatesses.</span>
       <button>
       <%= f.button :submit, "Valider votre coffret" %>
       </button>
-      <% end %>
+    <% end %>
     </div>
   </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var form = document.getElementById('myForm');
-  var checkboxes = form.querySelectorAll('input[type="checkbox"]');
-  var maxCheckboxes = 4;
-
-  form.addEventListener('change', function(event) {
-    var checkedCount = 0;
-    checkboxes.forEach(function(checkbox) {
-      if (checkbox.checked) {
-        checkedCount++;
-        checkbox.closest('.form-check').classList.add('checked');
-      } else {
-        checkbox.closest('.form-check').classList.remove('checked');
-      }
-    });
-
-    if (checkedCount > maxCheckboxes) {
-      event.target.checked = false;
-      event.target.closest('.form-check').classList.remove('checked');
-    }
-  });
-});
-</script>
