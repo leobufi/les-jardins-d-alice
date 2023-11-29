@@ -10,7 +10,9 @@
       <% elsif @image.prestation? %>
         <%= f.input :prestation_galeries, as: :file, input_html: { multiple: true }, label: "Galerie d'images de la page prestation :" %>
       <% elsif @image.logos? %>
-        <%= f.input :logos_img, as: :file, input_html: { multiple: true }, label: "Logos labélisation :" %>
+        <%= f.input :logos_img, as: :file, input_html: { multiple: true }, label: "Logos de labélisation :" %>
+      <% elsif @image.coffret_on_demand? %>
+        <%= f.input :coffret_on_demand_img, as: :file, input_html: { multiple: true }, label: "Image Coffrets à la demande :" %>
       <% end %>
       <hr>
       <button>

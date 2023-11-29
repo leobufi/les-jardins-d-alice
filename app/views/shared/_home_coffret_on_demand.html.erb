@@ -10,9 +10,15 @@
             <b>Cliquez pour composer votre coffret</b>
         </div>
         <div class="product-image" data-hover-images-target="img">
-            <div class="background" style="background-color: rgb(231, 231, 231)">
-            <h3 data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos'>Coffret à la demande</h3>
-            </div>
+              <% if @images.where(coffret_on_demand: true).first.coffret_on_demand_img.attached? %>
+              <div class="background" style="background-image: url(<%= cl_image_path @images.where(coffret_on_demand: true).first.coffret_on_demand_img.key, :crop=>"fit" %>)">
+                <h3 data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos'>Coffrets à la demande</h3>
+              </div>
+              <% else %>
+              <div class="background" style="background-image: url(<%= asset_url("SVG/Leafs.svg")%>">
+                <h3 data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos'>Coffrets à la demande</h3>
+              </div>
+              <% end %>
         </div>
         <% end  %>
     </div>

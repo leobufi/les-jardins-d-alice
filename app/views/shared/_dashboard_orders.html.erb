@@ -49,6 +49,8 @@
               <span><%= item.product.title %> x <%= item.quantity %></span>
             <% elsif item.coffret_id %>
               <span><%= item.coffret.title %> x <%= item.quantity %></span>
+            <% elsif item.coffret_on_demand_id %>
+              <span>Coffret n°<%= item.coffret_on_demand.id %> x <%= item.quantity %></span>
             <% end %>
           <% end %>
           </th>

@@ -35,6 +35,24 @@
     </div>
     <hr>
   <% end %>
+  <div class="title-btn">
+    <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="coffret-on-demand">Coffrets à la demande</h5>
+    <button data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="coffret-on-demand">↓</button>
+  </div>
+  <div class="coffrets-dash-container" data-switch-tab-target="project" data-tab-name="coffret-on-demand">
+  <% @coffret_on_demands.each do |coffret| %>
+    <div class="coffret-on-demand-dash-container">
+      <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= coffret.id %>">Coffret n°<%= coffret.id %></h5>
+      <div class="buttons">
+        <button><%= link_to 'Voir', coffret_on_demand_path(coffret) %></button>
+        <button><%= link_to 'Éditer', edit_coffret_on_demand_path(coffret) %></button>
+        <button><%= link_to "Supprimer", coffret_on_demand_path(coffret), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+  </div>
+  <hr>
   <h4>Composer un nouveau coffret</h4>
   <br>
   <%= simple_form_for(@coffret) do |f| %>

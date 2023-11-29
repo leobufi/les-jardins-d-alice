@@ -111,6 +111,21 @@
           </div>
         </div>
       <% end %>
+      <% @images.where(coffret_on_demand: true).each do |image| %>
+        <div class="small-dash-images-container">
+          <h4>Photo Coffrets à la demande</h4>
+          <div class="main-photo">
+            <% if image.coffret_on_demand_img.attached? %>
+              <%= cl_image_tag image.coffret_on_demand_img.key %>
+            <% else %>
+              <%= image_tag "cover.jpg" %>
+            <% end %>
+          </div>
+          <div class="buttons">
+            <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

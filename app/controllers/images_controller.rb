@@ -42,7 +42,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:user_id, :home_cover, :jardin_cover, logos_img: [], prestation_galeries: [])
+    params.require(:image).permit(:user_id, :home_cover, :jardin_cover, :coffret_on_demand_img, logos_img: [], prestation_galeries: [])
   end
 
 end
