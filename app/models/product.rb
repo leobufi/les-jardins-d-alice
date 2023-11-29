@@ -24,4 +24,8 @@ class Product < ApplicationRecord
     "#{id}-#{title.parameterize}"
   end
 
+  def to_label
+    "#{title} • #{quantity} • #{price} #{price_currency}"
+  end
+
 end

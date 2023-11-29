@@ -1,0 +1,25 @@
+<div class="banner-items">
+  <div class="banner-items-title">
+    <h2>Coffrets à la demande</h2>
+  </div>
+  <div class="banner-category">
+    <div class="banner-category-card" data-controller="hover-images">
+        <%= link_to new_coffret_on_demand_path do %>
+        <div class="infos d-none" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="infos">
+            <span>Nouveauté chez les Jardins d'Alice, vous pouvez désormais créer vous propre coffret en sélectionnant jusqu'à 4 éléments !</span>
+            <b>Cliquez pour composer votre coffret</b>
+        </div>
+        <div class="product-image" data-hover-images-target="img">
+            <div class="background" style="background-color: rgb(231, 231, 231)">
+            <h3 data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos'>Coffret à la demande</h3>
+            </div>
+        </div>
+        <% end  %>
+    </div>
+  </div>
+  <%= link_to new_coffret_on_demand_path do %>
+  <div class="banner-items-link">
+    <h3>Composer votre coffret</h3>
+  </div>
+  <% end %>
+</div>

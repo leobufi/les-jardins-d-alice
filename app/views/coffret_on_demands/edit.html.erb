@@ -18,7 +18,7 @@
           <h3 class="sticker-title coffret">Produits</h3>
             <%= f.association :products, collection: Product.all.order('title'), as: :check_boxes  %>
       </div>
-        <span>Le prix s'affichera à la prochaine page.</span>
+        <span>Le prix total s'affichera à la prochaine page. 2€ seront ajoutés pour le conditionnement et d'autres délicatesses.</span>
       <button>
       <%= f.button :submit, "Valider votre coffret" %>
       </button>
