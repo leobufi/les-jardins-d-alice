@@ -26,5 +26,9 @@
   "main": "index.js",
   "repository": "https://github.com/leobufi/les-jardins-d-alice.git",
   "author": "Léo Bufi <bufi.leo@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+
+  "engines": {
+    "node": "14.15.5"
+  }
 }
