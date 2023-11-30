@@ -21,13 +21,13 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "compression-webpack-plugin": "^10.0.0",
     "webpack-dev-server": "^3"
   },
   "main": "index.js",
   "repository": "https://github.com/leobufi/les-jardins-d-alice.git",
   "author": "Léo Bufi <bufi.leo@gmail.com>",
   "license": "MIT",
-
   "engines": {
     "node": "20.x",
     "yarn": "1.x"
