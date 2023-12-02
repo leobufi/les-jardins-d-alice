@@ -33,4 +33,17 @@
       max-width: 100% !important;
     }
   }
+
+}
+
+trix-editor {
+  display: block;
+  min-height: 10em;
+  border: 1px solid black;
+  padding: 1em;
+}
+
+trix-toolbar {
+  display: flex;
+  font-size: 0.8em;
 }
