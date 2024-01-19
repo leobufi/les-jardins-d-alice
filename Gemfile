@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.4', '>= 6.1.4.6'
+gem "rails", "~> 7.0.0"
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
@@ -31,12 +31,13 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'money-rails', '~>1.12'
 
 gem 'devise'
-gem 'stripe'
-gem 'stripe_event'
+gem 'stripe', '~> 8.7'
+gem 'stripe_event', '~> 2.7'
 gem 'actionmailer'
 gem 'cloudinary', '~> 1.16.0'
 gem 'mail_form', '~> 1.9'
 gem 'pg_search', '~> 2.3.0'
+gem "sprockets-rails"
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

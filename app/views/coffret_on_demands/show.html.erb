@@ -3,9 +3,15 @@
   <div class="product-image swiper" data-controller="carousel">
     <div class="swiper-wrapper">
       <% @coffret_on_demand.products.each do |product| %>
-      <div class="swiper-slide">
-          <%= cl_image_tag product.main_photo.key %>
-      </div>
+        <% if product.main_photo.attached? %>
+        <div class="swiper-slide">
+            <%= cl_image_tag product.main_photo.key %>
+        </div>
+        <% else %>
+        <div class="swiper-slide">
+            <%= image_tag "SVG/Leafs.svg" %>
+        </div>
+        <% end %>
       <% end %>
     </div>
     <div class="swiper-button-prev"></div>
@@ -21,7 +27,7 @@
         <% @coffret_on_demand.products.each do |product| %>
             <li><%= product.title %> - <span><%= product.price %> <%= product.price_currency %></span></li>
         <% end  %>
-      </ul>  
+      </ul>
     </div>
     <div class="price">
         <h4>Prix : <%= @coffret_on_demand.price %> <%= @coffret_on_demand.price_currency %></h4>
