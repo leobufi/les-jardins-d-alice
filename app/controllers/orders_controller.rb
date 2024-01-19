@@ -19,19 +19,27 @@ class OrdersController < ApplicationController
     @order.amount = @current_cart.sub_total
     @current_cart.line_items.each do |item|
       @order.line_items << item
-      item.cart_id = nil
     end
-
     if @order.Chèque?
-      @order.save
-      Cart.destroy(session[:cart_id])
-      session[:cart_id] = nil
-      OrderMailer.with(order: @order).client_confirmation.deliver_now
-      OrderMailer.with(order: @order).alice_confirmation.deliver_now
-      flash[:notice] = 'Votre commande a bien été prise en compte ! Merci beaucoup !'
-      redirect_to root_path
+      if @order.save
+        @current_cart.line_items.each do |item|
+          item.cart_id = nil
+        end
+        Cart.destroy(session[:cart_id])
+        session[:cart_id] = nil
+        OrderMailer.with(order: @order).client_confirmation.deliver_now
+        OrderMailer.with(order: @order).alice_confirmation.deliver_now
+        flash[:notice] = 'Votre commande a bien été prise en compte ! Merci beaucoup !'
+        redirect_to root_path
+      else
+        flash[:notice] = 'Votre commande a échoué, veuillez réessayer.'
+        redirect_to root_path
+      end
     else
       @order.save
+      @current_cart.line_items.each do |item|
+        item.cart_id = nil
+      end
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
 
@@ -39,8 +47,8 @@ class OrdersController < ApplicationController
         payment_method_types: ['card'],
         shipping_address_collection: {
           allowed_countries: ['FR', 'DZ', 'DE', 'AT', 'BE', 'BR', 'BG',
-            'CA', 'CN', 'CY', 'DK', 'ES', 'EE', 'FI', 'GR', 'HU', 'IN',
-            'IE', 'IT', 'JP', 'LV'],
+          'CA', 'CN', 'CY', 'DK', 'ES', 'EE', 'FI', 'GR', 'HU', 'IN',
+          'IE', 'IT', 'JP', 'LV'],
         },
         shipping_options: [
           {
@@ -63,8 +71,8 @@ class OrdersController < ApplicationController
           cancel_url: order_url(@order)
         )
 
-      @order.update(checkout_session_id: session.id)
-      redirect_to new_order_payment_path(@order)
+        @order.update(checkout_session_id: session.id)
+        redirect_to new_order_payment_path(@order)
     end
   end
 

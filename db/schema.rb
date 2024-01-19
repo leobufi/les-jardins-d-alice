@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_29_162956) do
-
+ActiveRecord::Schema[7.0].define(version: 2024_01_10_095840) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,8 +18,8 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.text "description"
     t.string "main_photo"
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "about", default: false, null: false
     t.index ["user_id"], name: "index_about_mes_on_user_id"
   end
@@ -29,9 +28,9 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.string "name", null: false
     t.text "body"
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
@@ -40,7 +39,7 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -52,8 +51,8 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.text "metadata"
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
+    t.string "checksum"
+    t.datetime "created_at", precision: nil, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -67,8 +66,8 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.string "title"
     t.text "content"
     t.date "date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "photos_url"
     t.bigint "user_id"
     t.string "main_photo"
@@ -76,16 +75,16 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.bigint "rayon_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "main_photo"
     t.index ["rayon_id"], name: "index_categories_on_rayon_id"
@@ -93,8 +92,8 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
   end
 
   create_table "coffret_on_demands", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "price_cents"
     t.string "price_currency", default: "EUR", null: false
     t.string "products"
@@ -105,8 +104,8 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "EUR", null: false
     t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "coffret_products"
     t.string "main_photo"
@@ -117,8 +116,8 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.string "home_cover"
     t.string "jardin_cover"
     t.string "prestation_galery"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.boolean "home", default: false, null: false
     t.boolean "jardin", default: false, null: false
@@ -135,15 +134,15 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.text "description"
     t.string "photos_url"
     t.string "main_photo"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_jardins_on_user_id"
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "quantity", default: 1
     t.bigint "coffret_id"
     t.bigint "order_id"
@@ -162,8 +161,8 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.string "last_name"
     t.string "email"
     t.text "address"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "state"
     t.integer "amount_cents", default: 0, null: false
     t.string "checkout_session_id"
@@ -173,9 +172,16 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.string "payment_method"
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_payments_on_order_id"
+  end
+
   create_table "prestation_categories", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "title"
     t.bigint "user_id"
     t.text "description"
@@ -188,8 +194,8 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.string "title"
     t.text "description"
     t.string "dates"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "main_photo"
     t.string "photos_url"
@@ -208,8 +214,8 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "EUR", null: false
     t.bigint "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "coffret_id"
     t.integer "discount"
@@ -223,8 +229,8 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
   create_table "rayons", force: :cascade do |t|
     t.string "title"
     t.text "selling_points"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_rayons_on_user_id"
   end
@@ -233,10 +239,10 @@ ActiveRecord::Schema.define(version: 2023_11_29_162956) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
     t.string "first_name"
     t.string "last_name"
