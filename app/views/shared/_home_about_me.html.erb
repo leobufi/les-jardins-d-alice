@@ -6,6 +6,7 @@
     <% @about_mes.each do |a| %>
       <div class="about-desc-logos">
         <p><%= a.description %></p>
+        <p><b>Vous trouverez mes produits à :</b> <%= a.selling_points %></p>
         <div class="logos">
           <% if @images.where(logos: true).first.logos_img.attached? %>
             <% @images.where(logos: true).first.logos_img.each do |img|%>
