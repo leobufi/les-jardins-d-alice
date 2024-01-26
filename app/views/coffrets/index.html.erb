@@ -3,6 +3,9 @@
 <% content_for :meta_image, cl_image_path(@coffrets.first.main_photo.first.key) if @coffrets.first.main_photo.first.present? %>
 <div data-controller="switch-tab scroll active-nav">
   <div class="navbar-small">
+  <%= link_to new_coffret_on_demand_path do %>
+    <span>Composer votre coffret</span>
+  <% end %>
   <% @coffrets.each do |coffret| %>
       <a id="<%= I18n.transliterate(coffret.title.gsub(/\s+/, "")) %>" class="" data-action="click->switch-tab#switch click->scroll#scroll" data-switch-tab-target="tab" data-active-nav-target="tab" data-tab-name="<%= coffret.title %>"><%= coffret.title %></a>
   <%end %>
