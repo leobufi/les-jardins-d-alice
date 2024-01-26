@@ -47,7 +47,7 @@
                 <% end %>
               </div>
               <div class="cart-add" data-action='mouseleave->hover-images#showCartInfos mouseenter->hover-images#showCart' data-hover-images-target="cartInfos">
-                <%= link_to line_items_path(product_id: product.id), method: :post do %>
+                <%= link_to line_items_path(product_id: product.id), data: { turbo_method: :post } do %>
                   <div class="cart-add-infos">
                     <h5><%= product.title %></h5>
                     <% if product.discount.nil? %>
@@ -64,7 +64,7 @@
                 <% end %>
               </div>
               <div class="cart-add d-none" data-action='mouseleave->hover-images#showCartInfos mouseenter->hover-images#showCart' data-hover-images-target="cart">
-                <%= link_to line_items_path(product_id: product.id), method: :post do %>
+                <%= link_to line_items_path(product_id: product.id), data: { turbo_method: :post } do %>
                   <div class="cart-add-infos">
                     <h4>Ajouter au panier</h4>
                     <% if product.discount.nil? %>

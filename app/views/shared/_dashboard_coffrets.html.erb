@@ -30,7 +30,7 @@
       <div class="buttons">
         <button><%= link_to 'Voir', coffrets_path %></button>
         <button><%= link_to 'Éditer', edit_coffret_path(coffret) %></button>
-        <button><%= link_to "Supprimer", coffret_path(coffret), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+        <button><%= link_to "Supprimer", coffret_path(coffret), remote: true, data: { turbo_confirm: "Es-tu vraiment sûre de ton choix Alice ?", turbo_method: :delete } %></button>
       </div>
     </div>
     <hr>
@@ -45,8 +45,7 @@
       <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= coffret.id %>">Coffret n°<%= coffret.id %></h5>
       <div class="buttons">
         <button><%= link_to 'Voir', coffret_on_demand_path(coffret) %></button>
-        <button><%= link_to 'Éditer', edit_coffret_on_demand_path(coffret) %></button>
-        <button><%= link_to "Supprimer", coffret_on_demand_path(coffret), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+        <button><%= link_to "Supprimer", coffret_on_demand_path(coffret), remote: true, data: { turbo_confirm: "Es-tu vraiment sûre de ton choix Alice ?", turbo_method: :delete } %></button>
       </div>
     </div>
     <hr>

@@ -20,7 +20,7 @@
         <div class="buttons">
           <button><%= link_to 'Voir', rayon_path(rayon) %></button>
           <button><%= link_to 'Éditer', edit_rayon_path(rayon) %></button>
-          <button><%= link_to "Supprimer", rayon_path(rayon), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ? Cela supprimera également toutes sous-catégories de #{rayon.title} ainsi que ses produits."} %></button>
+          <button><%= link_to "Supprimer", rayon_path(rayon), remote: true, data: { turbo_confirm: "Es-tu vraiment sûre de ton choix Alice ? Cela supprimera également toutes sous-catégories de #{rayon.title} ainsi que ses produits."}, turbo_method: :delete %></button>
         </div>
       </div>
       <hr>
@@ -58,7 +58,7 @@
         </div>
         <div class="buttons">
           <button><%= link_to 'Éditer', edit_category_path(category) %></button>
-          <button><%= link_to "Supprimer", category_path(category), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ? Cela supprimera également tous les produits de la catégorie concernée." } %></button>
+          <button><%= link_to "Supprimer", category_path(category), remote: true, data: { turbo_confirm: "Es-tu vraiment sûre de ton choix Alice ? Cela supprimera également tous les produits de la catégorie concernée.", turbo_method: :delete } %></button>
         </div>
       </div>
       <hr>

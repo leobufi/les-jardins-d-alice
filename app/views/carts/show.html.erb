@@ -24,16 +24,16 @@
       </div>
       <div class="cart-buttons">
         <div class="add-reduce-buttons">
-          <%= link_to line_item_add_path(id: line_item), method: :post, remote: true do %>
+          <%= link_to line_item_add_path(id: line_item), data: { turbo_method: :post }, remote: true  do %>
           <span>+</span>
           <% end %>
           <span class="quantity"><%= line_item.quantity %></span>
-          <%= link_to line_item_reduce_path(id: line_item), method: :post, remote: true do %>
+          <%= link_to line_item_reduce_path(id: line_item), data: { turbo_method: :post }, remote: true do %>
           <span>-</span>
           <% end %>
         </div>
         <button>
-          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete, remote: true %>
+          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), data: { turbo_method: :delete }, remote: true %>
         </button>
       </div>
     <% elsif line_item.coffret_id %>
@@ -52,16 +52,16 @@
       </div>
       <div class="cart-buttons">
         <div class="add-reduce-buttons">
-          <%= link_to line_item_add_path(id: line_item), method: :post, remote: true do %>
+          <%= link_to line_item_add_path(id: line_item), data: { turbo_method: :post }, remote: true do %>
           <span>+</span>
           <% end %>
           <span class="quantity"><%= line_item.quantity %></span>
-          <%= link_to line_item_reduce_path(id: line_item), method: :post, remote: true do %>
+          <%= link_to line_item_reduce_path(id: line_item), data: { turbo_method: :post }, remote: true do %>
           <span>-</span>
           <% end %>
         </div>
         <button>
-          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete, remote: true %>
+          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), data: { turbo_method: :delete }, remote: true %>
         </button>
       </div>
     <% elsif line_item.coffret_on_demand_id %>
@@ -76,16 +76,16 @@
       </div>
       <div class="cart-buttons">
         <div class="add-reduce-buttons">
-          <%= link_to line_item_add_path(id: line_item), method: :post, remote: true do %>
+          <%= link_to line_item_add_path(id: line_item), data: { turbo_method: :post }, remote: true do %>
           <span>+</span>
           <% end %>
           <span class="quantity"><%= line_item.quantity %></span>
-          <%= link_to line_item_reduce_path(id: line_item), method: :post, remote: true do %>
+          <%= link_to line_item_reduce_path(id: line_item), data: { turbo_method: :post }, remote: true do %>
           <span>-</span>
           <% end %>
         </div>
         <button>
-          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), method: :delete, remote: true %>
+          <%= link_to "Supprimer l'article du panier", line_item_path(line_item), data: { turbo_method: :delete }, remote: true %>
         </button>
       </div>
     <% end  %>
@@ -100,7 +100,5 @@
     <%= link_to "Valider le panier", new_order_path %><br>
   </button>
   <br>
-  <button>
-    <%= link_to "Vider le panier", cart_path(@current_cart),method: :delete, data: {confirm: "Êtes vous sûr ?"} %>
-  </button>
+  <%= button_to "Vider le panier", cart_path(@current_cart),method: :delete, data: {confirm: "Êtes vous sûr ?"} %>
 </div>

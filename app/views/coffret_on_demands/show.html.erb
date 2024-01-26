@@ -35,7 +35,7 @@
     </div>
     <div class="cart-add">
       <button><%= link_to 'Modifier le coffret', edit_coffret_on_demand_path(@coffret_on_demand) %></button>
-      <%= link_to line_items_path(coffret_on_demand_id: @coffret_on_demand.id), method: :post, data: { confirm: "Une fois le coffret validé vous ne pourrez plus le modifier, êtes vous sûr de votre choix?" } do %>
+      <%= link_to line_items_path(coffret_on_demand_id: @coffret_on_demand.id), data: {turbo_confirm: "Une fois le coffret validé vous ne pourrez plus le modifier, êtes vous sûr de votre choix?", turbo_method: :post } do %>
           <button>Ajouter au panier <%= image_tag "SVG/panier.svg" %></button>
       <% end %>
     </div>
