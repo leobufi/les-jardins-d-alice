@@ -16,6 +16,10 @@ table {
       justify-content: center;
       align-items: center
     }
+
+    &.line-items-list {
+      text-align: left;
+    }
   }
 
   .table-headers {
@@ -26,4 +30,5 @@ table {
   .table-line {
     font-size: 0.9em;
   }
+
 }

@@ -43,14 +43,14 @@
             <span>Non</span>
           <% end %>
           </th>
-          <th>
+          <th class="line-items-list">
           <% order.line_items.each do |item| %>
             <% if item.product_id %>
-              <span><%= item.product.title %> x <%= item.quantity %></span>
+              <li><%= item.product.title %> x <%= item.quantity %></li>
             <% elsif item.coffret_id %>
-              <span><%= item.coffret.title %> x <%= item.quantity %></span>
+              <li><%= item.coffret.title %> x <%= item.quantity %></li>
             <% elsif item.coffret_on_demand_id %>
-              <span>Coffret n°<%= item.coffret_on_demand.id %> x <%= item.quantity %></span>
+              <li>Coffret n°<%= item.coffret_on_demand.id %> x <%= item.quantity %></li>
             <% end %>
           <% end %>
           </th>

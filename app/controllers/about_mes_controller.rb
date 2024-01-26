@@ -37,6 +37,6 @@ class AboutMesController < ApplicationController
   private
 
   def about_me_params
-    params.require(:about_me).permit(:description, :main_photo)
+    params.require(:about_me).permit(:description, :selling_points, :main_photo)
   end
 end

@@ -3,6 +3,7 @@
   flex-direction: column;
   margin: 0em auto;
   width: 90%;
+  height: 80vh;
   margin-bottom: 48px;
   border-bottom: black 1px solid;
   border-left: black 3px solid;
@@ -17,13 +18,15 @@
 
 .prestation-boxes {
   display: flex;
+  height: 100%;
+  overflow: hidden;
 }
 
 .prestation-list {
   width: 50%;
   border-top: black 1px solid;
-  min-height: 65vh;
   background-color: $light-gray;
+  overflow: auto;
 }
 
 .presta-tab {
