@@ -49,7 +49,7 @@
         <% end %>
       </div>
       <div class="cart-add">
-        <%= link_to line_items_path(product_id: @product.id), method: :post do %>
+        <%= link_to line_items_path(product_id: @product.id), data: { turbo_method: :post } do %>
             <button>Ajouter au panier <%= image_tag "SVG/panier.svg" %></button>
         <% end %>
       </div>
