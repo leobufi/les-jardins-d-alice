@@ -38,7 +38,7 @@
       <div class="buttons">
         <button><%= link_to 'Voir', product_path(product) %></button>
         <button><%= link_to 'Éditer', edit_product_path(product) %></button>
-        <button><%= link_to "Supprimer", product_path(product), method: :delete, remote: true, data: { confirm: "Es-tu vraiment sûre de ton choix Alice ?" } %></button>
+        <button><%= link_to "Supprimer", product_path(product), method: :delete, remote: true, data: { turbo_confirm: "Es-tu vraiment sûre de ton choix Alice ?", turbo_method: :delete } %></button>
       </div>
     </div>
     <hr>

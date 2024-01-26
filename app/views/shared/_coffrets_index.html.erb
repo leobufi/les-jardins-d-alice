@@ -24,7 +24,7 @@
           <p><%= coffret.description %></p>
           <div class="details">
             <h4><%= coffret.price %> <%= coffret.price_currency %></h4>
-            <%= link_to line_items_path(coffret_id: coffret.id), method: :post do %>
+            <%= link_to line_items_path(coffret_id: coffret.id), data: { turbo_method: :post } do %>
                   <button>Ajouter au panier <%= image_tag "SVG/panier.svg" %></button>
             <% end %>
           </div>
