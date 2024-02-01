@@ -458,6 +458,10 @@
     font-size: 1rem;
   }
 
+  .pop-up {
+    width: 10em;
+  }
+
   .title {
     display: none;
   }
@@ -561,7 +565,7 @@
   }
 
   .banner-promo {
-    height: 40vh;
+    height: 85vh;
     width: 90%;
 
     .sticker-banner-promo {
@@ -571,13 +575,25 @@
       line-height: 1rem;
     }
 
+    .banner-promo-title {
+      height: 10%;
+    }
+
     .banner-product {
+      height: 90%;
 
       .banner-product-card {
+        flex-direction: column;
+        row-gap: 2rem;
 
+        .product-image {
+          margin-right: unset;
+          max-height: 50%;
+        }
         .infos {
           padding-top: 18px;
           line-height: 0rem;
+          margin-left: unset;
 
           p {
             display: none;
@@ -608,7 +624,8 @@
     }
 
     .banner-about-img-desc {
-      display: inline-block;
+      flex-direction: column;
+      row-gap: 1em;
       height: 92%;
 
       .about-desc-logos {
