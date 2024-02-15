@@ -28,11 +28,11 @@ export default class extends Controller {
 
     this.contentTargets.forEach((content) => {
       if (window.location.href.includes(content.id)) {
-        content.classList.remove("d-none");
+        content.classList.toggle("activate");
         this.scrollTarget.scrollIntoView({block:"start", inline: "nearest", behavior: "smooth"}, true)
         this.partialTarget.classList.add("visually-hidden")
       } else {
-        content.classList.add("d-none");
+        content.classList.remove("activate");
       }
     });
 

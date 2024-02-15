@@ -16,7 +16,7 @@
   <%= render 'shared/pop_up' %>
   <%= render 'shared/coffrets_index' %>
   <% @coffrets.each do |coffret| %>
-  <div id="<%= I18n.transliterate(coffret.title.gsub(/\s+/, "")) %>" class="" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= coffret.title %>">
+  <div id="<%= I18n.transliterate(coffret.title.gsub(/\s+/, "")) %>" class="content" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= coffret.title %>">
     <div class="sticker-title">
       <h2><%= coffret.title %></h2>
     </div>

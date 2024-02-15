@@ -14,6 +14,7 @@ export default class extends Controller {
 
   connect () {
      console.log(this.arrowTargets)
+     this.switch(0);
   }
 
   activate(event) {
@@ -37,24 +38,25 @@ export default class extends Controller {
   switch(event) {
 
     event.preventDefault();
+    const index = this.tabTargets.indexOf(event.target);
 
-    this.tabTargets.forEach((tab) => {
-
-      // console.log(tab.dataset.tabName);
+    this.tabTargets.forEach((tab, i) => {
       if (tab.dataset.tabName == event.currentTarget.dataset.tabName) {
-        tab.classList.add("active")
-      } else {
+        tab.classList.toggle("active", i === index);
+      }
+      else {
         tab.classList.remove("active")
       }
     });
 
-    this.contentTargets.forEach((content) => {
+    this.contentTargets.forEach((content, i) => {
       if (content.dataset.tabName == event.currentTarget.dataset.tabName) {
-        // console.log(content.id);
-        content.classList.remove("d-none");
-        this.partialTarget.classList.add("visually-hidden")
-      } else {
-        content.classList.add("d-none")
+        content.classList.toggle("activate", i === index);
+        // content.classList.remove("d-none");
+        // this.partialTarget.classList.add("visually-hidden")
+      }
+      else {
+        content.classList.remove("activate")
       }
     });
   }
