@@ -12,7 +12,7 @@
   </div>
   <%= render 'shared/rayon_show' %>
   <% @rayon.categories.each do |category| %>
-  <div id="<%= I18n.transliterate(category.title.gsub(/\s+/, "")) %>" class="category-container" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= category.title %>">
+  <div id="<%= I18n.transliterate(category.title.gsub(/\s+/, "")) %>" class="content" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= category.title %>">
     <div class="sticker-title">
       <h2><%= category.title %></h2>
     </div>

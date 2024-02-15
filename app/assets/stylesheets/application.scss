@@ -59,6 +59,13 @@ body {
 //     color: black;
 //   }
 // }
+.content {
+  display: none;
+
+  &.activate {
+    display: block;
+  }
+}
 
 .product-image {
   background-color: white;

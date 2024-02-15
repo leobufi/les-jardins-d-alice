@@ -12,7 +12,7 @@
   </div>
   <%= render 'shared/presta_index' %>
   <% @prestation_categories.each do |prestation| %>
-    <div id="<%= I18n.transliterate(prestation.title.gsub(/\s+/, "")) %>" class="" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= prestation.title %>">
+    <div id="<%= I18n.transliterate(prestation.title.gsub(/\s+/, "")) %>" class="content" data-switch-tab-target="content" data-active-nav-target="content" data-tab-name="<%= prestation.title %>">
       <div id="presta">
         <div class="prestation-container">
           <div class="sticker-title prestations">
