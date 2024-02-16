@@ -53,7 +53,7 @@ export default class extends Controller {
       if (content.dataset.tabName == event.currentTarget.dataset.tabName) {
         content.classList.toggle("activate", i === index);
         // content.classList.remove("d-none");
-        // this.partialTarget.classList.add("visually-hidden")
+        this.partialTarget.classList.add("visually-hidden")
       }
       else {
         content.classList.remove("activate")
