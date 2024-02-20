@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'dashboard/coffrets', to: 'dashboard/coffrets#index', as: :dashboard_coffrets
   get 'dashboard/prestations', to: 'dashboard/prestations#index', as: :dashboard_prestations
   get 'dashboard/general', to: 'dashboard/general#index', as: :dashboard_general
-  get 'dashboard/jardins', to: 'dashboard/jardins#index', as: :dashboard_jardins
+  get 'dashboard/gardens', to: 'dashboard/jardins#index', as: :dashboard_jardins
   get 'dashboard/orders', to: 'dashboard/orders#index', as: :dashboard_orders
   get 'dashboard/users', to: 'dashboard/users#index', as: :dashboard_users
   get 'contact', to: 'pages#contact'
