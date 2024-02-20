@@ -14,7 +14,7 @@ class PrestationsController < ApplicationController
     @prestation.user = current_user
     if current_user.admin?
       @prestation.save
-      redirect_to dashboard_path
+      redirect_to dashboard_categories_path
     else
       render :new
     end
@@ -28,7 +28,7 @@ class PrestationsController < ApplicationController
     @prestation = Prestation.find(params[:id])
     if current_user.admin?
       @prestation.update(prestation_params)
-      redirect_to dashboard_path
+      redirect_to dashboard_categories_path
     else
       render :new
     end
@@ -37,7 +37,7 @@ class PrestationsController < ApplicationController
   def destroy
     @prestation = Prestation.find(params[:id])
     @prestation.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_categories_path
   end
 
   private

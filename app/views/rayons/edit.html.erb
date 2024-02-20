@@ -1,4 +1,6 @@
 <% if current_user.admin? %>
+<div class="dashboard">
+  <%= render "shared/navbar_dashboard" %>
   <div class="dashboard-container">
       <h4>Mettre à jour <%= @rayon.title %></h4>
       <br>
@@ -10,6 +12,7 @@
         </button>
       <% end %>
   </div>
+</div>
 <% else %>
   <div class="dashboard-container">
       <p>Vous n'êtes pas autorisé à consulter cette page.</p>

@@ -2,7 +2,16 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions'}
   root to: 'pages#home'
 
-  get 'dashboard', to: 'pages#dashboard'
+  get 'dashboard', to: 'dashboard/dashboard#index', as: :dashboard
+  get 'dashboard/products', to: 'dashboard/products#index', as: :dashboard_products
+  get 'dashboard/articles', to: 'dashboard/articles#index', as: :dashboard_articles
+  get 'dashboard/categories', to: 'dashboard/categories#index', as: :dashboard_categories
+  get 'dashboard/coffrets', to: 'dashboard/coffrets#index', as: :dashboard_coffrets
+  get 'dashboard/prestations', to: 'dashboard/prestations#index', as: :dashboard_prestations
+  get 'dashboard/general', to: 'dashboard/general#index', as: :dashboard_general
+  get 'dashboard/jardins', to: 'dashboard/jardins#index', as: :dashboard_jardins
+  get 'dashboard/orders', to: 'dashboard/orders#index', as: :dashboard_orders
+  get 'dashboard/users', to: 'dashboard/users#index', as: :dashboard_users
   get 'contact', to: 'pages#contact'
   get 'cgv', to: 'pages#cgv'
 

@@ -9,7 +9,7 @@ class AboutMesController < ApplicationController
     @about_me = AboutMe.new(about_me_params)
     @about_me.user = current_user
     if current_user.admin? && @about_me.save
-      redirect_to dashboard_path
+      redirect_to dashboard_general_path
     else
       render :new
     end
@@ -22,7 +22,7 @@ class AboutMesController < ApplicationController
   def update
     @about_me = AboutMe.find(params[:id])
     if current_user.admin? && @about_me.update(about_me_params)
-      redirect_to dashboard_path
+      redirect_to dashboard_general_path
     else
       render :new
     end
@@ -31,7 +31,7 @@ class AboutMesController < ApplicationController
   def destroy
     @about_me = AboutMe.find(params[:id])
     @about_me.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_general_path
   end
 
   private

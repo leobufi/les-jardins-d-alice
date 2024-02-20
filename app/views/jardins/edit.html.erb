@@ -1,18 +1,21 @@
-<div class="dashboard-container">
-  <% if current_user.admin? %>
-    <h3>Éditer <%= @jardin.title %></h3>
-    <br>
-    <%= simple_form_for(@jardin) do |f| %>
-      <%= f.input :title, placeholder: "Nom du jardin :", label: false %>
-      <%= f.rich_text_area :description, placeholder: "Description du jardin :", label: false %>
+<% if current_user.admin? %>
+<div class="dashboard">
+  <%= render "shared/navbar_dashboard" %>
+  <div class="dashboard-container">
+      <h3>Éditer <%= @jardin.title %></h3>
       <br>
-      <%= f.input :main_photo, as: :file, placeholder: "Photo d'ouverture", label: "Photo d'ouverture" %>
-      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, placeholder: "Autres photos", label: "Autres photos" %>
-      <button>
-        <%= f.button :submit, "Mettre en ligne" %>
-      </button>
-    <% end %>
-  <% else %>
-    <p>Vous n'êtes pas autorisé à consulter cette page.</p>
-  <% end  %>
+      <%= simple_form_for(@jardin) do |f| %>
+        <%= f.input :title, placeholder: "Nom du jardin :", label: false %>
+        <%= f.rich_text_area :description, placeholder: "Description du jardin :", label: false %>
+        <br>
+        <%= f.input :main_photo, as: :file, placeholder: "Photo d'ouverture", label: "Photo d'ouverture" %>
+        <%= f.input :photos_url, as: :file, input_html: { multiple: true }, placeholder: "Autres photos", label: "Autres photos" %>
+        <button>
+          <%= f.button :submit, "Mettre en ligne" %>
+        </button>
+      <% end %>
+  </div>
 </div>
+<% else %>
+  <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+<% end  %>
