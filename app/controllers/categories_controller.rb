@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
     @category.user = current_user
     if current_user.admin?
       @category.save
-      redirect_to dashboard_path
+      redirect_to dashboard_categories_path
     else
       render :home
     end
@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     if current_user.admin?
       @category.update(category_params)
-      redirect_to dashboard_path
+      redirect_to dashboard_categories_path
     else
       render :new
     end
@@ -28,7 +28,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_categories_path
   end
 
   private

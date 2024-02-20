@@ -14,7 +14,7 @@ class JardinsController < ApplicationController
     @jardin.user = current_user
     if current_user.admin?
       @jardin.save
-      redirect_to dashboard_path
+      redirect_to dashboard_jardins_path
     else
       render :new
     end
@@ -28,7 +28,7 @@ class JardinsController < ApplicationController
     @jardin = Jardin.find(params[:id])
     if current_user.admin?
       @jardin.update(jardin_params)
-      redirect_to dashboard_path
+      redirect_to dashboard_jardins_path
     else
       render :new
     end
@@ -37,7 +37,7 @@ class JardinsController < ApplicationController
   def destroy
     @jardin = Jardin.find(params[:id])
     @jardin.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_jardins_path
   end
 
   private

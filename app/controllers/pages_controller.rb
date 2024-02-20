@@ -4,43 +4,6 @@ class PagesController < ApplicationController
   def home
   end
 
-  def dashboard
-    @articles = Article.all
-    @category = Category.new
-    @categories = Category.all
-    @coffret_on_demands = CoffretOnDemand.all
-    @coffrets = Coffret.all
-    @coffret = Coffret.new
-    @images = Image.all
-    @image = Image.new
-    @jardins = Jardin.all
-    @jardin = Jardin.new
-    @prestations = Prestation.all
-    @prestation = Prestation.new
-    @prestation_categories = PrestationCategory.all
-    @prestation_category = PrestationCategory.new
-    @products = Product.all.reverse
-    @rayons = Rayon.all
-    @rayon = Rayon.new
-    @users = User.all
-    @about_me = AboutMe.new
-    @about_mes = AboutMe.all
-
-    # // ORDERS \\ #
-
-    if params[:query].present?
-      @orders = Order.global_search(params[:query])
-    else
-      @orders = Order.all.reverse
-    end
-
-    respond_to do |format|
-      format.html
-      format.text { render partial: 'list.html', locals: { orders: @orders } }
-    end
-
-  end
-
   def contact
     @contact = Contact.new
   end

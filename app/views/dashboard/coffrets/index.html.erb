@@ -1,0 +1,72 @@
+<div class="dashboard" data-controller="switch-tab">
+  <%= render "shared/navbar_dashboard" %>
+  <div class="dashboard-container">
+    <div class="dashboard-title">
+      <h2>Coffrets</h2>
+      <span><%= link_to 'Voir tous les coffrets', coffrets_path %></span>
+    </div>
+    <div class="dashboard-list">
+      <% @coffrets.each do |coffret| %>
+        <div class="title-btn">
+          <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= coffret.title %>"><%= coffret.title %></h5>
+          <button data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= coffret.title %>">↓</button>
+        </div>
+        <div class="small-dash-container" data-switch-tab-target="project" data-tab-name="<%= coffret.title %>">
+          <div class="main-photo">
+            <% if coffret.main_photo.attached? %>
+              <%= cl_image_tag coffret.main_photo.first.key %>
+            <% else %>
+              <%= image_tag "SVG/Leafs.svg" %>
+            <% end %>
+          </div>
+          <div class="infos">
+            <p><%= coffret.description %></p>
+            <div class="coffret-products">
+              <strong>Ce coffret est composé de :</strong>
+              <% coffret.coffret_products.each do |product| %>
+                <span><%= product.title %> & </span>
+              <% end %>
+            </div>
+            <br>
+            <span><strong>Prix : </strong><%= coffret.price %> <%= coffret.price_currency %>.</span>
+          </div>
+          <div class="buttons">
+            <button><%= link_to 'Voir', coffrets_path %></button>
+            <button><%= link_to 'Éditer', edit_coffret_path(coffret) %></button>
+            <button><%= link_to "Supprimer", coffret_path(coffret), remote: true, data: { turbo_confirm: "Es-tu vraiment sûre de ton choix Alice ?", turbo_method: :delete } %></button>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+      <div class="title-btn">
+        <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="coffret-on-demand">Coffrets à la demande</h5>
+        <button data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="coffret-on-demand">↓</button>
+      </div>
+      <div class="coffrets-dash-container" data-switch-tab-target="project" data-tab-name="coffret-on-demand">
+      <% @coffret_on_demands.each do |coffret| %>
+        <div class="coffret-on-demand-dash-container">
+          <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= coffret.id %>">Coffret n°<%= coffret.id %></h5>
+          <div class="buttons">
+            <button><%= link_to 'Voir', coffret_on_demand_path(coffret) %></button>
+            <button><%= link_to "Supprimer", coffret_on_demand_path(coffret), remote: true, data: { turbo_confirm: "Es-tu vraiment sûre de ton choix Alice ?", turbo_method: :delete } %></button>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+      </div>
+      <hr>
+      <h4>Composer un nouveau coffret</h4>
+      <br>
+      <%= simple_form_for(@coffret) do |f| %>
+          <%= f.input :title, placeholder: "Nom du coffret", label: false %>
+          <%= f.input :description, placeholder: "Description du coffret", label: false %>
+          <%= f.input :price_cents, label: "Prix du coffret (mettre le prix en centimes)" %>
+          <%= f.input :main_photo, as: :file, input_html: { multiple: true }, placeholder: "Photos du coffret", label: "Photos du coffret" %>
+          <%= f.association :products, label: "Selectionne plusieurs produits pour ton coffret :" %>
+          <button>
+            <%= f.button :submit, "Publier" %>
+          </button>
+      <% end %>
+    </div>
+  </div>
+</div>

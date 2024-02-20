@@ -1,0 +1,11 @@
+<nav class="dashboard-navbar" data-controller="active-nav">
+  <%= link_to "Commandes", dashboard_orders_path, id: "orders", data: {controller: "active-nav", "active-nav-target": "title"}  %>
+  <%= link_to "Catégories", dashboard_categories_path, id: "categories", data: {controller: "active-nav", "active-nav-target": "title"}  %>
+  <%= link_to "Produits", dashboard_products_path, id: "products", data: {controller: "active-nav", "active-nav-target": "title"}  %>
+  <%= link_to "Coffrets", dashboard_coffrets_path, id: "coffrets", data: {controller: "active-nav", "active-nav-target": "title"}  %>
+  <%= link_to "Prestations", dashboard_prestations_path, id: "prestations", data: {controller: "active-nav", "active-nav-target": "title"}  %>
+  <%= link_to "Jardins", dashboard_jardins_path, id: "jardins", data: {controller: "active-nav", "active-nav-target": "title"}  %>
+  <%= link_to "Articles", dashboard_articles_path, id: "articles", data: {controller: "active-nav", "active-nav-target": "title"}  %>
+  <%= link_to "Général", dashboard_general_path, id: "general", data: {controller: "active-nav", "active-nav-target": "title"}  %>
+  <%= link_to "Utilisateurs", dashboard_users_path, id: "users", data: {controller: "active-nav", "active-nav-target": "title"}  %>
+</nav>

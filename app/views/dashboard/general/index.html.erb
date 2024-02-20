@@ -1,0 +1,133 @@
+<div class="dashboard" data-controller="switch-tab">
+  <%= render "shared/navbar_dashboard" %>
+  <div class="dashboard-container">
+    <div class="dashboard-title">
+      <h2>Général</h2>
+    </div>
+    <div class="tabs">
+      <h3 class="colored" data-switch-tab-target="subTab" data-action="click->switch-tab#activate" data-tab-name="a-propos">À propos</h3>
+      <h3 class="" data-switch-tab-target="subTab" data-action="click->switch-tab#activate" data-tab-name="images">Images</h3>
+    </div>
+    <div class="panel activate" data-switch-tab-target="panel" data-tab-name="a-propos">
+      <% @about_mes.where(about: true).each do |about_me| %>
+        <h4>À propos :</h4>
+        <div class="small-dash-container show">
+          <div class="main-photo">
+            <% if about_me.main_photo.attached? %>
+              <%= cl_image_tag about_me.main_photo.key %>
+            <% else %>
+              <%= image_tag "grange.jpg" %>
+            <% end %>
+          </div>
+          <div class="infos">
+            <p><%= about_me.description %></p>
+            <p><b>Points de vente :</b> <%= about_me.selling_points %></p>
+          </div>
+          <div class="buttons">
+            <button><%= link_to 'Modifier', edit_about_me_path(about_me) %></button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <br>
+    <div class="panel" data-switch-tab-target="panel" data-tab-name="images">
+      <div class="dashboard-container-images">
+        <% @images.where(home: true).each do |image| %>
+          <div class="small-dash-images-container">
+            <h4>Photo de couverture de la page d'acceuil</h4>
+            <div class="main-photo">
+              <% if image.home_cover.attached? %>
+                <%= cl_image_tag image.home_cover.key %>
+              <% else %>
+                <%= image_tag "grange.jpg" %>
+              <% end %>
+            </div>
+            <div class="buttons">
+              <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+            </div>
+          </div>
+        <% end %>
+        <% @images.where(jardin: true).each do |image| %>
+          <div class="small-dash-images-container">
+            <h4>Photo de couverture de la page Jardin</h4>
+            <div class="main-photo">
+              <% if image.jardin_cover.attached? %>
+                <%= cl_image_tag image.jardin_cover.key %>
+              <% else %>
+                <%= image_tag "Jardins-banner-image.JPG" %>
+              <% end %>
+            </div>
+            <div class="buttons">
+              <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+            </div>
+          </div>
+        <% end %>
+        <% @images.where(prestation: true).each do |image| %>
+          <div class="small-dash-images-container">
+            <h4>Galerie d'images de la page prestation</h4>
+            <div class="main-photo swiper" data-controller="carousel">
+              <div class="swiper-wrapper">
+                <% if image.prestation_galeries.attached? %>
+                  <% image.prestation_galeries.each do |img| %>
+                    <div class="swiper-slide">
+                      <%= cl_image_tag img.key %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <div class="swiper-slide">
+                    <%= image_tag "SVG/Logo_1.svg" %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+            <div class="buttons">
+              <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+            </div>
+          </div>
+        <% end %>
+        <% @images.where(logos: true).each do |image| %>
+          <div class="small-dash-images-container">
+            <h4>Logos labélisations</h4>
+            <div class="main-photo swiper" data-controller="carousel">
+              <div class="swiper-wrapper">
+                <% if image.logos_img.attached? %>
+                  <% image.logos_img.each do |img| %>
+                    <div class="swiper-slide">
+                      <%= cl_image_tag img.key %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <div class="swiper-slide">
+                    <%= image_tag "SVG/Logo_1.svg" %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+            <div class="buttons">
+              <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+            </div>
+          </div>
+        <% end %>
+        <% @images.where(coffret_on_demand: true).each do |image| %>
+          <div class="small-dash-images-container">
+            <h4>Photo Coffrets à la demande</h4>
+            <div class="main-photo">
+              <% if image.coffret_on_demand_img.attached? %>
+                <%= cl_image_tag image.coffret_on_demand_img.key %>
+              <% else %>
+                <%= image_tag "cover.jpg" %>
+              <% end %>
+            </div>
+            <div class="buttons">
+              <button><%= link_to 'Modifier', edit_image_path(image) %></button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

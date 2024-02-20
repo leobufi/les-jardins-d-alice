@@ -20,7 +20,7 @@ class CoffretsController < ApplicationController
     @coffret.coffret_products = coffret_products
     if current_user.admin?
       @coffret.save
-      redirect_to dashboard_path
+      redirect_to dashboard_coffrets_path
     else
       render :new
     end
@@ -38,7 +38,7 @@ class CoffretsController < ApplicationController
     @coffret.coffret_products = coffret_products
     if current_user.admin?
       @coffret.update(coffret_params)
-      redirect_to dashboard_path
+      redirect_to dashboard_coffrets_path
     else
       render :new
     end
@@ -47,7 +47,7 @@ class CoffretsController < ApplicationController
   def destroy
     @coffret = Coffret.find(params[:id])
     @coffret.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_coffrets_path
   end
 
   private

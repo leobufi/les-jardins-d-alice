@@ -1,0 +1,17 @@
+<% if current_user.admin? %>
+<div class="dashboard">
+  <%= render "shared/navbar_dashboard" %>
+  <div class="dashboard-container">
+    <div class="title">
+      <h1>Salut Alice !</h1>
+      <h3 data-scroll-target="title">Bienvenue sur ton tableau de bord</h3>
+    </div>
+  </div>
+<% else %>
+<div class="dashboard-container">
+  <div class="title">
+    <h5>Vous n'êtes pas autorisé à consulter cette page.</h5>
+  </div>
+</div>
+<% end  %>
+</div>

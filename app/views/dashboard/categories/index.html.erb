@@ -1,0 +1,82 @@
+<div class="dashboard" data-controller="switch-tab">
+  <%= render "shared/navbar_dashboard" %>
+  <div class="dashboard-container">
+    <div class="dashboard-title">
+      <h2>Catégories</h2>
+    </div>
+    <div class="tabs">
+      <h3 class="colored" data-switch-tab-target="subTab" data-action="click->switch-tab#activate" data-tab-name="cat-ppale">Catégories principales</h3>
+      <h3 class="" data-switch-tab-target="subTab" data-action="click->switch-tab#activate" data-tab-name="sous-cat">Sous-catégories</h3>
+    </div>
+    <br>
+    <div class="panel activate" data-switch-tab-target="panel" data-tab-name="cat-ppale">
+      <% @rayons.reverse.each do |rayon| %>
+        <div class="title-btn">
+          <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= rayon.title %>"><%= rayon.title %></h5>
+          <button data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= rayon.title %>">↓</button>
+        </div>
+        <div class="small-dash-container" data-switch-tab-target="project" data-tab-name="<%= rayon.title %>">
+          <div class="infos">
+          <span>Points de vente : <%= rayon.selling_points %></span>
+          </div>
+          <div class="buttons">
+            <button><%= link_to 'Voir', rayon_path(rayon) %></button>
+            <button><%= link_to 'Éditer', edit_rayon_path(rayon) %></button>
+            <button><%= link_to "Supprimer", rayon_path(rayon), method: :delete, remote: true, data: { turbo_confirm: "Es-tu vraiment sûre de ton choix Alice ? Cela supprimera également toutes sous-catégories de #{rayon.title} ainsi que ses produits.", turbo_method: :delete } %></button>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+      <br>
+      <div class="title-btn">
+        <h5>Créer une nouvelle catégorie principale</h5>
+      </div>
+      <br>
+      <%= simple_form_for(@rayon) do |f| %>
+        <%= f.input :title, placeholder: "Nom de la catégorie", label: false %>
+        <%= f.input :selling_points, placeholder: "Vendu à ...", label: false %>
+        <button>
+          <%= f.button :submit, "Créer une nouvelle catégorie principale" %>
+        </button>
+      <% end %>
+    </div>
+    <div class="panel" data-switch-tab-target="panel" data-tab-name="sous-cat">
+      <% @categories.reverse.each do |category| %>
+        <div class="title-btn">
+          <h5 data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= category.title %>"><%= category.title %></h5>
+          <button data-switch-tabs-target="title" data-action="click->switch-tab#show" data-tab-name="<%= category.title %>">↓</button>
+        </div>
+        <div class="small-dash-container" data-switch-tab-target="project" data-tab-name="<%= category.title %>">
+          <div class="main-photo">
+            <% if category.main_photo.attached? %>
+              <%= cl_image_tag category.main_photo.key %>
+            <% else %>
+              <%= image_tag "SVG/Leafs.svg" %>
+            <% end %>
+          </div>
+          <div class="infos">
+            <span><strong>Cette catégorie appartient à <%= category.rayon.title %></strong></span>
+            <p><%= category.description %></p>
+          </div>
+          <div class="buttons">
+            <button><%= link_to 'Éditer', edit_category_path(category) %></button>
+            <button><%= link_to "Supprimer", category_path(category), method: :delete, remote: true, data: { turbo_confirm: "Es-tu vraiment sûre de ton choix Alice ? Cela supprimera également tous les produits de la catégorie concernée.", turbo_method: :delete } %></button>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+      <br>
+      <h4>Créer une nouvelle sous-catégorie</h4>
+      <br>
+      <%= simple_form_for(@category) do |f| %>
+        <%= f.input :title, placeholder: "Nom de la catégorie", label: false %>
+        <%= f.input :description, placeholder: "Description", label: false %>
+        <%= f.input :main_photo, as: :file, placeholder: "Photo principale", label: "Photo principale" %>
+        <%= f.association :rayon, prompt: "Selectionne une catégorie principale", label: false %>
+        <button>
+          <%= f.button :submit, "Créer une nouvelle sous-catégorie" %>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,19 @@
-<div class="dashboard-container">
-  <% if current_user.admin? %>
-    <h4>À Propos</h4>
-    <br>
-    <%= simple_form_for(@about_me) do |f| %>
-        <%= f.input :description, placeholder: "Description", label: false %>
-        <%= f.input :selling_points, placeholder: "Points de vente", label: false %>
-        <%= f.input :main_photo, as: :file, placeholder: "Photo principale", label: "Photo principale" %>
-        <button>
-          <%= f.button :submit, "Publier" %>
-        </button>
-    <% end %>
-  <% else %>
-      <p>Vous n'êtes pas autorisé à consulter cette page.</p>
-  <% end  %>
+<div class="dashboard">
+  <%= render "shared/navbar_dashboard" %>
+  <div class="dashboard-container">
+    <% if current_user.admin? %>
+      <h4>À Propos</h4>
+      <br>
+      <%= simple_form_for(@about_me) do |f| %>
+          <%= f.input :description, placeholder: "Description", label: false %>
+          <%= f.input :selling_points, placeholder: "Points de vente", label: false %>
+          <%= f.input :main_photo, as: :file, placeholder: "Photo principale", label: "Photo principale" %>
+          <button>
+            <%= f.button :submit, "Publier" %>
+          </button>
+      <% end %>
+    <% else %>
+        <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+    <% end  %>
+  </div>
 </div>

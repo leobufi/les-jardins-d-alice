@@ -15,7 +15,7 @@ class PrestationCategoriesController < ApplicationController
     @prestation_category.user = current_user
     if current_user.admin?
       @prestation_category.save
-      redirect_to dashboard_path
+      redirect_to dashboard_categories_path
     else
       render :new
     end
@@ -28,7 +28,7 @@ class PrestationCategoriesController < ApplicationController
   def update
     @prestation_category = PrestationCategory.find(params[:id])
     if current_user.admin? && @prestation_category.update(prestation_category_params)
-      redirect_to dashboard_path
+      redirect_to dashboard_categories_path
     else
       render :new
     end
@@ -37,7 +37,7 @@ class PrestationCategoriesController < ApplicationController
   def destroy
     @prestation_category = PrestationCategory.find(params[:id])
     @prestation_category.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_categories_path
   end
 
   private

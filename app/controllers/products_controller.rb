@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
     @product.discount = params[:product][:discount]
     if current_user.admin?
       @product.update(product_params)
-      redirect_to dashboard_path
+      redirect_to dashboard_products_path
     else
       render :new
     end
@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_products_path
   end
 
   private

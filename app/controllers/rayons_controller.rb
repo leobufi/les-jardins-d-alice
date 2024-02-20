@@ -12,7 +12,7 @@ class RayonsController < ApplicationController
     @rayon.user = current_user
     if current_user.admin?
       @rayon.save
-      redirect_to dashboard_path
+      redirect_to dashboard_categories_path
     else
       render :new
     end
@@ -26,7 +26,7 @@ class RayonsController < ApplicationController
     @rayon = Rayon.find(params[:id])
     if current_user.admin?
       @rayon.update(rayon_params)
-      redirect_to dashboard_path
+      redirect_to dashboard_categories_path
     else
       render :new
     end
@@ -35,7 +35,7 @@ class RayonsController < ApplicationController
   def destroy
     @rayon = Rayon.find(params[:id])
     @rayon.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_categories_path
   end
 
   private

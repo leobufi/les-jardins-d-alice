@@ -1,17 +1,20 @@
 <% if current_user.admin? %>
-<div class="dashboard-container">
-  <h3>Éditer <%= @article.title %></h3>
-  <%= simple_form_for(@article) do |f| %>
-    <%= f.input :title, placeholder: "Nom de l'article", label: "Titre :" %>
-    <br>
-    <%= f.rich_text_area :content, placeholder: "Contenu de l'article", label: "Contenu :" %>
-    <br>
-    <%= f.input :main_photo, as: :file, label: "Photo principale :" %>
-    <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Autres photos :" %>
-    <button>
-      <%= f.button :submit, "Mettre à jour l'article" %>
-    </button>
-  <% end %>
+<div class="dashboard">
+  <%= render "shared/navbar_dashboard" %>
+  <div class="dashboard-container">
+    <h3>Éditer <%= @article.title %></h3>
+    <%= simple_form_for(@article) do |f| %>
+      <%= f.input :title, placeholder: "Nom de l'article", label: "Titre :" %>
+      <br>
+      <%= f.rich_text_area :content, placeholder: "Contenu de l'article", label: "Contenu :" %>
+      <br>
+      <%= f.input :main_photo, as: :file, label: "Photo principale :" %>
+      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Autres photos :" %>
+      <button>
+        <%= f.button :submit, "Mettre à jour l'article" %>
+      </button>
+    <% end %>
+  </div>
 </div>
 <% else %>
   <div class="dashboard-container">

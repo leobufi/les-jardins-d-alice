@@ -1,18 +1,21 @@
-<div class="dashboard-container">
-  <% if current_user.admin? %>
-  <h3>Éditer <%= @coffret.title %></h3>
-  <br>
-  <%= simple_form_for(@coffret) do |f| %>
-      <%= f.input :title, placeholder: "Nom du coffret", label: false %>
-      <%= f.input :description, placeholder: "Description du coffret", label: false %>
-      <%= f.input :price_cents, label: "Prix du coffret (mettre le prix en centimes)" %>
-      <%= f.input :main_photo, as: :file, input_html: { multiple: true }, placeholder: "Photos du coffret", label: "Photos du coffret" %>
-      <%= f.association :products, label: "Selectionne plusieurs produits pour ton coffret :" %>
-      <button>
-        <%= f.button :submit, "Publier" %>
-      </button>
-  <% end %>
-  <% else %>
-      <p>Vous n'êtes pas autorisé à consulter cette page.</p>
-  <% end  %>
+<% if current_user.admin? %>
+<div class="dashboard">
+  <%= render "shared/navbar_dashboard" %>
+  <div class="dashboard-container">
+    <h3>Éditer <%= @coffret.title %></h3>
+    <br>
+    <%= simple_form_for(@coffret) do |f| %>
+        <%= f.input :title, placeholder: "Nom du coffret", label: false %>
+        <%= f.input :description, placeholder: "Description du coffret", label: false %>
+        <%= f.input :price_cents, label: "Prix du coffret (mettre le prix en centimes)" %>
+        <%= f.input :main_photo, as: :file, input_html: { multiple: true }, placeholder: "Photos du coffret", label: "Photos du coffret" %>
+        <%= f.association :products, label: "Selectionne plusieurs produits pour ton coffret :" %>
+        <button>
+          <%= f.button :submit, "Publier" %>
+        </button>
+    <% end %>
+  </div>
 </div>
+<% else %>
+    <p>Vous n'êtes pas autorisé à consulter cette page.</p>
+<% end  %>

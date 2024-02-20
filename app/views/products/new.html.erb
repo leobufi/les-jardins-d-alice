@@ -1,23 +1,26 @@
 <% if current_user.admin? %>
-<div class="dashboard-container">
-    <h3>Mettre en ligne un nouveau produit</h3>
-    <br>
-    <%= simple_form_for(@product) do |f| %>
-      <%= f.input :title, placeholder: "Nom du produit", label: false %>
-      <%= f.input :description, placeholder: "Description du produit", label: false %>
-      <%= f.input :origin, placeholder: "Origine du produit", label: false %>
-      <%= f.input :quantity, placeholder: "Quantité du produit (n'oublie pas d'ajouter l'unité de mesure)", label: false %>
-      <hr>
-      <%= f.input :price_cents, label: "Prix du produit (mettre le prix en centimes)" %>
-      <hr>
-      <%= f.input :main_photo, as: :file, label: "Photo principale :" %>
-      <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Autres photos :" %>
-      <hr>
-      <%= f.association :category, prompt: "Selectionne une catégorie pour ton produit", label: "Selectionne une catégorie pour ton produit :" %>
-      <button>
-        <%= f.button :submit, "Mettre en ligne" %>
-      </button>
-    <% end %>
+<div class="dashboard">
+  <%= render "shared/navbar_dashboard" %>
+  <div class="dashboard-container">
+      <h3>Mettre en ligne un nouveau produit</h3>
+      <br>
+      <%= simple_form_for(@product) do |f| %>
+        <%= f.input :title, placeholder: "Nom du produit", label: false %>
+        <%= f.input :description, placeholder: "Description du produit", label: false %>
+        <%= f.input :origin, placeholder: "Origine du produit", label: false %>
+        <%= f.input :quantity, placeholder: "Quantité du produit (n'oublie pas d'ajouter l'unité de mesure)", label: false %>
+        <hr>
+        <%= f.input :price_cents, label: "Prix du produit (mettre le prix en centimes)" %>
+        <hr>
+        <%= f.input :main_photo, as: :file, label: "Photo principale :" %>
+        <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Autres photos :" %>
+        <hr>
+        <%= f.association :category, prompt: "Selectionne une catégorie pour ton produit", label: "Selectionne une catégorie pour ton produit :" %>
+        <button>
+          <%= f.button :submit, "Mettre en ligne" %>
+        </button>
+      <% end %>
+  </div>
 </div>
 <% else %>
 <div class="dashboard-container">
