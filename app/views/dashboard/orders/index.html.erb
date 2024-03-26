@@ -69,7 +69,7 @@
             <th><%= order.state %></th>
             <th><%= order.created_at.to_date.strftime("%d/%m/%Y") %></th>
             <th>
-            <%= link_to order_path(order), method: :delete, remote: true, data: { turbo_confirm: "Es-tu vraiment sûre de ton choix Alice ?", turbo_method: :delete } do %>
+            <%= link_to order_path(order), remote: true, data: { turbo_confirm: "Es-tu vraiment sûre de ton choix Alice ?", turbo_method: :delete } do %>
               <i class="fa fa-trash-can"></i>
             <% end %>
             </th>
