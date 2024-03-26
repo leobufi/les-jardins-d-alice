@@ -14,6 +14,7 @@ module LesJardinsDAlice
     config.autoload_once_paths << "#{Rails.root}/app/services"
     config.eager_load_paths << "#{Rails.root}/test/mailers/previews"
     config.active_record.use_yaml_unsafe_load = true
+    config.action_mailer.asset_host = 'https://www.jardinsdalice.com/'
 
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.

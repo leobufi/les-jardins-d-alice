@@ -42,8 +42,8 @@ class OrdersController < ApplicationController
       end
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
-      # OrderMailer.with(order: @order).client_confirmation.deliver_now
-      # OrderMailer.with(order: @order).alice_confirmation.deliver_now
+      OrderMailer.with(order: @order).client_confirmation.deliver_now
+      OrderMailer.with(order: @order).alice_confirmation.deliver_now
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         shipping_address_collection: {
