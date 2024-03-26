@@ -7,6 +7,7 @@ class Order < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
   validates :address, presence: true
+  validates :phone_number, presence: true
   validates :data, presence: true
 
   PAYMENT_METHOD = {"Carte bleue": "0", "Chèque": "1"}
