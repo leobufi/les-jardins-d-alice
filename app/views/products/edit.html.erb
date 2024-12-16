@@ -16,6 +16,8 @@
         <%= f.input :photos_url, as: :file, input_html: { multiple: true }, label: "Autres photos :" %>
         <hr>
         <%= f.association :category, prompt: "Selectionne une catégorie pour ton produit", label: "Selectionne une catégorie pour ton produit" %>
+        <hr>
+        <%= f.input :sku, as: :boolean, label: "Produit indisponible ?" %>
         <button>
           <%= f.button :submit, "Mettre à jour #{@product.title}" %>
         </button>

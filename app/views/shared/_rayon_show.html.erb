@@ -8,7 +8,7 @@
       <div class="category-infos">
         <p><%= category.description %></p>
       </div>
-      <% category.products.each do |product| %>
+      <% category.products.where(sku: [false, nil]).each do |product| %>
           <div class="products" data-controller="hover-images">
               <div class="product-image" data-action='mouseleave->hover-images#showImage mouseenter->hover-images#showInfos' data-hover-images-target="img">
                 <%= link_to product_path(product) do %>
