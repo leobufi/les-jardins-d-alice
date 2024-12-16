@@ -34,25 +34,31 @@
       <h2><%= @product.title %></h2>
       <p><%= @product.description %></p>
     </div>
-    <div class="details">
+    <% if @product.sku == false || @product.sku.nil? %>
+      <div class="details">
+        <div>
+          <span>Origine : <strong><%= @product.origin %></strong>.</span>
+          <br>
+          <span>Quantité : <strong><%= @product.quantity %></strong>.</span>
+          <br>
+          <br>
+          <% if @product.discount.nil? %>
+            <h4><%= @product.price %> <%= @product.price_currency %></h4>
+          <% else %>
+            <h4><span style="text-decoration: line-through"><%= @product.price %></span>
+            <%= @product.price_with_discount %> <%= @product.price_currency %></h4>
+          <% end %>
+        </div>
+        <div class="cart-add">
+          <%= link_to line_items_path(product_id: @product.id), data: { turbo_method: :post } do %>
+              <button>Ajouter au panier <%= image_tag "SVG/panier.svg" %></button>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
       <div>
-        <span>Origine : <strong><%= @product.origin %></strong>.</span>
-        <br>
-        <span>Quantité : <strong><%= @product.quantity %></strong>.</span>
-        <br>
-        <br>
-        <% if @product.discount.nil? %>
-          <h4><%= @product.price %> <%= @product.price_currency %></h4>
-        <% else %>
-          <h4><span style="text-decoration: line-through"><%= @product.price %></span>
-          <%= @product.price_with_discount %> <%= @product.price_currency %></h4>
-        <% end %>
+        <i>Malheureusement, ce produit est en rupture de stock.</i>
       </div>
-      <div class="cart-add">
-        <%= link_to line_items_path(product_id: @product.id), data: { turbo_method: :post } do %>
-            <button>Ajouter au panier <%= image_tag "SVG/panier.svg" %></button>
-        <% end %>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>

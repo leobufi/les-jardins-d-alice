@@ -28,6 +28,7 @@ class CoffretsController < ApplicationController
 
   def edit
     @coffret = Coffret.find(params[:id])
+    @filtered_products = Product.where(sku: [false, nil])
   end
 
   def update

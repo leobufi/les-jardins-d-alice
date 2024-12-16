@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_26_133340) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_16_111905) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -222,6 +222,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_26_133340) do
     t.bigint "coffret_id"
     t.integer "discount"
     t.bigint "coffret_on_demand_id"
+    t.boolean "sku"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["coffret_id"], name: "index_products_on_coffret_id"
     t.index ["coffret_on_demand_id"], name: "index_products_on_coffret_on_demand_id"
